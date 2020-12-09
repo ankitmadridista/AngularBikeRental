@@ -7,6 +7,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { IndexComponent } from './index/index.component';
 import { ProvLogFormComponent } from './prov-log-form/prov-log-form.component';
 import { ProvRegFormComponent } from './prov-reg-form/prov-reg-form.component';
+import { ProviderService } from './provider.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,9 +21,11 @@ import { ProvRegFormComponent } from './prov-reg-form/prov-reg-form.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ProviderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
