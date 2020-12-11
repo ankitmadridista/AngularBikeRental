@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { from } from 'rxjs';
 import { ProviderService } from 'src/app/provider.service';
 import { Provider } from '../provider';
@@ -11,9 +12,9 @@ export class ProvRegFormComponent implements OnInit {
 
   // provider: Provider=new Provider("","","","",0,"","","","","","","");
    provider: Provider=new Provider();
-   message:any;
+   msg:any;
 
-   constructor(private providerService : ProviderService) { }
+   constructor(private providerService : ProviderService, private _router: Router) { }
 
   ngOnInit(): void {
   }
@@ -36,7 +37,16 @@ export class ProvRegFormComponent implements OnInit {
 
   public registerNow(){
     let response = this.providerService.doRegistration(this.provider)
-    response.subscribe((data)=>this.message=data);
+    response.subscribe(data=> {
+      console.log("response recieved");
+      this._router.navigate(['/reg-success'])
+    },
+    error=>{
+      console.log("Exception occured");
+      this.msg = 'User already exists';
+    });
+
+    
   }
 
 }

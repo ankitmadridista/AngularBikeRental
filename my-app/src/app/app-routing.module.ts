@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 import { ProvLogFormComponent } from './prov-log-form/prov-log-form.component';
 import { ProvRegFormComponent } from './prov-reg-form/prov-reg-form.component';
+import { RegSuccessComponent } from './reg-success/reg-success.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,9 @@ const routes: Routes = [
   },{
     path: 'prov-reg',
     component: ProvRegFormComponent,
+  },{
+    path: 'reg-success',
+    component: RegSuccessComponent,
   },
   { path: '', redirectTo: '/index', pathMatch: 'full' }
 

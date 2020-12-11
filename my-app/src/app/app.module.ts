@@ -10,13 +10,15 @@ import { ProvRegFormComponent } from './prov-reg-form/prov-reg-form.component';
 import { ProviderService } from './provider.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { RegSuccessComponent } from './reg-success/reg-success.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     ProvLogFormComponent,
-    ProvRegFormComponent
+    ProvRegFormComponent,
+    RegSuccessComponent
   ],
   imports: [
     BrowserModule,

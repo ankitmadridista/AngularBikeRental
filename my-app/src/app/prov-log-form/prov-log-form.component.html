@@ -6,17 +6,20 @@
             <p class="text-secondary">Enter valid sign in details.</p>
             <hr>
             <!--signup form -->
-            <form >
+            <form #loginform="ngForm" (ngSubmit)="loginProvider()">
+                <small class="text-danger">
+                    {{msg}}
+                </small>
                 <div class="form-group">
                     <label for="Email">Email</label>
-                    <input type="email" name="provEmail" id="provEmail" class="form-control" placeholder="Enter Email" aria-describedby="fnamehelpId" required>   
+                    <input [(ngModel)]="provider.provEmail" type="email" name="provEmail" id="provEmail" class="form-control" placeholder="Enter Email" aria-describedby="fnamehelpId" required>   
                 </div>
                   <div class="form-group ">
                       <label for="password">Password</label>
-                      <input type="text" class="form-control" name="provPassword" id="provPassword" aria-describedby="emailHelpId" placeholder="Enter Password" required>
+                      <input [(ngModel)]="provider.provPassword" type="password" class="form-control" name="provPassword" id="provPassword" aria-describedby="emailHelpId" placeholder="Enter Password" required>
                   </div>
                  <div class="form-group ">
-                    <button type="submit" class="btn btn-success">Signin</button>
+                    <button  type="submit" class="btn btn-success">Login</button>
                     <button type="reset" class="btn btn-danger">Reset</button>
                 </div>
                 <p>Dont have an account? <span><a href="/prov-reg">Signup</a></span></p>

@@ -26,6 +26,6 @@ export class Provider{
         provCity:string;
         provState:string;
         provPin:string;
-
+        constructor(){};
 }
 
