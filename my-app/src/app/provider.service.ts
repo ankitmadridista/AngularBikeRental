@@ -13,8 +13,11 @@ export class ProviderService {
 
   constructor(private http: HttpClient) { }
 
-  public doRegistration(provider){
-    return this.http.post(baseUrl, provider, {responseType: 'text' as 'json'});
+  // public doRegistration(provider){
+  //   return this.http.post(baseUrl, provider, {responseType: 'text' as 'json'});
+  // }
+  public doRegistration(provider :Provider): Observable<any>{
+    return this.http.post(baseUrl, provider)
   }
 
   // create(data): Observable<any> {

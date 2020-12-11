@@ -11,10 +11,10 @@ import { Provider } from '../provider';
 export class ProvRegFormComponent implements OnInit {
 
   // provider: Provider=new Provider("","","","",0,"","","","","","","");
-   provider: Provider=new Provider();
-   msg:any;
+   provider= new Provider();
+   msg = '';
 
-   constructor(private providerService : ProviderService, private _router: Router) { }
+   constructor(private _service: ProviderService, private _router: Router) { }
 
   ngOnInit(): void {
   }
@@ -35,15 +35,15 @@ export class ProvRegFormComponent implements OnInit {
   //     });
   // }
 
-  public registerNow(){
-    let response = this.providerService.doRegistration(this.provider)
-    response.subscribe(data=> {
+  registerNow(){
+    this._service.doRegistration(this.provider).subscribe(
+      data=> {
       console.log("response recieved");
       this._router.navigate(['/reg-success'])
     },
     error=>{
       console.log("Exception occured");
-      this.msg = 'User already exists';
+      this.msg = 'Email id already exists';
     });
 
     

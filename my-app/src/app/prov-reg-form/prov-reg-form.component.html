@@ -1,19 +1,15 @@
 
 <div class="container-fluid my-3">
-    <div class="row justify-content-around">
-      <div> 
-          {{msg}}
-
-      </div>
-      
+    <div class="row justify-content-around">      
         <div class="col-md-7 bg-light shadow px-4 pt-4">
             <h4 class="display-4 ">
                 <i class="fa fa-user-plus"></i>Provider Sign Up</h4>
             <p class="text-secondary">Enter valid sign up details.</p>
-            <hr>
-           
-         
+            <hr>           
             <form >    
+              <small class="text-danger">
+                {{msg}}
+              </small>
               <fieldset>   
                 <div class="row">       
                     <div class="form-group col-md-6">
