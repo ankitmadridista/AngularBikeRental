@@ -14,12 +14,13 @@ export class Provider{
     //     provPIN:string
 
     // ){}
+        provId:number;
         provFname:string;
         provEmail:string;
         provPassword:string;
-        provDateofBirth:string;
+        provDateOfBirth:string;
         provAge:number;
-        provContoctNo:string;
+        provContactNo:string;
         provAadhar:string;
         provRcBookNo:string;
         provAddress:string;

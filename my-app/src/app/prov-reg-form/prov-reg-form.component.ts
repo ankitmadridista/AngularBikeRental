@@ -14,7 +14,10 @@ export class ProvRegFormComponent implements OnInit {
    provider= new Provider();
    msg = '';
 
-   constructor(private _service: ProviderService, private _router: Router) { }
+   constructor(
+     private _service: ProviderService, 
+     private _router: Router
+    ) { }
 
   ngOnInit(): void {
   }
@@ -44,9 +47,7 @@ export class ProvRegFormComponent implements OnInit {
     error=>{
       console.log("Exception occured");
       this.msg = 'Email id already exists';
-    });
-
-    
+    });    
   }
 
 }

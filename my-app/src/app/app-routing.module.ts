@@ -4,6 +4,8 @@ import { IndexComponent } from './index/index.component';
 import { ProvLogFormComponent } from './prov-log-form/prov-log-form.component';
 import { ProvRegFormComponent } from './prov-reg-form/prov-reg-form.component';
 import { RegSuccessComponent } from './reg-success/reg-success.component';
+import { ProvHomeComponent } from './prov-home/prov-home.component';
+import { ProvShowProfComponent } from './prov-show-prof/prov-show-prof.component';
 
 const routes: Routes = [
   {
@@ -18,9 +20,15 @@ const routes: Routes = [
   },{
     path: 'reg-success',
     component: RegSuccessComponent,
+  },{
+    path: 'prov-home',
+    component: ProvHomeComponent,
+  },{
+    path: 'prov-show-prof',
+    component: ProvShowProfComponent,
   },
   { path: '', redirectTo: '/index', pathMatch: 'full' }
-
+  
 ];
 
 @NgModule({

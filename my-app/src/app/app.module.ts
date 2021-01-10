@@ -11,6 +11,8 @@ import { ProviderService } from './provider.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RegSuccessComponent } from './reg-success/reg-success.component';
+import { ProvHomeComponent } from './prov-home/prov-home.component';
+import { ProvShowProfComponent } from './prov-show-prof/prov-show-prof.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { RegSuccessComponent } from './reg-success/reg-success.component';
     IndexComponent,
     ProvLogFormComponent,
     ProvRegFormComponent,
-    RegSuccessComponent
+    RegSuccessComponent,
+    ProvHomeComponent,
+    ProvShowProfComponent
   ],
   imports: [
     BrowserModule,

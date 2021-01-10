@@ -1,4 +1,28 @@
 
+        <script type = "text/javascript">
+          $(document).ready(function () {
+            console.log("in jqury");
+              var age = "";
+              // $('#provDateOfBirth').datepicker({
+              //     onSelect: function (value, ui) {
+              //         var today = new Date();
+              //         age = today.getFullYear() - ui.selectedYear;
+              //         //console.log(age);
+              //         if(age > 18 ){
+              //           $('#provAge').val(age);
+              //         }
+              //         else{
+              //           window.alert("The minimum age requirement for applicant is 18 years old.");
+              //           $('#provDateOfBirth').val("");
+              //           $('#provAge').val("");
+              //         }
+              //     },
+              //     changeMonth: true,
+              //     changeYear: true
+              // })
+          })
+          </script>
+
 <div class="container-fluid my-3">
     <div class="row justify-content-around">      
         <div class="col-md-7 bg-light shadow px-4 pt-4">
@@ -6,98 +30,174 @@
                 <i class="fa fa-user-plus"></i>Provider Sign Up</h4>
             <p class="text-secondary">Enter valid sign up details.</p>
             <hr>           
-            <form >    
+            <form #provFormControl="ngForm" class="was-validated" >    
               <small class="text-danger">
                 {{msg}}
               </small>
               <fieldset>   
                 <div class="row">       
-                    <div class="form-group col-md-6">
-                        <label for="fname">Full Name</label>
-                        <input type="text" [(ngModel)]="provider.provFname" name="provFname" id="provFname" class="form-control" placeholder="Enter full name" aria-describedby="fnamehelpId" required>
+                    <div class="form-group col-md-6" 
+                    [class.has-error]="provFname.invalid && provFname.touched"
+                    [class.has-success]="provFname.valid">
+                        <label for="fname" class="control-label">Full Name</label>
+                        <input type="text" [(ngModel)]="provider.provFname" name="provFname" id="provFname" class="form-control" placeholder="Enter full name" 
+                         #provFname="ngModel" required>
+                        <span class="help-block text-danger" *ngIf="provFname.invalid && provFname.touched">
+                          Full Name is required
+                        </span>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="Email">Email</label>
-                        <input type="email" [(ngModel)]="provider.provEmail" name="provEmail" id="provEmail" class="form-control" placeholder="Enter Email" aria-describedby="EmailhelpId" required>
+                    <div class="form-group col-md-6"
+                    [class.has-error]="provEmail.invalid && provEmail.touched"
+                    [class.has-success]="provEmail.valid">
+                        <label for="Email" class="control-label">Email</label>
+                         <input type="email" [(ngModel)]="provider.provEmail" name="provEmail" id="provEmail" class="form-control" placeholder="Enter Email" 
+                         #provEmail="ngModel" required>
+                         <span class="help-block text-danger" *ngIf="provEmail.invalid && provEmail.touched">
+                          Email-Id is required
+                        </span>
                     </div>
                 </div>
                 <div class="row">       
-                    <div class="form-group col-md-6">
-                        <label for="Password">Password</label>
-                        <input type="password" [(ngModel)]="provider.provPassword" name="provPassword" id="provPassword" class="form-control" placeholder="Enter Password" aria-describedby="PasswordhelpId" required>
+                    <div class="form-group col-md-6"
+                    [class.has-error]="provPassword.invalid && provPassword.touched"
+                    [class.has-success]="provPassword.valid">
+                        <label for="Password" class="control-label">Password</label>
+                        <input type="password" [(ngModel)]="provider.provPassword" name="provPassword" id="provPassword" class="form-control" placeholder="Enter Password" 
+                         #provPassword="ngModel" required minlength=3 maxlength=8>
+                         <span class="help-block text-danger" 
+                         *ngIf="provPassword.hasError('required') && provPassword.touched">
+                          password is required
+                        </span>
+                        <span class="help-block text-danger" 
+                         *ngIf="provPassword.hasError('minlength')">
+                          password is too short
+                        </span>
+                        <span class="help-block text-danger" 
+                         *ngIf="provPassword.hasError('maxlength')">
+                          password is too large
+                        </span>
+
                      </div>
                     <div class="form-group col-md-6">
-                        <label for="Password">Password</label>
+                        <label for="Password">Confirm Password</label>
                         <input type="Password" name="provPasswordR" id="provPasswordR" class="form-control" placeholder="Re-Enter Password" aria-describedby="PasswordlhelpId" required>
                     </div>
                 </div>
                 <div class="row">
-                  <div class="form-group col-md-4">
-                      <label for="DOB">Date Of Birth</label>
-                      <input type="text" class="form-control" [(ngModel)]="provider.provDateofBirth" name="provDateofBirth" id="provDateofBirth" aria-describedby="emailHelpId" placeholder="Enter Date of birth" required>
+                  <div class="form-group col-md-4"
+                   [class.has-error]="provDateOfBirth.invalid && provDateOfBirth.touched"
+                   [class.has-success]="provDateOfBirth.valid">
+                      <label for="DOB" class="control-label">Date Of Birth</label>
+                      <input type="date" class="form-control" [(ngModel)]="provider.provDateOfBirth" name="provDateOfBirth" id="provDateOfBirth" aria-describedby="emailHelpId" placeholder="Enter Date of birth" 
+                      #provDateOfBirth="ngModel" required>
+                      <span class="help-block text-danger" 
+                         *ngIf="provDateOfBirth.invalid && provDateOfBirth.touched">
+                          DOB is required
+                        </span>
                      
                   </div>
                   <div class="form-group col-md-4">
                       <label for="age">Age</label>
-                      <input type="text" value=""  class="form-control" [(ngModel)]="provider.provAge" name="provAge" id="provAge"  placeholder="Enter age" readonly>
+                      <input type="text" value=""  class="form-control" [(ngModel)]="provider.provAge" name="provAge" id="provAge" readonly>
                      
                   </div>
-                  <div class="form-group col-md-4">
-                    <label for="text">Contact Number</label>
-                    <input type="text" class="form-control" [(ngModel)]="provider.provContoctNo" name="provContoctNo" id="provContoctNo" placeholder="Enter contact number" required>
+                  <div class="form-group col-md-4"
+                   [class.has-error]="provContactNo.invalid && provContactNo.touched"
+                   [class.has-success]="provContactNo.valid">
+                    <label for="Contact Number" class="control-label">Contact Number</label>
+                    <input type="text" class="form-control" [(ngModel)]="provider.provContactNo" name="provContactNo" id="provContactNo" placeholder="Enter contact number" 
+                     #provContactNo="ngModel" required >
+                      <span class="help-block text-danger" 
+                         *ngIf="provContactNo.invalid && provContactNo.touched">
+                          Contact Number is required
+                      </span>
                    
                 </div>
                 </div>
                 <div class="row">
-                  <div class="form-group col-md-6">
-                    <label for="fname">Aadhar card number</label>
-                    <input type="text" [(ngModel)]="provider.provAadhar" name="provAadhar" id="provAadhar" class="form-control" placeholder="Enter Aadhar card number" aria-describedby="fnamehelpId" required>
-                   
+                  <div class="form-group col-md-6"
+                  [class.has-error]="provAadhar.invalid && provAadhar.touched"
+                   [class.has-success]="provAadhar.valid">
+                    <label for="Aadhar Card Number" class="control-label">Aadhar Card number</label>
+                    <input type="text" [(ngModel)]="provider.provAadhar" name="provAadhar" id="provAadhar" class="form-control" placeholder="Enter Aadhar card number" 
+                    #provAadhar="ngModel" required>
+                    <span class="help-block text-danger" 
+                         *ngIf="provAadhar.invalid && provAadhar.touched">
+                          Aadhar Card Number is required
+                      </span>                  
                   </div>
-                  <div class="form-group col-md-6">
-                    <label for="fname">RC Book number of bike</label>
-                    <input type="text" [(ngModel)]="provider.provRcBookNo" name="provRcBookNo" id="provRcBookNo" class="form-control" placeholder="Enter RC Book number" aria-describedby="fnamehelpId" required>
-                   
+
+                  <div class="form-group col-md-6"
+                  [class.has-error]="provRcBookNo.invalid && provRcBookNo.touched"
+                  [class.has-success]="provRcBookNo.valid">
+                    <label for="RC Book Number" class="control-label">RC Book Number of Bike</label>
+                    <input type="text" [(ngModel)]="provider.provRcBookNo" name="provRcBookNo" id="provRcBookNo" class="form-control" placeholder="Enter RC Book number" 
+                    #provRcBookNo="ngModel" required>
+                      <span class="help-block text-danger" 
+                         *ngIf="provRcBookNo.invalid && provRcBookNo.touched">
+                          RC Book Number is required
+                      </span>           
                   </div>  
                 </div>
               
-                  <div class="form-group">
-                    <label for="fname">Address</label>
-                    <input type="text" [(ngModel)]="provider.provAddress" name="provAddress" id="provAddress" class="form-control" placeholder="Enter Address" aria-describedby="fnamehelpId" required>
-                   
+                  <div class="form-group"
+                  [class.has-error]="provAddress.invalid && provAddress.touched"
+                  [class.has-success]="provAddress.valid">
+                    <label for="Address" class="control-label">Address</label>
+                    <input type="text" [(ngModel)]="provider.provAddress" name="provAddress" id="provAddress" class="form-control" placeholder="Enter Address" 
+                     #provAddress="ngModel" required>
+                      <span class="help-block text-danger" 
+                         *ngIf="provAddress.invalid && provAddress.touched">
+                          Address is required
+                      </span>  
                   </div>
                
                 <div class="row">
-                  <div class="form-group col-md-4">
-                    <label for="fname">City</label>
-                    <input type="text" [(ngModel)]="provider.provCity" name="provCity" id="provCity" class="form-control" placeholder="Enter city" aria-describedby="fnamehelpId" required>
-                   
+                  <div class="form-group col-md-4"
+                  [class.has-error]="provCity.invalid && provCity.touched"
+                  [class.has-success]="provCity.valid">
+                    <label for="fname" class="control-label">City</label>
+                    <input type="text" [(ngModel)]="provider.provCity" name="provCity" id="provCity" class="form-control" placeholder="Enter city" 
+                    #provCity="ngModel" required>
+                      <span class="help-block text-danger" 
+                         *ngIf="provCity.invalid && provCity.touched">
+                          City is required
+                      </span>   
                   </div>  
+
                   <div class="form-group col-md-4">
-                    <label for="fname">State</label>
+                    <label for="fname" class="control-label">State</label>
                     <select  [(ngModel)]="provider.provState" id="provState" name="provState" placeholder="Enter state" class="form-control">
                       <option selected>Choose...</option>
                       <option>...</option>
                     </select>
                    
                   </div>
-                  <div class="form-group col-md-4">
-                    <label for="fname">PIN</label>
-                    <input type="text" [(ngModel)]="provider.provPin" name="provPin" id="provPin" class="form-control" placeholder="Enter PIN" aria-describedby="fnamehelpId" required>
-                   
+                  <div class="form-group col-md-4"
+                  [class.has-error]="provPin.invalid && provPin.touched"
+                  [class.has-success]="provPin.valid">
+                    <label for="PIN" class="control-label">PIN</label>
+                    <input type="text" [(ngModel)]="provider.provPin" name="provPin" id="provPin" class="form-control" placeholder="Enter PIN" 
+                    #provPin="ngModel" required>
+                      <span class="help-block text-danger" 
+                         *ngIf="provPin.invalid && provPin.touched">
+                          PIN is required
+                      </span>  
                   </div>  
                 </div>
 
                 <div class="form-group ">
-                    <button type="submit" class="btn btn-success" (click)="registerNow()">Sign Up</button>
+                    <button type="submit" class="btn btn-success" [disabled]="provFormControl.invalid" (click)="registerNow()">Sign Up</button>
               
                     <button type="reset" class="btn btn-danger">Reset</button>
                 </div>
                 <p>Already have an account? <span><a href="/prov-log">Login</a></span></p>
               </fieldset>
               </form>
+
+         
+
+            
         </div>
     </div>
 </div>
-
-

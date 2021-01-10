@@ -4,8 +4,6 @@ import { Observable } from 'rxjs';
 import { Provider } from './provider';
 
 const baseUrl = 'http://localhost:8080/api/providers';
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -26,4 +24,9 @@ export class ProviderService {
   public doLogin(provider :Provider): Observable<any>{
     return this.http.post(baseUrl+'-check', provider)
   }
+
+  public showProf(provider :Provider): Observable<any>{
+    return this.http.get(baseUrl+'/'+ sessionStorage.getItem('provSesId'))
+  }
+
 }
