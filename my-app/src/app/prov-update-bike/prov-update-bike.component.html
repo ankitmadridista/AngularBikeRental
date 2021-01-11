@@ -1,0 +1,137 @@
+<p>prov-update-bike works!</p>
+<hr>
+
+<div class="container-fluid my-3">
+    <div class="row justify-content-around">      
+        <div class="col-md-7 bg-light shadow px-4 pt-4">
+            <h4 class="display-4 ">
+                <i class="fa fa-user-plus"></i>Provider Update Bike</h4>
+            <hr>           
+            <form #provAddBikeControl="ngForm" class="was-validated" >    
+              <small class="text-danger">
+                {{msg}} 
+              </small>
+              <fieldset>   
+                <div class="row"> 
+                    <div class="form-group col-md-6"
+                    [class.has-error]="bikeNo.invalid && bikeNo.touched"
+                    [class.has-success]="bikeNo.valid">
+                      <label for="Address" class="control-label">Bike No.</label>
+                      <input type="text" [(ngModel)]="bike.bikeNo" name="bikeNo" id="bikeNo" class="form-control" placeholder="Enter Bike No." 
+                      value="ram" #bikeNo="ngModel" required>
+                      {{bikeNo }}
+                        <span class="help-block text-danger" 
+                          *ngIf="bikeNo.invalid && bikeNo.touched">
+                            Bike No. is required
+                        </span>  
+                    </div>
+
+                    <div class="form-group col-md-6"
+                    [class.has-error]="typeOfGear.invalid && typeOfGear.touched"
+                    [class.has-success]="typeOfGear.valid">
+                        <label for="Type Of Gear" class="control-label">Type Of Gear</label>
+                        
+                         <select [(ngModel)]="bike.typeOfGear" id="typeOfGear" name="typeOfGear" class="form-control" #typeOfGear="ngModel" required>
+                          <option disabled selected hidden >Choose...</option>
+                          <option>WOG</option>
+                          <option>WG</option>
+                        </select>
+                         <span class="help-block text-danger" *ngIf="typeOfGear.invalid && typeOfGear.touched">
+                          Type of Gear is required
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row">       
+                    <div class="form-group col-md-6"
+                    [class.has-error]="brandOfBike.invalid && brandOfBike.touched"
+                    [class.has-success]="brandOfBike.valid">
+                        <label for="Brand Of Bike" class="control-label">Brand Of Bike</label>
+                        <input type="text" [(ngModel)]="bike.brandOfBike" name="brandOfBike" id="brandOfBike" class="form-control" placeholder="Enter Brand Of Bike" 
+                         #brandOfBike="ngModel" required minlength=3 maxlength=8>
+                         <span class="help-block text-danger" 
+                         *ngIf="brandOfBike.hasError('required') && brandOfBike.touched">
+                         Brand Of Bike is required
+                        </span>                       
+                     </div>
+                     <div class="form-group col-md-6"
+                     [class.has-error]="modelOfBike.invalid && modelOfBike.touched"
+                     [class.has-success]="modelOfBike.valid">
+                        <label for="Model Of Bike" class="control-label">Model Of Bike</label>
+                        <input type="text" class="form-control" [(ngModel)]="bike.modelOfBike" name="modelOfBike" id="modelOfBike" placeholder="Enter Model Of Bike" 
+                        #modelOfBike="ngModel" required>
+                        <span class="help-block text-danger" 
+                           *ngIf="modelOfBike.invalid && modelOfBike.touched">
+                           Model Of Bike is required
+                          </span>                     
+                    </div>
+                </div>
+
+                <div class="row">
+                  
+                  <div class="form-group col-md-6"
+                  [class.has-error]="availableLocation.invalid && availableLocation.touched"
+                   [class.has-success]="availableLocation.valid">
+                    <label for="Available Location" class="control-label">Available Location</label>
+                    <input type="text" [(ngModel)]="bike.availableLocation" name="availableLocation" id="availableLocation" class="form-control" placeholder="Enter Available Location" 
+                     #availableLocation="ngModel" required>
+                    <span class="help-block text-danger" 
+                         *ngIf="availableLocation.invalid && availableLocation.touched">
+                          Available Location required
+                    </span>                  
+                  </div>
+
+                  <div class="form-group col-md-6"
+                  [class.has-error]="rcBookNo.invalid && rcBookNo.touched"
+                  [class.has-success]="rcBookNo.valid">
+                    <label for="RC Book Number" class="control-label">RC Book Number of Bike</label>
+                    <input type="text" [(ngModel)]="bike.rcBookNo" name="rcBookNo" id="rcBookNo" class="form-control" placeholder="Enter RC Book number" 
+                    #rcBookNo="ngModel" required>
+                      <span class="help-block text-danger" 
+                         *ngIf="rcBookNo.invalid && rcBookNo.touched">
+                          RC Book Number is required
+                      </span>           
+                  </div> 
+                  
+                </div>
+
+                <div class="row">
+                
+                  <div class="form-group col-md-6"
+                  [class.has-error]="chargesPerHour.invalid && chargesPerHour.touched"
+                   [class.has-success]="chargesPerHour.valid">
+                    <label for="Charges Per Hour" class="control-label">Charges Per Hour</label>
+                    <input type="text" [(ngModel)]="bike.chargesPerHour" name="chargesPerHour" id="chargesPerHour" class="form-control" placeholder="Enter Charges Per Hour" 
+                    #chargesPerHour="ngModel" required>
+                    <span class="help-block text-danger" 
+                         *ngIf="chargesPerHour.invalid && chargesPerHour.touched">
+                         Charges Per Hour is required
+                      </span>                  
+                  </div>
+                  
+                  <div class="form-group col-md-6"
+                  [class.has-error]="avgPerLtr.invalid && avgPerLtr.touched"
+                   [class.has-success]="avgPerLtr.valid">
+                    <label for="Average Per Ltr" class="control-label">Average Per Ltr</label>
+                    <input type="text" [(ngModel)]="bike.avgPerLtr" name="avgPerLtr" id="avgPerLtr" class="form-control" placeholder="Enter Average Per Ltr" 
+                    #avgPerLtr="ngModel" required>
+                    <span class="help-block text-danger" 
+                         *ngIf="avgPerLtr.invalid && avgPerLtr.touched">
+                         Average Per Ltr is required
+                      </span>                  
+                  </div>                 
+                  
+                </div>
+              
+                <div class="form-group ">
+                    <button type="submit" class="btn btn-success" [disabled]="provAddBikeControl.invalid"  >Update</button>
+              
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                </div>
+                <p>Return <span><a href="/prov-home">back</a></span></p>
+              </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>

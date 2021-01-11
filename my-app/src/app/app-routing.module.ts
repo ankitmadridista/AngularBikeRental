@@ -8,6 +8,7 @@ import { ProvHomeComponent } from './prov-home/prov-home.component';
 import { ProvShowProfComponent } from './prov-show-prof/prov-show-prof.component';
 import { ProvAddBikeComponent } from './prov-add-bike/prov-add-bike.component';
 import { ProvShowBikesComponent } from './prov-show-bikes/prov-show-bikes.component';
+import { ProvUpdateBikeComponent } from './prov-update-bike/prov-update-bike.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,9 @@ const routes: Routes = [
   },{
     path: 'prov-show-bikes',
     component: ProvShowBikesComponent,
+  },{
+    path: 'prov-update-bike',
+    component: ProvUpdateBikeComponent,
   },
   { path: '', redirectTo: '/index', pathMatch: 'full' }
   
