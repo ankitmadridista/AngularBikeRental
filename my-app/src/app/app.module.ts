@@ -14,6 +14,7 @@ import { RegSuccessComponent } from './reg-success/reg-success.component';
 import { ProvHomeComponent } from './prov-home/prov-home.component';
 import { ProvShowProfComponent } from './prov-show-prof/prov-show-prof.component';
 import { ProvAddBikeComponent } from './prov-add-bike/prov-add-bike.component';
+import { ProvShowBikesComponent } from './prov-show-bikes/prov-show-bikes.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProvAddBikeComponent } from './prov-add-bike/prov-add-bike.component';
     RegSuccessComponent,
     ProvHomeComponent,
     ProvShowProfComponent,
-    ProvAddBikeComponent
+    ProvAddBikeComponent,
+    ProvShowBikesComponent
   ],
   imports: [
     BrowserModule,

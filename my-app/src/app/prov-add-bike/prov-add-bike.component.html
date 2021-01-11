@@ -27,8 +27,12 @@
                     [class.has-error]="typeOfGear.invalid && typeOfGear.touched"
                     [class.has-success]="typeOfGear.valid">
                         <label for="Type Of Gear" class="control-label">Type Of Gear</label>
-                         <input type="text" [(ngModel)]="bike.typeOfGear" name="typeOfGear" id="typeOfGear" class="form-control" placeholder="Enter Type Of Gear" 
-                         #typeOfGear="ngModel" required>
+                        
+                         <select [(ngModel)]="bike.typeOfGear" id="typeOfGear" name="typeOfGear" class="form-control" #typeOfGear="ngModel" required>
+                          <option disabled selected hidden >Choose...</option>
+                          <option>WOG</option>
+                          <option>WG</option>
+                        </select>
                          <span class="help-block text-danger" *ngIf="typeOfGear.invalid && typeOfGear.touched">
                           Type of Gear is required
                         </span>
