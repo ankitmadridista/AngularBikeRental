@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { RegSuccessComponent } from './reg-success/reg-success.component';
 import { ProvHomeComponent } from './prov-home/prov-home.component';
 import { ProvShowProfComponent } from './prov-show-prof/prov-show-prof.component';
+import { ProvAddBikeComponent } from './prov-add-bike/prov-add-bike.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProvShowProfComponent } from './prov-show-prof/prov-show-prof.component
     ProvRegFormComponent,
     RegSuccessComponent,
     ProvHomeComponent,
-    ProvShowProfComponent
+    ProvShowProfComponent,
+    ProvAddBikeComponent
   ],
   imports: [
     BrowserModule,

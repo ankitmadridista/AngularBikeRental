@@ -22,7 +22,6 @@ export class Provider{
         provAge:number;
         provContactNo:string;
         provAadhar:string;
-        provRcBookNo:string;
         provAddress:string;
         provCity:string;
         provState:string;

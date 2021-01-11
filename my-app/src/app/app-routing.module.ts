@@ -6,6 +6,7 @@ import { ProvRegFormComponent } from './prov-reg-form/prov-reg-form.component';
 import { RegSuccessComponent } from './reg-success/reg-success.component';
 import { ProvHomeComponent } from './prov-home/prov-home.component';
 import { ProvShowProfComponent } from './prov-show-prof/prov-show-prof.component';
+import { ProvAddBikeComponent } from './prov-add-bike/prov-add-bike.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,9 @@ const routes: Routes = [
   },{
     path: 'prov-show-prof',
     component: ProvShowProfComponent,
+  },{
+    path: 'prov-add-bike',
+    component: ProvAddBikeComponent,
   },
   { path: '', redirectTo: '/index', pathMatch: 'full' }
   

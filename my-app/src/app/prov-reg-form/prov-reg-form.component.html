@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div class="row">
-                  <div class="form-group col-md-4"
+                  <div class="form-group col-md-6"
                    [class.has-error]="provDateOfBirth.invalid && provDateOfBirth.touched"
                    [class.has-success]="provDateOfBirth.valid">
                       <label for="DOB" class="control-label">Date Of Birth</label>
@@ -96,23 +96,12 @@
                         </span>
                      
                   </div>
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-6">
                       <label for="age">Age</label>
                       <input type="text" value=""  class="form-control" [(ngModel)]="provider.provAge" name="provAge" id="provAge" readonly>
                      
                   </div>
-                  <div class="form-group col-md-4"
-                   [class.has-error]="provContactNo.invalid && provContactNo.touched"
-                   [class.has-success]="provContactNo.valid">
-                    <label for="Contact Number" class="control-label">Contact Number</label>
-                    <input type="text" class="form-control" [(ngModel)]="provider.provContactNo" name="provContactNo" id="provContactNo" placeholder="Enter contact number" 
-                     #provContactNo="ngModel" required >
-                      <span class="help-block text-danger" 
-                         *ngIf="provContactNo.invalid && provContactNo.touched">
-                          Contact Number is required
-                      </span>
-                   
-                </div>
+                  
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6"
@@ -128,16 +117,19 @@
                   </div>
 
                   <div class="form-group col-md-6"
-                  [class.has-error]="provRcBookNo.invalid && provRcBookNo.touched"
-                  [class.has-success]="provRcBookNo.valid">
-                    <label for="RC Book Number" class="control-label">RC Book Number of Bike</label>
-                    <input type="text" [(ngModel)]="provider.provRcBookNo" name="provRcBookNo" id="provRcBookNo" class="form-control" placeholder="Enter RC Book number" 
-                    #provRcBookNo="ngModel" required>
+                   [class.has-error]="provContactNo.invalid && provContactNo.touched"
+                   [class.has-success]="provContactNo.valid">
+                    <label for="Contact Number" class="control-label">Contact Number</label>
+                    <input type="text" class="form-control" [(ngModel)]="provider.provContactNo" name="provContactNo" id="provContactNo" placeholder="Enter contact number" 
+                     #provContactNo="ngModel" required >
                       <span class="help-block text-danger" 
-                         *ngIf="provRcBookNo.invalid && provRcBookNo.touched">
-                          RC Book Number is required
-                      </span>           
-                  </div>  
+                         *ngIf="provContactNo.invalid && provContactNo.touched">
+                          Contact Number is required
+                      </span>
+                   
+                  </div>
+
+                 
                 </div>
               
                   <div class="form-group"
