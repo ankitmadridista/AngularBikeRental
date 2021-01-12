@@ -40,10 +40,10 @@
                     <td class="align-middle">{{x.availableLocation}}</td>
                     <td class="align-middle">{{x.bikeStatus}}</td>
                     <td class="align-middle">                       
-                        <button type="button" class="btn btn-primary btn-sm" id="btn0">
+                        <button type="button" class="btn btn-primary btn-sm" id="btn0" (click)="acceptRequest(x.bikeId)">
                             Accept   
                         </button>
-                        <button type="button" class="btn btn-danger btn-sm" id="btn1">
+                        <button type="button" class="btn btn-danger btn-sm" id="btn1" (click)="rejectRequst(x.bikeId)">
                             Reject   
                         </button>
                        

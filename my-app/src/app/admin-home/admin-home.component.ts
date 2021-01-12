@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Bike } from '../bike';
 import { AdminService } from '../Admin.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-admin-home',
@@ -15,7 +16,7 @@ export class AdminHomeComponent implements OnInit {
   public bikeReqArr;  
   public bikeAvlArr;  
   public bikeBookedArr;
-  constructor(private _service: AdminService, private _router: Router) { }
+  constructor(private _service: AdminService, private _router: Router, public _location: Location) { }
   
 
   ngOnInit(): void {
@@ -77,4 +78,39 @@ export class AdminHomeComponent implements OnInit {
     )
   }
 
+  acceptRequest(id: Number){
+    console.log(id);
+    this._service.acceptBike(id).subscribe(
+      data=> {
+        console.log("response recieved");
+        this._router.navigateByUrl("/admin-home", { skipLocationChange: true }).then(() => {
+          console.log(decodeURI(this._location.path()));
+          this._router.navigate([decodeURI(this._location.path())]);
+        });
+      },
+      error=>{
+        console.log("Exception occured"); 
+        this._router.navigateByUrl("/admin-home", { skipLocationChange: true }).then(() => {
+          console.log(decodeURI(this._location.path()));
+          this._router.navigate([decodeURI(this._location.path())]);
+        });
+        //this.msg = 'Bike already exists';
+      });
+
+  }
+
+  rejectRequst(id: Number){
+    console.log(id);
+    this._service.rejectBike(id).subscribe(
+      data=> {
+      console.log("response recieved");
+      this._router.navigate(['/admin-home'])
+    },
+    error=>{
+      console.log("Exception occured");
+      this._router.navigate(['/admin-home'])
+      //this.msg = 'Bike already exists';
+    });    
+  }
 }
+

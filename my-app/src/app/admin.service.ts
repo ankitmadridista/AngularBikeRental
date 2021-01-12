@@ -23,7 +23,13 @@ export class AdminService {
   }
   public getAllBookedBikes(): Observable<any>{
     return this.http.get(baseUrl+"/bikesByStatus/"+"Booked" )    
+  }  
+  
+  public acceptBike(id: Number): Observable<any>{
+    return this.http.get(baseUrl+"/bikesUpdateToAvailable/"+id )    
   }
   
-  
+  public rejectBike(id: Number): Observable<any>{
+    return this.http.get(baseUrl+"/bikesUpdateToRejected/"+id )    
+  }
 }
