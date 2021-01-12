@@ -17,6 +17,9 @@ import { ProvAddBikeComponent } from './prov-add-bike/prov-add-bike.component';
 import { ProvShowBikesComponent } from './prov-show-bikes/prov-show-bikes.component';
 import { ProvUpdateBikeComponent } from './prov-update-bike/prov-update-bike.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminLogFormComponent } from './admin-log-form/admin-log-form.component';
+import { AdminRegFormComponent } from './admin-reg-form/admin-reg-form.component';
+import { ProvUpdateProfComponent } from './prov-update-prof/prov-update-prof.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     ProvAddBikeComponent,
     ProvShowBikesComponent,
     ProvUpdateBikeComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    AdminLogFormComponent,
+    AdminRegFormComponent,
+    ProvUpdateProfComponent
   ],
   imports: [
     BrowserModule,

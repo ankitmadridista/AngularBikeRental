@@ -1,0 +1,149 @@
+
+  
+  <div class="container-fluid my-3">
+      <div class="row justify-content-around">      
+          <div class="col-md-7 bg-light shadow px-4 pt-4">
+              <h4 class="display-4 ">
+                  <i class="fa fa-user-plus"></i>Provider update profile</h4>
+              <hr>           
+              <form #provFormControl="ngForm">    
+                <small class="text-danger">
+                  {{msg}}
+                </small>
+                <fieldset>   
+                  <div class="row">       
+                      <div class="form-group col-md-6" 
+                      [class.has-error]="provFname.invalid && provFname.touched"
+                      [class.has-success]="provFname.valid">
+                          <label for="fname" class="control-label">Full Name</label>
+                          <input type="text" [(ngModel)]="provider.provFname" name="provFname" id="provFname" class="form-control" placeholder="Enter full name" 
+                           #provFname="ngModel" required>
+                          <span class="help-block text-danger" *ngIf="provFname.invalid && provFname.touched">
+                            Full Name is required
+                          </span>
+                      </div>
+                      <div class="form-group col-md-6"
+                      [class.has-error]="provEmail.invalid && provEmail.touched"
+                      [class.has-success]="provEmail.valid">
+                          <label for="Email" class="control-label">Email</label>
+                           <input type="email" [(ngModel)]="provider.provEmail" name="provEmail" id="provEmail" class="form-control" placeholder="Enter Email" 
+                           #provEmail="ngModel" required>
+                           <span class="help-block text-danger" *ngIf="provEmail.invalid && provEmail.touched">
+                            Email-Id is required
+                          </span>
+                      </div>
+                  </div>
+                 
+
+                  <div class="row">
+                    <div class="form-group col-md-6"
+                     [class.has-error]="provDateOfBirth.invalid && provDateOfBirth.touched"
+                     [class.has-success]="provDateOfBirth.valid">
+                        <label for="DOB" class="control-label">Date Of Birth</label>
+                        <input type="date" class="form-control" [(ngModel)]="provider.provDateOfBirth" name="provDateOfBirth" id="provDateOfBirth" aria-describedby="emailHelpId" placeholder="Enter Date of birth" 
+                        #provDateOfBirth="ngModel" required>
+                        <span class="help-block text-danger" 
+                           *ngIf="provDateOfBirth.invalid && provDateOfBirth.touched">
+                            DOB is required
+                          </span>
+                       
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="age">Age</label>
+                        <input type="text" value=""  class="form-control" [(ngModel)]="provider.provAge" name="provAge" id="provAge" readonly>
+                       
+                    </div>
+                    
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-6"
+                    [class.has-error]="provAadhar.invalid && provAadhar.touched"
+                     [class.has-success]="provAadhar.valid">
+                      <label for="Aadhar Card Number" class="control-label">Aadhar Card number</label>
+                      <input type="text" [(ngModel)]="provider.provAadhar" name="provAadhar" id="provAadhar" class="form-control" placeholder="Enter Aadhar card number" 
+                      #provAadhar="ngModel" required>
+                      <span class="help-block text-danger" 
+                           *ngIf="provAadhar.invalid && provAadhar.touched">
+                            Aadhar Card Number is required
+                        </span>                  
+                    </div>
+  
+                    <div class="form-group col-md-6"
+                     [class.has-error]="provContactNo.invalid && provContactNo.touched"
+                     [class.has-success]="provContactNo.valid">
+                      <label for="Contact Number" class="control-label">Contact Number</label>
+                      <input type="text" class="form-control" [(ngModel)]="provider.provContactNo" name="provContactNo" id="provContactNo" placeholder="Enter contact number" 
+                       #provContactNo="ngModel" required >
+                        <span class="help-block text-danger" 
+                           *ngIf="provContactNo.invalid && provContactNo.touched">
+                            Contact Number is required
+                        </span>
+                     
+                    </div>
+  
+                   
+                  </div>
+                
+                    <div class="form-group"
+                    [class.has-error]="provAddress.invalid && provAddress.touched"
+                    [class.has-success]="provAddress.valid">
+                      <label for="Address" class="control-label">Address</label>
+                      <input type="text" [(ngModel)]="provider.provAddress" name="provAddress" id="provAddress" class="form-control" placeholder="Enter Address" 
+                       #provAddress="ngModel" required>
+                        <span class="help-block text-danger" 
+                           *ngIf="provAddress.invalid && provAddress.touched">
+                            Address is required
+                        </span>  
+                    </div>
+                 
+                  <div class="row">
+                    <div class="form-group col-md-4"
+                    [class.has-error]="provCity.invalid && provCity.touched"
+                    [class.has-success]="provCity.valid">
+                      <label for="fname" class="control-label">City</label>
+                      <input type="text" [(ngModel)]="provider.provCity" name="provCity" id="provCity" class="form-control" placeholder="Enter city" 
+                      #provCity="ngModel" required>
+                        <span class="help-block text-danger" 
+                           *ngIf="provCity.invalid && provCity.touched">
+                            City is required
+                        </span>   
+                    </div>  
+  
+                    <div class="form-group col-md-4">
+                      <label for="fname" class="control-label">State</label>
+                      <select  [(ngModel)]="provider.provState" id="provState" name="provState" placeholder="Enter state" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>Maharashtra</option>
+                        <option>Goa</option>                      
+                      </select>
+                     
+                    </div>
+                    <div class="form-group col-md-4"
+                    [class.has-error]="provPin.invalid && provPin.touched"
+                    [class.has-success]="provPin.valid">
+                      <label for="PIN" class="control-label">PIN</label>
+                      <input type="text" [(ngModel)]="provider.provPin" name="provPin" id="provPin" class="form-control" placeholder="Enter PIN" 
+                      #provPin="ngModel" required>
+                        <span class="help-block text-danger" 
+                           *ngIf="provPin.invalid && provPin.touched">
+                            PIN is required
+                        </span>  
+                    </div>  
+                  </div>
+  
+                  <div class="form-group ">
+                      <button type="submit" class="btn btn-success" [disabled]="provFormControl.invalid" (click)="updateProf()">Update</button>
+                
+                      <button type="reset" class="btn btn-danger">Reset</button>
+                  </div>
+                  <p>Already have an account? <span><a href="/prov-log">Login</a></span></p>
+                </fieldset>
+                </form>
+  
+           
+  
+              
+          </div>
+      </div>
+  </div>
+  

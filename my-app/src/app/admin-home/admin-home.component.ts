@@ -12,10 +12,10 @@ import { Location } from '@angular/common';
 export class AdminHomeComponent implements OnInit {
   bike = new Bike();
 
-  public bikesArr;
   public bikeReqArr;  
   public bikeAvlArr;  
   public bikeBookedArr;
+  public bikesRejArr;
   constructor(private _service: AdminService, private _router: Router, public _location: Location) { }
   
 
@@ -64,11 +64,11 @@ export class AdminHomeComponent implements OnInit {
     )
 
 
-    this._service.getAllBikes().subscribe(
+    this._service.getAllRejectedBikes().subscribe(
       data=> {
         console.log("response recieved");
-        this.bikesArr = data;
-        console.log(this.bikesArr);
+        this.bikesRejArr = data;
+        console.log(this.bikesRejArr);
         //this._router.navigate(['/prov-home'])
       },
       error=>{
@@ -82,20 +82,13 @@ export class AdminHomeComponent implements OnInit {
     console.log(id);
     this._service.acceptBike(id).subscribe(
       data=> {
-        console.log("response recieved");
-        this._router.navigateByUrl("/admin-home", { skipLocationChange: true }).then(() => {
-          console.log(decodeURI(this._location.path()));
-          this._router.navigate([decodeURI(this._location.path())]);
-        });
-      },
-      error=>{
-        console.log("Exception occured"); 
-        this._router.navigateByUrl("/admin-home", { skipLocationChange: true }).then(() => {
-          console.log(decodeURI(this._location.path()));
-          this._router.navigate([decodeURI(this._location.path())]);
-        });
-        //this.msg = 'Bike already exists';
-      });
+      console.log("response recieved");
+      window.location.reload();
+    },
+    error=>{
+      console.log("recieved");
+      window.location.reload();
+    });    
 
   }
 
@@ -104,12 +97,11 @@ export class AdminHomeComponent implements OnInit {
     this._service.rejectBike(id).subscribe(
       data=> {
       console.log("response recieved");
-      this._router.navigate(['/admin-home'])
+      window.location.reload();
     },
     error=>{
-      console.log("Exception occured");
-      this._router.navigate(['/admin-home'])
-      //this.msg = 'Bike already exists';
+      console.log("recieved");
+      window.location.reload();
     });    
   }
 }

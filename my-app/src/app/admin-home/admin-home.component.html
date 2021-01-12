@@ -21,13 +21,12 @@
                     <th class="align-middle">Charges/Hour</th>
                     <th class="align-middle">Avg/Ltr</th> 
                     <th class="align-middle">Location</th>
-                    <th class="align-middle">Status</th> 
                     <th class="align-middle">View</th> 
                 </tr>
             </thead>
             <tbody id="myTableBody" *ngFor="let x of bikeReqArr">
           
-                <tr >
+                <tr>
                     <td class="align-middle">{{x.bikeId}}</td>
                     <td class="align-middle">{{x.provId}}</td>
                     <td class="align-middle">{{x.bikeNo}}</td>
@@ -38,15 +37,13 @@
                     <td class="align-middle">{{x.chargesPerHour}}</td>
                     <td class="align-middle">{{x.avgPerLtr}}</td>
                     <td class="align-middle">{{x.availableLocation}}</td>
-                    <td class="align-middle">{{x.bikeStatus}}</td>
                     <td class="align-middle">                       
                         <button type="button" class="btn btn-primary btn-sm" id="btn0" (click)="acceptRequest(x.bikeId)">
                             Accept   
                         </button>
                         <button type="button" class="btn btn-danger btn-sm" id="btn1" (click)="rejectRequst(x.bikeId)">
                             Reject   
-                        </button>
-                       
+                        </button>                       
                     </td>
                 </tr>
             </tbody>
@@ -75,7 +72,6 @@
                     <th class="align-middle">Charges/Hour</th>
                     <th class="align-middle">Avg/Ltr</th> 
                     <th class="align-middle">Location</th>
-                    <th class="align-middle">Status</th> 
                     <th class="align-middle">View</th> 
                 </tr>
             </thead>
@@ -92,7 +88,6 @@
                     <td class="align-middle">{{x.chargesPerHour}}</td>
                     <td class="align-middle">{{x.avgPerLtr}}</td>
                     <td class="align-middle">{{x.availableLocation}}</td>
-                    <td class="align-middle">{{x.bikeStatus}}</td>
                     <td class="align-middle">                       
                         <button type="button" class="btn btn-primary btn-sm" id="btn0" 
                             >View   
@@ -126,7 +121,6 @@
                     <th class="align-middle">Charges/Hour</th>
                     <th class="align-middle">Avg/Ltr</th> 
                     <th class="align-middle">Location</th>
-                    <th class="align-middle">Status</th> 
                     <th class="align-middle">View</th> 
                 </tr>
             </thead>
@@ -143,7 +137,6 @@
                     <td class="align-middle">{{x.chargesPerHour}}</td>
                     <td class="align-middle">{{x.avgPerLtr}}</td>
                     <td class="align-middle">{{x.availableLocation}}</td>
-                    <td class="align-middle">{{x.bikeStatus}}</td>
                     <td class="align-middle">                       
                         <button type="button" class="btn btn-primary btn-sm" id="btn0" 
                             >View   
@@ -159,7 +152,7 @@
 <div class="row content">
     <div class=" col-sm-12 main jumbotron">
         <h3 class="text-center">
-            <b>Bikes Info</b>
+            <b>Bikes Reejected</b>
         </h3>
         
         <div class="table-responsive" id="myTable"></div>
@@ -176,11 +169,10 @@
                     <th class="align-middle">Charges/Hour</th>
                     <th class="align-middle">Avg/Ltr</th> 
                     <th class="align-middle">Location</th>
-                    <th class="align-middle">Status</th> 
                     <th class="align-middle">View</th> 
                 </tr>
             </thead>
-            <tbody id="myTableBody" *ngFor="let x of bikesArr">
+            <tbody id="myTableBody" *ngFor="let x of bikesRejArr">
           
                 <tr >
                     <td class="align-middle">{{x.bikeId}}</td>
@@ -193,7 +185,6 @@
                     <td class="align-middle">{{x.chargesPerHour}}</td>
                     <td class="align-middle">{{x.avgPerLtr}}</td>
                     <td class="align-middle">{{x.availableLocation}}</td>
-                    <td class="align-middle">{{x.bikeStatus}}</td>
                     <td class="align-middle">                       
                         <button type="button" class="btn btn-primary btn-sm" id="btn0" 
                             >View   

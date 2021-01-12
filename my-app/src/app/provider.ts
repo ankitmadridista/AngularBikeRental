@@ -3,7 +3,7 @@ export class Provider{
         provFname:string;
         provEmail:string;
         provPassword:string;
-        provDateOfBirth:string;
+        provDateOfBirth:Date;
         provAge:number;
         provContactNo:string;
         provAadhar:string;

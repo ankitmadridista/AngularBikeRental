@@ -10,6 +10,9 @@ import { ProvAddBikeComponent } from './prov-add-bike/prov-add-bike.component';
 import { ProvShowBikesComponent } from './prov-show-bikes/prov-show-bikes.component';
 import { ProvUpdateBikeComponent } from './prov-update-bike/prov-update-bike.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminLogFormComponent } from './admin-log-form/admin-log-form.component';
+import { AdminRegFormComponent } from './admin-reg-form/admin-reg-form.component';
+import { ProvUpdateProfComponent } from './prov-update-prof/prov-update-prof.component';
 
 const routes: Routes = [
   {
@@ -42,6 +45,15 @@ const routes: Routes = [
   },{
     path: 'admin-home',
     component: AdminHomeComponent,
+  },{
+    path: 'admin-log',
+    component: AdminLogFormComponent,
+  },{
+    path: 'admin-reg',
+    component: AdminRegFormComponent,
+  },{
+    path: 'prov-update-prof/:id',
+    component: ProvUpdateProfComponent,
   },
   { path: '', redirectTo: '/index', pathMatch: 'full' }
   

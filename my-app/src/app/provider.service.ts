@@ -28,5 +28,15 @@ export class ProviderService {
   public showProf(provider :Provider): Observable<any>{
     return this.http.get(baseUrl+'/'+ sessionStorage.getItem('provSesId'))
   }
+  
+  public getProvByProvId(id : Number): Observable<any>{
+    return this.http.get(baseUrl +"/"+ id)
+  }
+
+  public modifyProf(provider: Provider): Observable<any>{
+    return this.http.put(baseUrl, provider)
+  }
+
+  
 
 }

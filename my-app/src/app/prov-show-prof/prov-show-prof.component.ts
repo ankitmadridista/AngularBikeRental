@@ -31,4 +31,8 @@ msg = '';
     )
   }
 
+  updateProf(id: Number){
+    console.log(id);
+    this._router.navigate(['/prov-update-prof',id])
+  }
 }

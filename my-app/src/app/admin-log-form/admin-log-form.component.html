@@ -2,40 +2,40 @@
     <div class="row justify-content-around">
         <div class="col-md-7 bg-light shadow px-4 pt-4">
             <h4 class="display-4 ">
-                <i class="fa fa-user-plus"></i>Provider Signin</h4>
+                <i class="fa fa-user-plus"></i>Admin Signin</h4>
             <p class="text-secondary">Enter valid sign in details.</p>
             <hr>
             <!--signup form --> 
-            <form #loginform="ngForm"  (ngSubmit)="loginProvider()">
+            <form #loginform="ngForm" (ngSubmit)="loginAdmin()">
                 <small class="text-danger">
                     {{msg}}
                 </small>
                 <div class="form-group" 
-                [class.has-error]="provEmail.invalid && provEmail.touched"
-                [class.has-success]="provEmail.valid">
+                [class.has-error]="adminEmail.invalid && adminEmail.touched"
+                [class.has-success]="adminEmail.valid">
                     <label for="Email">Email</label>
-                    <input [(ngModel)]="provider.provEmail" type="email" name="provEmail" id="provEmail" class="form-control" placeholder="Enter Email" 
-                    #provEmail="ngModel" required>   
-                    <span class="help-block text-danger" *ngIf="provEmail.invalid && provEmail.touched">
+                    <input [(ngModel)]="admin.adminEmail" type="email" name="adminEmail" id="adminEmail" class="form-control" placeholder="Enter Email" 
+                    #adminEmail="ngModel" required>   
+                    <span class="help-block text-danger" *ngIf="adminEmail.invalid && adminEmail.touched">
                         Email-Id is required
                       </span>
                 </div>     
                     <div class="form-group "
-                    [class.has-error]="provPassword.invalid && provPassword.touched"
-                    [class.has-success]="provPassword.valid">
+                    [class.has-error]="adminPassword.invalid && adminPassword.touched"
+                    [class.has-success]="adminPassword.valid">
                         <label for="Password" class="control-label">Password</label>
-                        <input type="password" [(ngModel)]="provider.provPassword" name="provPassword" id="provPassword" class="form-control" placeholder="Enter Password" 
-                         #provPassword="ngModel" required minlength=3 maxlength=8>
+                        <input type="password" [(ngModel)]="admin.adminPassword" name="adminPassword" id="adminPassword" class="form-control" placeholder="Enter Password" 
+                         #adminPassword="ngModel" required minlength=3 maxlength=8>
                          <span class="help-block text-danger" 
-                         *ngIf="provPassword.hasError('required') && provPassword.touched">
+                         *ngIf="adminPassword.hasError('required') && adminPassword.touched">
                           password is required
                         </span>
                         <span class="help-block text-danger" 
-                         *ngIf="provPassword.hasError('minlength')">
+                         *ngIf="adminPassword.hasError('minlength')">
                           password is too short
                         </span>
                         <span class="help-block text-danger" 
-                         *ngIf="provPassword.hasError('maxlength')">
+                         *ngIf="adminPassword.hasError('maxlength')">
                           password is too large
                         </span>
                      </div>

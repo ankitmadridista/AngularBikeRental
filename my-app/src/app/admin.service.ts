@@ -11,8 +11,8 @@ export class AdminService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllBikes(): Observable<any>{
-    return this.http.get(baseUrl+"/adminBikes/"  )    
+  public getAllRejectedBikes(): Observable<any>{
+    return this.http.get(baseUrl+"/bikesByStatus/"+"Rejected" )    
   }
   
   public getAllRequestedBikes(): Observable<any>{
@@ -32,4 +32,12 @@ export class AdminService {
   public rejectBike(id: Number): Observable<any>{
     return this.http.get(baseUrl+"/bikesUpdateToRejected/"+id )    
   }
+  
+  public doRegistration(admin: Admin): Observable<any>{
+    return this.http.post(baseUrl+"/admin", admin )    
+  }
+  public doLogin(admin: Admin): Observable<any>{
+    return this.http.post(baseUrl+"/admin-check", admin )    
+  }
+
 }
