@@ -32,6 +32,13 @@ export class ProvShowBikesComponent implements OnInit {
         this.bikesArr = 'Invalid Credentials';
       }
     )
+
+
+  }
+  //getBikesByBikeId
+  onUpdate(id: Number){
+    console.log(id);
+    this._router.navigate(['/prov-update-bike',id])
   }
 
 }

@@ -15,10 +15,16 @@ export class BikeService {
   public addBike(bike :Bike): Observable<any>{
     return this.http.post(baseUrl+"/bikes", bike)
   }
+  public modifyBike(bike :Bike): Observable<any>{
+      return this.http.put(baseUrl+"/bikes", bike)
+  }
 
   public getBikesByProvId(): Observable<any>{
     //let provId = sessionStorage.getItem("provSesId");
-    return this.http.get(baseUrl+"/bikesByProvId/" + parseInt(sessionStorage.getItem("provSesId")) )
-    
+    return this.http.get(baseUrl+"/bikesByProvId/" + parseInt(sessionStorage.getItem("provSesId")) )    
+  }
+
+  public getBikesByBikeId(id : Number): Observable<any>{
+    return this.http.get(baseUrl+"/bikesByBikeId/" + id)
   }
 }

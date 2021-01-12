@@ -36,7 +36,7 @@ const routes: Routes = [
     path: 'prov-show-bikes',
     component: ProvShowBikesComponent,
   },{
-    path: 'prov-update-bike',
+    path: 'prov-update-bike/:id',
     component: ProvUpdateBikeComponent,
   },
   { path: '', redirectTo: '/index', pathMatch: 'full' }
