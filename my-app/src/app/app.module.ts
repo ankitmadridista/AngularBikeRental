@@ -16,6 +16,7 @@ import { ProvShowProfComponent } from './prov-show-prof/prov-show-prof.component
 import { ProvAddBikeComponent } from './prov-add-bike/prov-add-bike.component';
 import { ProvShowBikesComponent } from './prov-show-bikes/prov-show-bikes.component';
 import { ProvUpdateBikeComponent } from './prov-update-bike/prov-update-bike.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProvUpdateBikeComponent } from './prov-update-bike/prov-update-bike.com
     ProvShowProfComponent,
     ProvAddBikeComponent,
     ProvShowBikesComponent,
-    ProvUpdateBikeComponent
+    ProvUpdateBikeComponent,
+    AdminHomeComponent
   ],
   imports: [
     BrowserModule,

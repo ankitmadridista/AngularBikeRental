@@ -45,7 +45,7 @@
                     [class.has-success]="brandOfBike.valid">
                         <label for="Brand Of Bike" class="control-label">Brand Of Bike</label>
                         <input type="text" [(ngModel)]="bike.brandOfBike" name="brandOfBike" id="brandOfBike" class="form-control" placeholder="Enter Brand Of Bike" 
-                         #brandOfBike="ngModel" required minlength=3 maxlength=8>
+                         #brandOfBike="ngModel" required >
                          <span class="help-block text-danger" 
                          *ngIf="brandOfBike.hasError('required') && brandOfBike.touched">
                          Brand Of Bike is required
