@@ -1,0 +1,177 @@
+
+<div class="container-fluid my-3">
+<div class="row justify-content-around">      
+  <div class="col-md-7 bg-light shadow px-4 pt-4">
+      <h4 class="display-4 ">
+          <i class="fa fa-user-plus"></i>Customer Sign Up</h4>
+      <p class="text-secondary">Enter valid sign up details.</p>
+      <hr>           
+      <form #custFormControl="ngForm"  >    
+        <small class="text-danger">
+          {{msg}}
+        </small>
+        <fieldset>   
+          <div class="row">       
+              <div class="form-group col-md-6" 
+              [class.has-error]="custFname.invalid && custFname.touched"
+              [class.has-success]="custFname.valid">
+                  <label for="fname" class="control-label">Full Name</label>
+                  <input type="text" [(ngModel)]="customer.custFname" name="custFname" id="custFname" class="form-control" placeholder="Enter full name" 
+                   #custFname="ngModel" required>
+                  <span class="help-block text-danger" *ngIf="custFname.invalid && custFname.touched">
+                    Full Name is required
+                  </span>
+              </div>
+              <div class="form-group col-md-6"
+              [class.has-error]="custEmail.invalid && custEmail.touched"
+              [class.has-success]="custEmail.valid">
+                  <label for="Email" class="control-label">Email</label>
+                   <input type="email" [(ngModel)]="customer.custEmail" name="custEmail" id="custEmail" class="form-control" placeholder="Enter Email" 
+                   #custEmail="ngModel" required>
+                   <span class="help-block text-danger" *ngIf="custEmail.invalid && custEmail.touched">
+                    Email-Id is required
+                  </span>
+              </div>
+          </div>
+          <div class="row">       
+              <div class="form-group col-md-6"
+              [class.has-error]="custPassword.invalid && custPassword.touched"
+              [class.has-success]="custPassword.valid">
+                  <label for="Password" class="control-label">Password</label>
+                  <input type="password" [(ngModel)]="customer.custPassword" name="custPassword" id="custPassword" class="form-control" placeholder="Enter Password" 
+                   #custPassword="ngModel" required minlength=3 maxlength=8>
+                   <span class="help-block text-danger" 
+                   *ngIf="custPassword.hasError('required') && custPassword.touched">
+                    password is required
+                  </span>
+                  <span class="help-block text-danger" 
+                   *ngIf="custPassword.hasError('minlength')">
+                    password is too short
+                  </span>
+                  <span class="help-block text-danger" 
+                   *ngIf="custPassword.hasError('maxlength')">
+                    password is too large
+                  </span>
+               </div>
+
+              <div class="form-group col-md-6">
+                  <label for="Password">Confirm Password</label>
+                  <input type="Password" name="custPasswordR" id="custPasswordR" class="form-control" placeholder="Re-Enter Password" aria-describedby="PasswordlhelpId" required>
+              </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6"
+             [class.has-error]="custDateOfBirth.invalid && custDateOfBirth.touched"
+             [class.has-success]="custDateOfBirth.valid">
+                <label for="DOB" class="control-label">Date Of Birth</label>
+                <input type="date" class="form-control" [(ngModel)]="customer.custDateOfBirth" name="custDateOfBirth" id="custDateOfBirth" aria-describedby="emailHelpId" placeholder="Enter Date of birth" 
+                #custDateOfBirth="ngModel" required>
+                <span class="help-block text-danger" 
+                   *ngIf="custDateOfBirth.invalid && custDateOfBirth.touched">
+                    DOB is required
+                  </span>
+               
+            </div>
+            <div class="form-group col-md-6">
+                <label for="age">Age</label>
+                <input type="text" value=""  class="form-control" [(ngModel)]="customer.custAge" name="custAge" id="custAge" readonly>
+               
+            </div>
+            
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6"
+            [class.has-error]="custAadhar.invalid && custAadhar.touched"
+             [class.has-success]="custAadhar.valid">
+              <label for="Aadhar Card Number" class="control-label">Aadhar Card number</label>
+              <input type="text" [(ngModel)]="customer.custAadhar" name="custAadhar" id="custAadhar" class="form-control" placeholder="Enter Aadhar card number" 
+              #custAadhar="ngModel" required>
+              <span class="help-block text-danger" 
+                   *ngIf="custAadhar.invalid && custAadhar.touched">
+                    Aadhar Card Number is required
+                </span>                  
+            </div>
+
+            <div class="form-group col-md-6"
+             [class.has-error]="custContactNo.invalid && custContactNo.touched"
+             [class.has-success]="custContactNo.valid">
+              <label for="Contact Number" class="control-label">Contact Number</label>
+              <input type="text" class="form-control" [(ngModel)]="customer.custContactNo" name="custContactNo" id="custContactNo" placeholder="Enter contact number" 
+               #custContactNo="ngModel" required >
+                <span class="help-block text-danger" 
+                   *ngIf="custContactNo.invalid && custContactNo.touched">
+                    Contact Number is required
+                </span>
+            </div>           
+          </div>
+
+            <div class="form-group"
+            [class.has-error]="custDrivingLicNo.invalid && custDrivingLicNo.touched"
+            [class.has-success]="custDrivingLicNo.valid">
+                <label for="Driving License" class="control-label">Driving License No. </label>
+                <input type="text" [(ngModel)]="customer.custDrivingLicNo" name="custDrivingLicNo" id="custDrivingLicNo" class="form-control" placeholder="Enter Driving License No." 
+                #custDrivingLicNo="ngModel" required>
+                <span class="help-block text-danger" 
+                    *ngIf="custDrivingLicNo.invalid && custDrivingLicNo.touched">
+                    Driving License No. is required
+                </span>  
+            </div>
+
+            <div class="form-group"
+            [class.has-error]="custAddress.invalid && custAddress.touched"
+            [class.has-success]="custAddress.valid">
+              <label for="Address" class="control-label">Address</label>
+              <input type="text" [(ngModel)]="customer.custAddress" name="custAddress" id="custAddress" class="form-control" placeholder="Enter Address" 
+               #custAddress="ngModel" required>
+                <span class="help-block text-danger" 
+                   *ngIf="custAddress.invalid && custAddress.touched">
+                    Address is required
+                </span>  
+            </div>
+         
+          <div class="row">
+            <div class="form-group col-md-4"
+            [class.has-error]="custCity.invalid && custCity.touched"
+            [class.has-success]="custCity.valid">
+              <label for="fname" class="control-label">City</label>
+              <input type="text" [(ngModel)]="customer.custCity" name="custCity" id="custCity" class="form-control" placeholder="Enter city" 
+              #custCity="ngModel" required>
+                <span class="help-block text-danger" 
+                   *ngIf="custCity.invalid && custCity.touched">
+                    City is required
+                </span>   
+            </div>  
+
+            <div class="form-group col-md-4">
+              <label for="fname" class="control-label">State</label>
+              <select  [(ngModel)]="customer.custState" id="custState" name="custState" placeholder="Enter state" class="form-control">
+                <option disabled selected>Choose...</option>
+                <option>Maharashtra</option>
+                <option>Goa</option>                      
+              </select>
+             
+            </div>
+            <div class="form-group col-md-4"
+            [class.has-error]="custPin.invalid && custPin.touched"
+            [class.has-success]="custPin.valid">
+              <label for="PIN" class="control-label">PIN</label>
+              <input type="text" [(ngModel)]="customer.custPin" name="custPin" id="custPin" class="form-control" placeholder="Enter PIN" 
+              #custPin="ngModel" required>
+                <span class="help-block text-danger" 
+                   *ngIf="custPin.invalid && custPin.touched">
+                    PIN is required
+                </span>  
+            </div>  
+          </div>
+
+          <div class="form-group ">
+              <button type="submit" class="btn btn-success" [disabled]="custFormControl.invalid" (click)="registerNow()">Sign Up</button>
+        
+              <button type="reset" class="btn btn-danger">Reset</button>
+          </div>
+          <p>Already have an account? <span><a href="/cust-log">Login</a></span></p>
+        </fieldset>
+        </form>
+  </div>
+</div>
+</div>

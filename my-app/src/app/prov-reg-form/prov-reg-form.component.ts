@@ -39,6 +39,7 @@ export class ProvRegFormComponent implements OnInit {
   // }
 
   registerNow(){
+    console.log(this.provider);
     this._service.doRegistration(this.provider).subscribe(
       data=> {
       console.log("response recieved");

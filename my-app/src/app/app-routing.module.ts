@@ -13,6 +13,8 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminLogFormComponent } from './admin-log-form/admin-log-form.component';
 import { AdminRegFormComponent } from './admin-reg-form/admin-reg-form.component';
 import { ProvUpdateProfComponent } from './prov-update-prof/prov-update-prof.component';
+import { CustLogFormComponent } from './cust-log-form/cust-log-form.component';
+import { CustRegFormComponent } from './cust-reg-form/cust-reg-form.component';
 
 const routes: Routes = [
   {
@@ -54,6 +56,12 @@ const routes: Routes = [
   },{
     path: 'prov-update-prof/:id',
     component: ProvUpdateProfComponent,
+  },{
+    path: 'cust-log',
+    component: CustLogFormComponent,
+  },{
+    path: 'cust-reg',
+    component: CustRegFormComponent,
   },
   { path: '', redirectTo: '/index', pathMatch: 'full' }
   
