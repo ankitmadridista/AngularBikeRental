@@ -15,6 +15,9 @@ import { AdminRegFormComponent } from './admin-reg-form/admin-reg-form.component
 import { ProvUpdateProfComponent } from './prov-update-prof/prov-update-prof.component';
 import { CustLogFormComponent } from './cust-log-form/cust-log-form.component';
 import { CustRegFormComponent } from './cust-reg-form/cust-reg-form.component';
+import { CustHomeComponent } from './cust-home/cust-home.component';
+import { CustShowProfComponent } from './cust-show-prof/cust-show-prof.component';
+import { CustUpdateProfComponent } from './cust-update-prof/cust-update-prof.component';
 
 const routes: Routes = [
   {
@@ -62,6 +65,15 @@ const routes: Routes = [
   },{
     path: 'cust-reg',
     component: CustRegFormComponent,
+  },{
+    path: 'cust-home',
+    component: CustHomeComponent
+  },{
+    path: 'cust-show-prof',
+    component: CustShowProfComponent
+  },{
+    path: 'cust-update-prof/:id',
+    component: CustUpdateProfComponent,
   },
   { path: '', redirectTo: '/index', pathMatch: 'full' }
   
