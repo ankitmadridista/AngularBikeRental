@@ -25,6 +25,7 @@ import { CustRegFormComponent } from './cust-reg-form/cust-reg-form.component';
 import { CustHomeComponent } from './cust-home/cust-home.component';
 import { CustShowProfComponent } from './cust-show-prof/cust-show-prof.component';
 import { CustUpdateProfComponent } from './cust-update-prof/cust-update-prof.component';
+import { ProvDelBikeModalComponent } from './prov-del-bike-modal/prov-del-bike-modal.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { CustUpdateProfComponent } from './cust-update-prof/cust-update-prof.com
     CustRegFormComponent,
     CustHomeComponent,
     CustShowProfComponent,
-    CustUpdateProfComponent
+    CustUpdateProfComponent,
+    ProvDelBikeModalComponent
   ],
   imports: [
     BrowserModule,

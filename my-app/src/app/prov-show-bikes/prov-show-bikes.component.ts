@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Bike } from '../bike';
 import { BikeService } from '../Bike.service';
+import { ProvDelBikeModalComponent } from '../prov-del-bike-modal/prov-del-bike-modal.component';
 
 @Component({
   selector: 'app-prov-show-bikes',
@@ -13,7 +15,7 @@ export class ProvShowBikesComponent implements OnInit {
 
   public bikesArr;
   
-  constructor(private _service: BikeService, private _router: Router) { }
+  constructor(private _service: BikeService, private _router: Router, private _modalService: NgbModal) { }
 
   
   ngOnInit(): void {
@@ -32,8 +34,6 @@ export class ProvShowBikesComponent implements OnInit {
         this.bikesArr = 'Invalid Credentials';
       }
     )
-
-
   }
   //getBikesByBikeId
   onUpdate(id: Number){
@@ -41,4 +41,16 @@ export class ProvShowBikesComponent implements OnInit {
     this._router.navigate(['/prov-update-bike',id])
   }
 
+  onDelete(id: Number){
+    console.log(id);
+    // this._modalService.open(ProvDelBikeModalComponent, {
+    //   centered: true,
+    // });
+
+    const activeModal = this._modalService.open(ProvDelBikeModalComponent, { size: 'lg' });
+    activeModal.componentInstance.modalHeader = id;
+
+  }
+
+  
 }

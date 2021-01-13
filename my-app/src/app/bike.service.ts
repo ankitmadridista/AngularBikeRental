@@ -27,4 +27,10 @@ export class BikeService {
   public getBikesByBikeId(id : Number): Observable<any>{
     return this.http.get(baseUrl+"/bikesByBikeId/" + id)
   }
+
+  public deleteBikeByBikeId(id : Number): Observable<any>{
+    //console.log("bike id: " + id );
+    return this.http.delete(baseUrl+"/bikes/" + id)
+  }
+
 }
