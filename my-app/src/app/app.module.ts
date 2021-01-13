@@ -26,6 +26,7 @@ import { CustHomeComponent } from './cust-home/cust-home.component';
 import { CustShowProfComponent } from './cust-show-prof/cust-show-prof.component';
 import { CustUpdateProfComponent } from './cust-update-prof/cust-update-prof.component';
 import { ProvDelBikeModalComponent } from './prov-del-bike-modal/prov-del-bike-modal.component';
+import {DataTablesModule} from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ProvDelBikeModalComponent } from './prov-del-bike-modal/prov-del-bike-m
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    DataTablesModule
   ],
   providers: [ProviderService],
   bootstrap: [AppComponent]

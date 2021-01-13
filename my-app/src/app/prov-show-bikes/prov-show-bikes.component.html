@@ -1,14 +1,13 @@
 
 <hr>
-
-<div class="row content">
-    <div class=" col-sm-12 main jumbotron">
+<div class="row content" *ngIf="bikeArrStat">
+    <div class=" col-sm-12 main shadow jumbotron">
         <h3 class="text-center">
             <b>Bikes Info</b>
         </h3>
         
         <div class="table-responsive" id="myTable">
-            <table class="table  table-striped ">
+            <table class="table table-hover table-striped ">
                 <thead class="table-dark">
                     <tr>
                         <th class="align-middle">Bike Id</th>

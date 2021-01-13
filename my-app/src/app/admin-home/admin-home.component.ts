@@ -11,7 +11,9 @@ import { Location } from '@angular/common';
 })
 export class AdminHomeComponent implements OnInit {
   bike = new Bike();
-
+  
+  dtOptions: DataTables.Settings = {};
+  
   public bikeReqArr;  
   public bikeAvlArr;  
   public bikeBookedArr;
@@ -21,11 +23,18 @@ export class AdminHomeComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+    lengthMenu : [5, 10, 15],
+      processing: true
+    };
+
     this._service.getAllRequestedBikes().subscribe(
       data=> {
         //console.log(data);
         this.bikeReqArr = data;
-        console.log(this.bikeReqArr);
+        //console.log(this.bikeReqArr);
         console.log("response recieved");
         //this._router.navigate(['/prov-home'])
       },
@@ -39,7 +48,7 @@ export class AdminHomeComponent implements OnInit {
       data=> {
         //console.log(data);
         this.bikeAvlArr = data;
-        console.log(this.bikeAvlArr);
+        //console.log(this.bikeAvlArr);
         console.log("response recieved");
         //this._router.navigate(['/prov-home'])
       },
@@ -53,7 +62,7 @@ export class AdminHomeComponent implements OnInit {
       data=> {
         //console.log(data);
         this.bikeBookedArr = data;
-        console.log(this.bikeBookedArr);
+        //console.log(this.bikeBookedArr);
         console.log("response recieved");
         //this._router.navigate(['/prov-home'])
       },
@@ -68,7 +77,7 @@ export class AdminHomeComponent implements OnInit {
       data=> {
         console.log("response recieved");
         this.bikesRejArr = data;
-        console.log(this.bikesRejArr);
+        //console.log(this.bikesRejArr);
         //this._router.navigate(['/prov-home'])
       },
       error=>{

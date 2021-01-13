@@ -4,7 +4,6 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Bike } from '../bike';
 import { BikeService } from '../Bike.service';
 import { ProvDelBikeModalComponent } from '../prov-del-bike-modal/prov-del-bike-modal.component';
-
 @Component({
   selector: 'app-prov-show-bikes',
   templateUrl: './prov-show-bikes.component.html',
@@ -14,20 +13,19 @@ export class ProvShowBikesComponent implements OnInit {
   bike = new Bike();
 
   public bikesArr;
+  public bikeArrStat =  false;
   
   constructor(private _service: BikeService, private _router: Router, private _modalService: NgbModal) { }
-
   
   ngOnInit(): void {
     this._service.getBikesByProvId().subscribe(
       data=> {
-        console.log(data);
         this.bikesArr = data;
-        console.log(this.bikesArr);
+        //console.log(this.bikesArr);        
         console.log("response recieved");
-        this.bike = data;
-        console.log(this.bike);
-        //this._router.navigate(['/prov-home'])
+        if(this.bikesArr.length !== 0 ){
+          this.bikeArrStat = true; 
+        }
       },
       error=>{
         console.log("Exception occured");
@@ -37,12 +35,12 @@ export class ProvShowBikesComponent implements OnInit {
   }
   //getBikesByBikeId
   onUpdate(id: Number){
-    console.log(id);
+    //console.log(id);
     this._router.navigate(['/prov-update-bike',id])
   }
 
   onDelete(id: Number){
-    console.log(id);
+    //console.log(id);
     // this._modalService.open(ProvDelBikeModalComponent, {
     //   centered: true,
     // });
