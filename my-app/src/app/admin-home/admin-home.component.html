@@ -1,13 +1,13 @@
 
 <hr>
-
+<!-- Bike requested-->
 <div class="row content">
     <div class=" col-sm-12 main jumbotron">
         <h3 class="text-center">
             <b>Bikes Requested</b>
         </h3>
         
-        <div class="table-responsive" id="myTable"></div>
+        <div class="table-responsive" id="myTable">
         <table class="table  table-striped ">
             <thead class="table-dark">
                 <tr>
@@ -48,149 +48,201 @@
                 </tr>
             </tbody>
         </table>
+        </div>
     </div>
 </div>
 <hr>
 
+<!-- Bike available-->
 <div class="row content">
     <div class=" col-sm-12 main jumbotron">
         <h3 class="text-center">
             <b>Bikes Available</b>
         </h3>
         
-        <div class="table-responsive" id="myTable"></div>
-        <table class="table  table-striped ">
-            <thead class="table-dark">
-                <tr>
-                    <th class="align-middle">Bike Id</th>                    
-                    <th class="align-middle">Prov Id</th>
-                    <th class="align-middle">Bike No.</th>
-                    <th class="align-middle">Type Of Gear</th>
-                    <th class="align-middle">Brand </th> 
-                    <th class="align-middle">Model </th>
-                    <th class="align-middle">RC Book No</th>
-                    <th class="align-middle">Charges/Hour</th>
-                    <th class="align-middle">Avg/Ltr</th> 
-                    <th class="align-middle">Location</th>
-                    <th class="align-middle">View</th> 
-                </tr>
-            </thead>
-            <tbody id="myTableBody" *ngFor="let x of bikeAvlArr">
-          
-                <tr >
-                    <td class="align-middle">{{x.bikeId}}</td>
-                    <td class="align-middle">{{x.provId}}</td>
-                    <td class="align-middle">{{x.bikeNo}}</td>
-                    <td class="align-middle">{{x.typeOfGear}}</td>
-                    <td class="align-middle">{{x.brandOfBike}}</td>
-                    <td class="align-middle">{{x.modelOfBike}}</td>
-                    <td class="align-middle">{{x.rcBookNo}}</td>
-                    <td class="align-middle">{{x.chargesPerHour}}</td>
-                    <td class="align-middle">{{x.avgPerLtr}}</td>
-                    <td class="align-middle">{{x.availableLocation}}</td>
-                    <td class="align-middle">                       
-                        <button type="button" class="btn btn-primary btn-sm" id="btn0" 
-                            >View   
-                        </button>                       
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive" id="myTable">
+            <table class="table  table-striped ">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="align-middle">Bike Id</th>                    
+                        <th class="align-middle">Prov Id</th>
+                        <th class="align-middle">Bike No.</th>
+                        <th class="align-middle">Type Of Gear</th>
+                        <th class="align-middle">Brand </th> 
+                        <th class="align-middle">Model </th>
+                        <th class="align-middle">RC Book No</th>
+                        <th class="align-middle">Charges/Hour</th>
+                        <th class="align-middle">Avg/Ltr</th> 
+                        <th class="align-middle">Location</th>
+                        <th class="align-middle">View</th> 
+                    </tr>
+                </thead>
+                <tbody id="myTableBody" *ngFor="let x of bikeAvlArr">
+            
+                    <tr >
+                        <td class="align-middle">{{x.bikeId}}</td>
+                        <td class="align-middle">{{x.provId}}</td>
+                        <td class="align-middle">{{x.bikeNo}}</td>
+                        <td class="align-middle">{{x.typeOfGear}}</td>
+                        <td class="align-middle">{{x.brandOfBike}}</td>
+                        <td class="align-middle">{{x.modelOfBike}}</td>
+                        <td class="align-middle">{{x.rcBookNo}}</td>
+                        <td class="align-middle">{{x.chargesPerHour}}</td>
+                        <td class="align-middle">{{x.avgPerLtr}}</td>
+                        <td class="align-middle">{{x.availableLocation}}</td>
+                        <td class="align-middle">                       
+                            <button type="button" class="btn btn-primary btn-sm" id="btn0" 
+                                >View   
+                            </button>                       
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 <hr>
 
+<!-- Bike booked-->
 <div class="row content">
     <div class=" col-sm-12 main jumbotron">
         <h3 class="text-center">
             <b>Bikes Booked</b>
         </h3>
         
-        <div class="table-responsive" id="myTable"></div>
-        <table class="table  table-striped ">
-            <thead class="table-dark">
-                <tr>
-                    <th class="align-middle">Bike Id</th>                    
-                    <th class="align-middle">Prov Id</th>
-                    <th class="align-middle">Bike No.</th>
-                    <th class="align-middle">Type Of Gear</th>
-                    <th class="align-middle">Brand </th> 
-                    <th class="align-middle">Model </th>
-                    <th class="align-middle">RC Book No</th>
-                    <th class="align-middle">Charges/Hour</th>
-                    <th class="align-middle">Avg/Ltr</th> 
-                    <th class="align-middle">Location</th>
-                    <th class="align-middle">View</th> 
-                </tr>
-            </thead>
-            <tbody id="myTableBody" *ngFor="let x of bikeBookedArr">
-          
-                <tr >
-                    <td class="align-middle">{{x.bikeId}}</td>
-                    <td class="align-middle">{{x.provId}}</td>
-                    <td class="align-middle">{{x.bikeNo}}</td>
-                    <td class="align-middle">{{x.typeOfGear}}</td>
-                    <td class="align-middle">{{x.brandOfBike}}</td>
-                    <td class="align-middle">{{x.modelOfBike}}</td>
-                    <td class="align-middle">{{x.rcBookNo}}</td>
-                    <td class="align-middle">{{x.chargesPerHour}}</td>
-                    <td class="align-middle">{{x.avgPerLtr}}</td>
-                    <td class="align-middle">{{x.availableLocation}}</td>
-                    <td class="align-middle">                       
-                        <button type="button" class="btn btn-primary btn-sm" id="btn0" 
-                            >View   
-                        </button>                       
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive" id="myTable">
+            <table class="table  table-striped ">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="align-middle">Bike Id</th>                    
+                        <th class="align-middle">Prov Id</th>
+                        <th class="align-middle">Bike No.</th>
+                        <th class="align-middle">Type Of Gear</th>
+                        <th class="align-middle">Brand </th> 
+                        <th class="align-middle">Model </th>
+                        <th class="align-middle">RC Book No</th>
+                        <th class="align-middle">Charges/Hour</th>
+                        <th class="align-middle">Avg/Ltr</th> 
+                        <th class="align-middle">Location</th>
+                        <th class="align-middle">View</th> 
+                    </tr>
+                </thead>
+                <tbody id="myTableBody" *ngFor="let x of bikeBookedArr">
+            
+                    <tr >
+                        <td class="align-middle">{{x.bikeId}}</td>
+                        <td class="align-middle">{{x.provId}}</td>
+                        <td class="align-middle">{{x.bikeNo}}</td>
+                        <td class="align-middle">{{x.typeOfGear}}</td>
+                        <td class="align-middle">{{x.brandOfBike}}</td>
+                        <td class="align-middle">{{x.modelOfBike}}</td>
+                        <td class="align-middle">{{x.rcBookNo}}</td>
+                        <td class="align-middle">{{x.chargesPerHour}}</td>
+                        <td class="align-middle">{{x.avgPerLtr}}</td>
+                        <td class="align-middle">{{x.availableLocation}}</td>
+                        <td class="align-middle">                       
+                            <button type="button" class="btn btn-primary btn-sm" id="btn0" 
+                                >View   
+                            </button>                       
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 <hr>
+
+<!-- Bike rejected-->
 <div class="row content">
     <div class=" col-sm-12 main jumbotron">
         <h3 class="text-center">
             <b>Bikes Reejected</b>
         </h3>
         
-        <div class="table-responsive" id="myTable"></div>
-        <table class="table  table-striped ">
-            <thead class="table-dark">
-                <tr>
-                    <th class="align-middle">Bike Id</th>                    
-                    <th class="align-middle">Prov Id</th>
-                    <th class="align-middle">Bike No.</th>
-                    <th class="align-middle">Type Of Gear</th>
-                    <th class="align-middle">Brand </th> 
-                    <th class="align-middle">Model </th>
-                    <th class="align-middle">RC Book No</th>
-                    <th class="align-middle">Charges/Hour</th>
-                    <th class="align-middle">Avg/Ltr</th> 
-                    <th class="align-middle">Location</th>
-                    <th class="align-middle">View</th> 
-                </tr>
-            </thead>
-            <tbody id="myTableBody" *ngFor="let x of bikesRejArr">
-          
-                <tr >
-                    <td class="align-middle">{{x.bikeId}}</td>
-                    <td class="align-middle">{{x.provId}}</td>
-                    <td class="align-middle">{{x.bikeNo}}</td>
-                    <td class="align-middle">{{x.typeOfGear}}</td>
-                    <td class="align-middle">{{x.brandOfBike}}</td>
-                    <td class="align-middle">{{x.modelOfBike}}</td>
-                    <td class="align-middle">{{x.rcBookNo}}</td>
-                    <td class="align-middle">{{x.chargesPerHour}}</td>
-                    <td class="align-middle">{{x.avgPerLtr}}</td>
-                    <td class="align-middle">{{x.availableLocation}}</td>
-                    <td class="align-middle">                       
-                        <button type="button" class="btn btn-primary btn-sm" id="btn0" 
-                            >View   
-                        </button>
-                       
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive" id="myTable">
+            <table class="table  table-striped ">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="align-middle">Bike Id</th>                    
+                        <th class="align-middle">Prov Id</th>
+                        <th class="align-middle">Bike No.</th>
+                        <th class="align-middle">Type Of Gear</th>
+                        <th class="align-middle">Brand </th> 
+                        <th class="align-middle">Model </th>
+                        <th class="align-middle">RC Book No</th>
+                        <th class="align-middle">Charges/Hour</th>
+                        <th class="align-middle">Avg/Ltr</th> 
+                        <th class="align-middle">Location</th>
+                        <th class="align-middle">View</th> 
+                    </tr>
+                </thead>
+                <tbody id="myTableBody" *ngFor="let x of bikesRejArr">
+            
+                    <tr >
+                        <td class="align-middle">{{x.bikeId}}</td>
+                        <td class="align-middle">{{x.provId}}</td>
+                        <td class="align-middle">{{x.bikeNo}}</td>
+                        <td class="align-middle">{{x.typeOfGear}}</td>
+                        <td class="align-middle">{{x.brandOfBike}}</td>
+                        <td class="align-middle">{{x.modelOfBike}}</td>
+                        <td class="align-middle">{{x.rcBookNo}}</td>
+                        <td class="align-middle">{{x.chargesPerHour}}</td>
+                        <td class="align-middle">{{x.avgPerLtr}}</td>
+                        <td class="align-middle">{{x.availableLocation}}</td>
+                        <td class="align-middle">                       
+                            <button type="button" class="btn btn-primary btn-sm" id="btn0" 
+                                >View   
+                            </button>
+                        
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+</div>
+
+
+<div class="row" style="height: 60px;">
+</div>
+<div class="row" style="height: 120px; " >
+    <div class="col-1 ">
+        
+    </div>
+    <div class="col-4 display-4 shadoow d-flex align-items-center justify-content-center" 
+    style="background: whitesmoke; ">
+        <a style="color: black; text-decoration: none;" href="admin-view-apply.htm">View Providers</a>
+    </div>
+    <div class="col-2 ">
+        
+    </div>
+    <div class="col-4 shadoow display-4 d-flex align-items-center justify-content-center" style="background: whitesmoke;">
+        <a style="color: black; text-decoration: none;"  href="admin-view-loan-status.htm">View Customers</a>
+    </div>
+    <div class="col-1 ">
+        
+    </div>
+</div>
+<div class="row" style="height: 70px;" ></div>
+<div class="row" style="height: 120px;">
+    <div class="col-1 ">
+        
+    </div>
+    <div class="col-4 display-4 shadoow d-flex align-items-center justify-content-center" style="background: whitesmoke;">
+        <a style="color: black; text-decoration: none;"  href="#">Dummy</a>
+    </div>
+    <div class="col-2 ">
+        
+    </div>
+    <div class="col-4 display-4 shadoow d-flex align-items-center justify-content-center" style="background: whitesmoke;">
+        <a style="color: black; text-decoration: none;"  href="#">Dummy</a>
+    </div>
+    <div class="col-1 ">
+        
+    </div>
+</div>
+
+<div class="row mb-4">
+    
 </div>
