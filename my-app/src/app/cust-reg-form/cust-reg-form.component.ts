@@ -59,35 +59,34 @@ export class CustRegFormComponent implements OnInit {
   }
 
   onValueChange(value: Date): void {
-    
+    let dobStr = '';
     if( value !== null ){
       
     let age;
     console.log(value);
     let data = value;
     let date =  data.getDate();
-    let yr = data.getFullYear();
-    console.log('birth yr: ' + yr);
+    let month = data.getMonth();
+    let year = data.getFullYear();
+    console.log('birth yr: ' + year);
     
     var today = new Date();
-    age = today.getFullYear() - yr;
-    
+    age = today.getFullYear() - year;
+    dobStr = year + '/' + month + '/'+ date; 
     console.log('curr yr: ' + today.getFullYear());
     console.log(age);
-
+    console.log(dobStr);
     if(age > 18 ){
         $('#custAge').val(age);
+        this.customer.custAge = age;
+        //this.customer.custDateOfBirth = this.dobStr; 
       }
-      else{
-        
+      else{ 
         window.alert("The minimum age requirement for applicant is 18 years old.");
         $('#custDateOfBirth').val("");
         $('#custAge').val("");
       }
-    
     }
-    
-     
   }
 
   registerNow(){

@@ -4,7 +4,6 @@ import { BookingService } from '../Booking.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Booking } from '../booking';
 import { Bike } from '../bike';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-cust-book-bike-modal',
@@ -15,15 +14,23 @@ export class CustBookBikeModalComponent implements OnInit {
 
   bike: Bike;
   booking: Booking;
+  name: string;
+
   constructor(public _activeModal: NgbActiveModal, private _router: Router, private _service: BookingService, ) {}
 
   ngOnInit(): void {
 
     let booking = new Booking();
     console.dir( 'bike '+this.bike );
-    booking.bikeId = 2;
+    booking.bikeId = this.bike.bikeId;
+    booking.provId = this.bike.provId;
+    booking.custId = parseInt(sessionStorage.getItem('custSesId'));
+    booking.bookChargesPerHours = this.bike.chargesPerHour;
+    booking.bookDepositAmount = 100;
+    this.name = sessionStorage.getItem('custSesFname');
     console.log('booking '+ booking.bikeId);
     this.booking = booking;
+  
   }
 
   closeTheModal() {

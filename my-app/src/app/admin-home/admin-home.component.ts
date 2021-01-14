@@ -4,6 +4,9 @@ import { Bike } from '../bike';
 import { AdminService } from '../Admin.service';
 import { Location } from '@angular/common';
 import * as $ from 'jquery';
+import { BookingService } from '../Booking.service';
+import { DataTableDirective } from 'angular-datatables';
+
 
 @Component({
   selector: 'app-admin-home',
@@ -11,29 +14,35 @@ import * as $ from 'jquery';
   styleUrls: ['./admin-home.component.css']
 })
 export class AdminHomeComponent implements OnInit {
-  bike = new Bike();
-  
   dtOptions: DataTables.Settings = {};
+  posts;
+  bike = new Bike(); 
   
   public bikeReqArr;  
   public bikeAvlArr;  
   public bikeBookedArr;
   public bikesRejArr;
-  constructor(private _service: AdminService, private _router: Router, public _location: Location) { }
+  public bikeReqBookArr;
+
+  constructor(
+    private _service: AdminService,
+    private _service1: BookingService, 
+    private _router: Router, 
+    public _location: Location
+    ) 
+    { }
   
 
   ngOnInit(): void {
     jQuery( function () {
       $('#myTable').DataTable();
   } );
-    
-
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 5,
-    lengthMenu : [5, 10, 15],
-      processing: true
-    };
+  
+  this.dtOptions = {
+    pagingType: 'full_numbers',
+    pageLength: 5,
+    processing: true
+  };
 
     
 
@@ -65,6 +74,8 @@ export class AdminHomeComponent implements OnInit {
       }
     )
 
+
+
     this._service.getAllBookedBikes().subscribe(
       data=> {
         //console.log(data);
@@ -92,7 +103,24 @@ export class AdminHomeComponent implements OnInit {
         //this.bikesArr = 'Invalid Credentials';
       }
     )
+    
+    //all pending bookings
+    this._service1.getReqBooking().subscribe(
+      data=> {
+        //console.log(data);
+        this.bikeReqBookArr = data;
+        //console.log(this.bikeReqArr);
+        console.log("response recieved");
+        //this._router.navigate(['/prov-home'])
+      },
+      error=>{
+        console.log("Exception occured");
+        this.bikeReqBookArr = 'Invalid Credentials';
+      }
+    )
   }
+
+
 
   // testing(){
     

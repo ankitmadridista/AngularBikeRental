@@ -16,5 +16,8 @@ export class BookingService {
     return this.http.post(baseUrl+"/booking", booking)
   }
 
+  public getReqBooking(): Observable<any>{
+    return this.http.get(baseUrl+"/booking-req")
+  }
   
 }
