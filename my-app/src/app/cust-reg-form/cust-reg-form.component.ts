@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/customer.service';
 import { Customer } from '../customer';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-cust-reg-form',
@@ -11,13 +13,81 @@ import { Customer } from '../customer';
 export class CustRegFormComponent implements OnInit {
   customer = new Customer();
   msg = '';
+  datePickerConfig: Partial<BsDatepickerConfig>;
+  //data: Date;
 
   constructor(
     private _service: CustomerService, 
     private _router: Router
-   ) { }
+    
+    ) {
+      this.datePickerConfig = Object.assign({}, 
+          {
+           containerClass: 'theme-dark-blue',
+           showWeekNumbers: false
+          }
+        
+        )
+   
+     }
 
   ngOnInit(): void {
+    // $(document).ready(function () {
+    //   console.log("in jqury");
+    //     let age = "";
+    //     $('#provDateOfBirth').datepicker({
+    //         onSelect: function (value, ui) {
+    //             var today = new Date();
+    //             this.age = today.getFullYear() - ui.selectedYear;
+    //             //console.log(age);
+    //             if(age > 18 ){
+    //               $('#provAge').val(age);
+    //             }
+    //             else{
+    //               window.alert("The minimum age requirement for applicant is 18 years old.");
+    //               $('#provDateOfBirth').val("");
+    //               $('#provAge').val("");
+    //             }
+    //         },
+    //         changeMonth: true,
+    //         changeYear: true
+    //     })
+    // })
+
+    //let dob = $("#provDateOfBirth").val();
+    //alert(dob);
+  }
+
+  onValueChange(value: Date): void {
+    
+    if( value !== null ){
+      
+    let age;
+    console.log(value);
+    let data = value;
+    let date =  data.getDate();
+    let yr = data.getFullYear();
+    console.log('birth yr: ' + yr);
+    
+    var today = new Date();
+    age = today.getFullYear() - yr;
+    
+    console.log('curr yr: ' + today.getFullYear());
+    console.log(age);
+
+    if(age > 18 ){
+        $('#custAge').val(age);
+      }
+      else{
+        
+        window.alert("The minimum age requirement for applicant is 18 years old.");
+        $('#custDateOfBirth').val("");
+        $('#custAge').val("");
+      }
+    
+    }
+    
+     
   }
 
   registerNow(){

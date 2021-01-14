@@ -26,7 +26,9 @@ import { CustHomeComponent } from './cust-home/cust-home.component';
 import { CustShowProfComponent } from './cust-show-prof/cust-show-prof.component';
 import { CustUpdateProfComponent } from './cust-update-prof/cust-update-prof.component';
 import { ProvDelBikeModalComponent } from './prov-del-bike-modal/prov-del-bike-modal.component';
-import {DataTablesModule} from 'angular-datatables';
+import { DataTablesModule } from 'angular-datatables';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import {DataTablesModule} from 'angular-datatables';
     NgbModule,
     HttpClientModule,
     FormsModule,
-    DataTablesModule
+    DataTablesModule,
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [ProviderService],
   bootstrap: [AppComponent]

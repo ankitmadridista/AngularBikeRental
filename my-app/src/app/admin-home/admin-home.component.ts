@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Bike } from '../bike';
 import { AdminService } from '../Admin.service';
 import { Location } from '@angular/common';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-admin-home',
@@ -22,6 +23,10 @@ export class AdminHomeComponent implements OnInit {
   
 
   ngOnInit(): void {
+    jQuery( function () {
+      $('#myTable').DataTable();
+  } );
+    
 
     this.dtOptions = {
       pagingType: 'full_numbers',
@@ -29,6 +34,8 @@ export class AdminHomeComponent implements OnInit {
     lengthMenu : [5, 10, 15],
       processing: true
     };
+
+    
 
     this._service.getAllRequestedBikes().subscribe(
       data=> {
@@ -86,6 +93,12 @@ export class AdminHomeComponent implements OnInit {
       }
     )
   }
+
+  // testing(){
+    
+  //   let name = $("#txtName").val();
+  //   alert(name);
+  // }
 
   acceptRequest(id: Number){
     console.log(id);

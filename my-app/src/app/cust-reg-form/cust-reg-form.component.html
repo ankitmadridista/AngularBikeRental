@@ -64,7 +64,10 @@
              [class.has-error]="custDateOfBirth.invalid && custDateOfBirth.touched"
              [class.has-success]="custDateOfBirth.valid">
                 <label for="DOB" class="control-label">Date Of Birth</label>
-                <input type="date" class="form-control" [(ngModel)]="customer.custDateOfBirth" name="custDateOfBirth" id="custDateOfBirth" aria-describedby="emailHelpId" placeholder="Enter Date of birth" 
+                <input type="text" bsDatepicker [bsConfig]="datePickerConfig" (bsValueChange)="onValueChange($event)"  
+                class="form-control" [(ngModel)]="customer.custDateOfBirth" 
+                name="custDateOfBirth" id="custDateOfBirth" 
+                placeholder="Enter Date of birth" 
                 #custDateOfBirth="ngModel" required>
                 <span class="help-block text-danger" 
                    *ngIf="custDateOfBirth.invalid && custDateOfBirth.touched">
