@@ -18,6 +18,7 @@ import { CustRegFormComponent } from './cust-reg-form/cust-reg-form.component';
 import { CustHomeComponent } from './cust-home/cust-home.component';
 import { CustShowProfComponent } from './cust-show-prof/cust-show-prof.component';
 import { CustUpdateProfComponent } from './cust-update-prof/cust-update-prof.component';
+import { CustBookBikeComponent } from './cust-book-bike/cust-book-bike.component';
 
 const routes: Routes = [
   {
@@ -74,6 +75,9 @@ const routes: Routes = [
   },{
     path: 'cust-update-prof/:id',
     component: CustUpdateProfComponent,
+  },{
+    path: 'cust-book-bike',
+    component: CustBookBikeComponent,
   },
   { path: '', redirectTo: '/index', pathMatch: 'full' }
   

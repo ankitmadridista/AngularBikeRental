@@ -1,0 +1,55 @@
+<div class="modal-header">
+    <h4 class="modal-title">Hi there! </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="_activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+   
+  <div class="container">
+    <div class="row bg-secondary justify-content-around">
+        
+      <div class="col-xs-10">
+          <address>
+          <strong> Booking Details</strong><br>
+              <b>Brand Of Bike : {{ bike.brandOfBike }} </b><br>
+              <b>Type Of Gear : {{ bike.typeOfGear }}</b><br>                                
+              <b>Model Of Bike : {{ bike.modelOfBike }}</b><br>
+              <b>RC Book No. : {{ bike.rcBookNo }}</b><br>                            	
+              <b>Charges/Hour : {{ bike.chargesPerHour }}</b><br>                                
+              <b>Location : {{ bike.availableLocation }}</b><br>
+              <b>Bike No. : {{ bike.bikeNo }}</b><br> 
+              <b>Average/Ltr : {{ bike.avgPerLtr }}</b><br>
+              <b>Amount to be paid :  </b><br>
+              <b>Total Interest : </b><br>                          
+          </address>
+      </div>
+      <div class="col-xs-2 t">
+          <address>
+              <strong>Application Date:</strong><br>
+              <b>Amount to Pay : </b><br>         
+              <b>Amount to Pay : </b><br>         
+              <b>Amount to Pay : </b><br>         
+              <b>Amount to Pay : </b><br>                                   
+              <b>Amount to Pay : </b><br>         
+              <b>Amount to Pay : </b><br>         
+              <br><br>
+          </address>
+      </div>
+    </div>      
+  </div>  
+</div>  
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="bookAndClose()">
+    Book
+  </button>
+  <button type="button" class="btn btn-outline-dark" (click)="closeTheModal()">
+    Close
+  </button>
+</div>
+  

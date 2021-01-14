@@ -29,6 +29,8 @@ import { ProvDelBikeModalComponent } from './prov-del-bike-modal/prov-del-bike-m
 import { DataTablesModule } from 'angular-datatables';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { CustBookBikeComponent } from './cust-book-bike/cust-book-bike.component';
+import { CustBookBikeModalComponent } from './cust-book-bike-modal/cust-book-bike-modal.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     CustHomeComponent,
     CustShowProfComponent,
     CustUpdateProfComponent,
-    ProvDelBikeModalComponent
+    ProvDelBikeModalComponent,
+    CustBookBikeComponent,
+    CustBookBikeModalComponent
   ],
   imports: [
     BrowserModule,

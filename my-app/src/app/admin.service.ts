@@ -12,25 +12,25 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   public getAllRejectedBikes(): Observable<any>{
-    return this.http.get(baseUrl+"/bikesByStatus/"+"Rejected" )    
+    return this.http.get(baseUrl+"/bikes-status/"+"Rejected" )    
   }
   
   public getAllRequestedBikes(): Observable<any>{
-    return this.http.get(baseUrl+"/bikesByStatus/"+"Requested" )    
+    return this.http.get(baseUrl+"/bikes-status/"+"Requested" )    
   }
   public getAllAvailableBikes(): Observable<any>{
-    return this.http.get(baseUrl+"/bikesByStatus/"+"Available" )    
+    return this.http.get(baseUrl+"/bikes-status/"+"Available" )    
   }
   public getAllBookedBikes(): Observable<any>{
-    return this.http.get(baseUrl+"/bikesByStatus/"+"Booked" )    
+    return this.http.get(baseUrl+"/bikes-status/"+"Booked" )    
   }  
   
   public acceptBike(id: Number): Observable<any>{
-    return this.http.get(baseUrl+"/bikesUpdateToAvailable/"+id )    
+    return this.http.get(baseUrl+"/bikes-update-available/"+id )    
   }
   
   public rejectBike(id: Number): Observable<any>{
-    return this.http.get(baseUrl+"/bikesUpdateToRejected/"+id )    
+    return this.http.get(baseUrl+"/bikes-update-rejected/"+id )    
   }
   
   public doRegistration(admin: Admin): Observable<any>{

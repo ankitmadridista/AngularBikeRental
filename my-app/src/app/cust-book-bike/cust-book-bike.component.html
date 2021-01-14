@@ -1,0 +1,48 @@
+
+<hr>
+
+<div class="row content" *ngIf="bikeArrStat">
+    <div class=" col-sm-12 main shadow jumbotron">
+        <h3 class="text-center">
+            <b>Bikes Info</b>
+        </h3>
+        
+        <div class="table-responsive" id="myTable">
+            <table class="table table-hover table-striped ">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="align-middle">Bike No.</th>
+                        <th class="align-middle">Type Of Gear</th>
+                        <th class="align-middle">Brand </th> 
+                        <th class="align-middle">Model </th>
+                        <th class="align-middle">RC Book No</th>
+                        <th class="align-middle">Charges/Hour</th>
+                        <th class="align-middle">Avg/Ltr</th> 
+                        <th class="align-middle">Location</th>
+                        <th class="align-middle">Status</th> 
+                        <th class="align-middle">Modify</th> 
+                    </tr>
+                </thead>
+                <tbody id="myTableBody" *ngFor="let x of bikesArr">
+            
+                    <tr >
+                        <td class="align-middle">{{x.bikeNo}}</td>
+                        <td class="align-middle">{{x.typeOfGear}}</td>
+                        <td class="align-middle">{{x.brandOfBike}}</td>
+                        <td class="align-middle">{{x.modelOfBike}}</td>
+                        <td class="align-middle">{{x.rcBookNo}}</td>
+                        <td class="align-middle">{{x.chargesPerHour}}</td>
+                        <td class="align-middle">{{x.avgPerLtr}}</td>
+                        <td class="align-middle">{{x.availableLocation}}</td>
+                        <td class="align-middle">{{x.bikeStatus}}</td>
+                        <td class="align-middle">                       
+                            <button type="button" class="btn btn-primary btn-sm" id="btn0" (click)="onUpdate(x)">
+                                View   
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

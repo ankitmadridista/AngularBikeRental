@@ -21,11 +21,11 @@ export class BikeService {
 
   public getBikesByProvId(): Observable<any>{
     //let provId = sessionStorage.getItem("provSesId");
-    return this.http.get(baseUrl+"/bikesByProvId/" + parseInt(sessionStorage.getItem("provSesId")) )    
+    return this.http.get(baseUrl+"/bikes-provId/" + parseInt(sessionStorage.getItem("provSesId")) )    
   }
 
   public getBikesByBikeId(id : Number): Observable<any>{
-    return this.http.get(baseUrl+"/bikesByBikeId/" + id)
+    return this.http.get(baseUrl+"/bikes-bikeId/" + id)
   }
 
   public deleteBikeByBikeId(id : Number): Observable<any>{
