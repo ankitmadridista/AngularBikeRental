@@ -8,7 +8,7 @@ export class Booking {
 	bookReadingAtStart: Number;
 	bookReadingAtEnd: Number;
 	bookPaymentStatus: string;
-	bookingStatus : string;
+	bookStatus : string;
 	bookDepositAmount : Number;
 	bookFeedbackCustomer: string ;
 	bookFeedabackProvider: string;

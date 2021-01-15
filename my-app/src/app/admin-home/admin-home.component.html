@@ -1,265 +1,35 @@
 
 <hr>
-<!-- Bike requested-->
-<div class="row content">
-    <div class=" col-sm-12 main jumbotron">
-        <h3 class="text-center">
-            <b>Bikes Requested</b>
-        </h3>
-        
-        <div class="table-responsive" id="myTable">
-        <table class="table  table-striped "  datatable [dtOptions]="dtOptions">
-            <thead class="table-dark">
-                <tr>
-                    <th class="align-middle">Bike Id</th>                    
-                    <th class="align-middle">Prov Id</th>
-                    <th class="align-middle">Bike No.</th>
-                    <th class="align-middle">Type Of Gear</th>
-                    <th class="align-middle">Brand </th> 
-                    <th class="align-middle">Model </th>
-                    <th class="align-middle">RC Book No</th>
-                    <th class="align-middle">Charges/Hour</th>
-                    <th class="align-middle">Avg/Ltr</th> 
-                    <th class="align-middle">Location</th>
-                    <th class="align-middle">View</th> 
-                </tr>
-            </thead>
-            <tbody id="myTableBody" *ngFor="let x of bikeReqArr" >
-          
-                <tr >
-                    <td class="align-middle">{{x.bikeId}}</td>
-                    <td class="align-middle">{{x.provId}}</td>
-                    <td class="align-middle">{{x.bikeNo}}</td>
-                    <td class="align-middle">{{x.typeOfGear}}</td>
-                    <td class="align-middle">{{x.brandOfBike}}</td>
-                    <td class="align-middle">{{x.modelOfBike}}</td>
-                    <td class="align-middle">{{x.rcBookNo}}</td>
-                    <td class="align-middle">{{x.chargesPerHour}}</td>
-                    <td class="align-middle">{{x.avgPerLtr}}</td>
-                    <td class="align-middle">{{x.availableLocation}}</td>
-                    <td class="align-middle">                       
-                        <button type="button" class="btn btn-primary btn-sm" id="btn0" (click)="acceptRequest(x.bikeId)">
-                            Accept   
-                        </button>
-                        <button type="button" class="btn btn-danger btn-sm" id="btn1" (click)="rejectRequst(x.bikeId)">
-                            Reject   
-                        </button>                       
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        </div>
-    </div>
-</div>
-<hr>
 
-<!-- Bike available-->
-<div class="row content">
-    <div class=" col-sm-12 main jumbotron">
-        <h3 class="text-center">
-            <b>Bikes Available</b>
-        </h3>
-        
-        <div class="table-responsive" id="myTable">
-            <table class="table  table-striped ">
-                <thead class="table-dark">
-                    <tr>
-                        <th class="align-middle">Bike Id</th>                    
-                        <th class="align-middle">Prov Id</th>
-                        <th class="align-middle">Bike No.</th>
-                        <th class="align-middle">Type Of Gear</th>
-                        <th class="align-middle">Brand </th> 
-                        <th class="align-middle">Model </th>
-                        <th class="align-middle">RC Book No</th>
-                        <th class="align-middle">Charges/Hour</th>
-                        <th class="align-middle">Avg/Ltr</th> 
-                        <th class="align-middle">Location</th>
-                        <th class="align-middle">View</th> 
-                    </tr>
-                </thead>
-                <tbody id="myTableBody" *ngFor="let x of bikeAvlArr">
-            
-                    <tr >
-                        <td class="align-middle">{{x.bikeId}}</td>
-                        <td class="align-middle">{{x.provId}}</td>
-                        <td class="align-middle">{{x.bikeNo}}</td>
-                        <td class="align-middle">{{x.typeOfGear}}</td>
-                        <td class="align-middle">{{x.brandOfBike}}</td>
-                        <td class="align-middle">{{x.modelOfBike}}</td>
-                        <td class="align-middle">{{x.rcBookNo}}</td>
-                        <td class="align-middle">{{x.chargesPerHour}}</td>
-                        <td class="align-middle">{{x.avgPerLtr}}</td>
-                        <td class="align-middle">{{x.availableLocation}}</td>
-                        <td class="align-middle">                       
-                            <button type="button" class="btn btn-primary btn-sm" id="btn0" 
-                                >View   
-                            </button>                       
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-<hr>
 
-<!-- Bike booked-->
-<div class="row content">
-    <div class=" col-sm-12 main jumbotron">
-        <h3 class="text-center">
-            <b>Bikes Booked</b>
-        </h3>
-        
-        <div class="table-responsive" id="myTable">
-            <table class="table  table-striped ">
-                <thead class="table-dark">
-                    <tr>
-                        <th class="align-middle">Bike Id</th>                    
-                        <th class="align-middle">Prov Id</th>
-                        <th class="align-middle">Bike No.</th>
-                        <th class="align-middle">Type Of Gear</th>
-                        <th class="align-middle">Brand </th> 
-                        <th class="align-middle">Model </th>
-                        <th class="align-middle">RC Book No</th>
-                        <th class="align-middle">Charges/Hour</th>
-                        <th class="align-middle">Avg/Ltr</th> 
-                        <th class="align-middle">Location</th>
-                        <th class="align-middle">View</th> 
-                    </tr>
-                </thead>
-                <tbody id="myTableBody" *ngFor="let x of bikeBookedArr">
-            
-                    <tr >
-                        <td class="align-middle">{{x.bikeId}}</td>
-                        <td class="align-middle">{{x.provId}}</td>
-                        <td class="align-middle">{{x.bikeNo}}</td>
-                        <td class="align-middle">{{x.typeOfGear}}</td>
-                        <td class="align-middle">{{x.brandOfBike}}</td>
-                        <td class="align-middle">{{x.modelOfBike}}</td>
-                        <td class="align-middle">{{x.rcBookNo}}</td>
-                        <td class="align-middle">{{x.chargesPerHour}}</td>
-                        <td class="align-middle">{{x.avgPerLtr}}</td>
-                        <td class="align-middle">{{x.availableLocation}}</td>
-                        <td class="align-middle">                       
-                            <button type="button" class="btn btn-primary btn-sm" id="btn0" 
-                                >View   
-                            </button>                       
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-<hr>
-
-<!-- Bike rejected-->
-<div class="row content">
-    <div class=" col-sm-12 main jumbotron">
-        <h3 class="text-center">
-            <b>Bikes Reejected</b>
-        </h3>
-        
-        <div class="table-responsive" id="myTable">
-            <table class="table  table-striped ">
-                <thead class="table-dark">
-                    <tr>
-                        <th class="align-middle">Bike Id</th>                    
-                        <th class="align-middle">Prov Id</th>
-                        <th class="align-middle">Bike No.</th>
-                        <th class="align-middle">Type Of Gear</th>
-                        <th class="align-middle">Brand </th> 
-                        <th class="align-middle">Model </th>
-                        <th class="align-middle">RC Book No</th>
-                        <th class="align-middle">Charges/Hour</th>
-                        <th class="align-middle">Avg/Ltr</th> 
-                        <th class="align-middle">Location</th>
-                        <th class="align-middle">View</th> 
-                    </tr>
-                </thead>
-                <tbody id="myTableBody" *ngFor="let x of bikesRejArr">
-            
-                    <tr >
-                        <td class="align-middle">{{x.bikeId}}</td>
-                        <td class="align-middle">{{x.provId}}</td>
-                        <td class="align-middle">{{x.bikeNo}}</td>
-                        <td class="align-middle">{{x.typeOfGear}}</td>
-                        <td class="align-middle">{{x.brandOfBike}}</td>
-                        <td class="align-middle">{{x.modelOfBike}}</td>
-                        <td class="align-middle">{{x.rcBookNo}}</td>
-                        <td class="align-middle">{{x.chargesPerHour}}</td>
-                        <td class="align-middle">{{x.avgPerLtr}}</td>
-                        <td class="align-middle">{{x.availableLocation}}</td>
-                        <td class="align-middle">                       
-                            <button type="button" class="btn btn-primary btn-sm" id="btn0" 
-                                >View   
-                            </button>
-                        
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
-<!-- Bookings requested-->
-<div class="row content">
-    <div class=" col-sm-12 main jumbotron">
-        <h3 class="text-center">
-            <b>Requested Bookings</b>
-        </h3>
-        
-        <div class="table-responsive" id="myTable">
-        <table class="table  table-striped "  datatable [dtOptions]="dtOptions">
-            <thead class="table-dark">
-                <tr>
-                    <th class="align-middle">Booking Id</th>                    
-                    <th class="align-middle">Prov Id</th>
-                    <th class="align-middle">Bike Id</th>
-                    <th class="align-middle">Cust Id</th>
-                    <th class="align-middle">Charges/hr </th> 
-                    <th class="align-middle">Bill Amt</th>
-                    <th class="align-middle">Payment Status</th>
-                    <th class="align-middle">Booking Status</th>
-                    <th class="align-middle">Deposit Amt</th> 
-                    <th class="align-middle">Location</th>
-                    <th class="align-middle">View</th> 
-                </tr>
-            </thead>
-            <tbody id="myTableBody"  >
-          
-                <tr *ngFor="let x of bikeReqBookArr">
-                    <td class="align-middle">{{x.bookId}}</td>
-                    <td class="align-middle">{{x.bikeId}}</td>
-                    <td class="align-middle">{{x.provId}}</td>
-                    <td class="align-middle">{{x.custId}}</td>
-                    <td class="align-middle">{{x.bookChargesPerHours}}</td>
-                    <td class="align-middle">{{x.bookBillAmount}}</td>
-                    <td class="align-middle">{{x.bookPaymentStatus}}</td>
-                    <td class="align-middle">{{x.bookingStatus}}</td>
-                    <td class="align-middle">{{x.bookDepositAmount}}</td>
-                    <td class="align-middle">{{x.availableLocation}}</td>
-                    <td class="align-middle">                       
-                        <button type="button" class="btn btn-primary btn-sm" id="btn0" (click)="acceptRequest(x.bikeId)">
-                            Accept   
-                        </button>
-                        <button type="button" class="btn btn-danger btn-sm" id="btn1" (click)="rejectRequst(x.bikeId)">
-                            Reject   
-                        </button>                       
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        </div>
-    </div>
-</div>
 <hr>
 
 
 
 <div class="row" style="height: 60px;">
 </div>
+
+<div class="row" style="height: 120px; " >
+    <div class="col-1 ">
+        
+    </div>
+    <div class="col-4 display-4 shadoow d-flex align-items-center justify-content-center" 
+    style="background: whitesmoke; ">
+        <a routerLink="/admin-bike-status" class="nav-link" style="color: black; text-decoration: none;" >Bike Status</a>
+    </div>
+    <div class="col-2 ">
+        
+    </div>
+    <div class="col-4 shadoow display-4 d-flex align-items-center justify-content-center" style="background: whitesmoke;">
+        <a routerLink="/admin-book-status" class="nav-link" style="color: black; text-decoration: none;" >Booking Status</a>
+    </div>
+    <div class="col-1 ">
+        
+    </div>
+</div>
+
+<div class="row" style="height: 70px;" ></div>
+
 <div class="row" style="height: 120px; " >
     <div class="col-1 ">
         

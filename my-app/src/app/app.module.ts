@@ -31,6 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { CustBookBikeComponent } from './cust-book-bike/cust-book-bike.component';
 import { CustBookBikeModalComponent } from './cust-book-bike-modal/cust-book-bike-modal.component';
+import { AdminBikeStatusComponent } from './admin-bike-status/admin-bike-status.component';
+import { AdminBookStatusComponent } from './admin-book-status/admin-book-status.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { CustBookBikeModalComponent } from './cust-book-bike-modal/cust-book-bik
     CustUpdateProfComponent,
     ProvDelBikeModalComponent,
     CustBookBikeComponent,
-    CustBookBikeModalComponent
+    CustBookBikeModalComponent,
+    AdminBikeStatusComponent,
+    AdminBookStatusComponent
   ],
   imports: [
     BrowserModule,
