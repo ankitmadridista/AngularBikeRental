@@ -19,5 +19,28 @@ export class BookingService {
   public getReqBooking(): Observable<any>{
     return this.http.get(baseUrl+"/booking-req")
   }
+  public getAccBooking(): Observable<any>{
+    return this.http.get(baseUrl+"/booking-acc")
+  }
+  public getActBooking(): Observable<any>{
+    return this.http.get(baseUrl+"/booking-act")
+  }
+  
+  public accBooking(booking: Booking): Observable<any>{
+    return this.http.post(baseUrl+"/update-booking-accepted", booking )    
+  }
+
+  public rejBooking(booking: Booking): Observable<any>{
+    return this.http.post(baseUrl+"/update-booking-rejected/", booking )    
+  }
+
+  public getBookingByCustId(id: Number): Observable<any>{
+    return this.http.get(baseUrl+"/cust-booking/"+id)
+  }
+
+  public bookingOnRide(booking: Booking): Observable<any>{
+    return this.http.put(baseUrl+"/booking", booking)    
+  }
+
   
 }

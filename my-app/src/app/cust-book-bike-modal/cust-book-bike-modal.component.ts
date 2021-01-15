@@ -16,7 +16,7 @@ export class CustBookBikeModalComponent implements OnInit {
   booking: Booking;
   name: string;
 
-  constructor(public _activeModal: NgbActiveModal, private _router: Router, private _service: BookingService, ) {}
+  constructor(public _activeModal: NgbActiveModal, private _router: Router, private _service: BookingService ) {}
 
   ngOnInit(): void {
 
@@ -39,10 +39,10 @@ export class CustBookBikeModalComponent implements OnInit {
 
   bookAndClose() {
 
-    this._activeModal.dismiss();
     
     this._service.addBooking(this.booking).subscribe(
       data=> {
+      
       console.log("response recieved");
       this._router.navigate(['/cust-home'])
       //window.location.reload();
@@ -53,5 +53,7 @@ export class CustBookBikeModalComponent implements OnInit {
       //window.location.reload();   
     });    
 
+    
+    this._activeModal.dismiss();
   }
 }

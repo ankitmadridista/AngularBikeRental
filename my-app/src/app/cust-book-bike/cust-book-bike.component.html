@@ -42,5 +42,51 @@
                 </tbody>
             </table>
         </div>
+
     </div>
 </div>
+
+<!-- cust all Bookings -->
+<div class="row content">
+    <div class=" col-sm-12 main jumbotron">
+        <h3 class="text-center">
+            <b>My Bookings</b>
+        </h3>
+        
+        <div class="table-responsive" id="myTable">
+        <table class="table  table-striped "  >
+            <thead class="table-dark">
+                <tr>
+                    <th class="align-middle">Booking Id</th>   
+                    <th class="align-middle">Bike Id</th>                 
+                    <th class="align-middle">Prov Id</th>
+                    <th class="align-middle">Cust Id</th>
+                    <th class="align-middle">Charges/hr </th> 
+                    <th class="align-middle">Bill Amt</th>
+                    <th class="align-middle">Payment Status</th>
+                    <th class="align-middle">Booking Status</th>
+                    <th class="align-middle">Deposit Amt</th> 
+                    <th class="align-middle">Location</th>
+                </tr>
+            </thead>
+            <tbody id="myTableBody"  >
+          
+                <tr *ngFor="let x of bookCustArr">
+                    <td class="align-middle">{{x.bookId}}</td>
+                    <td class="align-middle">{{x.bikeId}}</td>
+                    <td class="align-middle">{{x.provId}}</td>
+                    <td class="align-middle">{{x.custId}}</td>
+                    <td class="align-middle">{{x.bookChargesPerHours}}</td>
+                    <td class="align-middle">{{x.bookBillAmount}}</td>
+                    <td class="align-middle">{{x.bookPaymentStatus}}</td>
+                    <td class="align-middle">{{x.bookStatus}}</td>
+                    <td class="align-middle">{{x.bookDepositAmount}}</td>
+                    <td class="align-middle">{{x.availableLocation}}</td>
+                  
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+<hr>

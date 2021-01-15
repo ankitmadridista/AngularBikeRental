@@ -32,6 +32,7 @@ export class AdminService {
   public rejectBike(id: Number): Observable<any>{
     return this.http.get(baseUrl+"/bikes-update-rejected/"+id )    
   }
+
   
   public doRegistration(admin: Admin): Observable<any>{
     return this.http.post(baseUrl+"/admin", admin )    

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AdminService } from '../Admin.service';
 import { Bike } from '../bike';
+import { BookingService } from '../Booking.service';
 import { CustBookBikeModalComponent } from '../cust-book-bike-modal/cust-book-bike-modal.component';
 
 @Component({
@@ -15,8 +16,16 @@ export class CustBookBikeComponent implements OnInit {
 
   public bikesArr;
   public bikeArrStat =  false;
+  public bookCustArr;
+  public bookCustArrStat = false;
+
   
-  constructor(private _service: AdminService, private _router: Router, private _modalService: NgbModal) { }
+  constructor(
+    private _service: AdminService, 
+    private _router: Router, 
+    private _modalService: NgbModal,
+    private _service1: BookingService
+    ) { }
   
 
   ngOnInit(): void {
@@ -35,6 +44,22 @@ export class CustBookBikeComponent implements OnInit {
         this.bikesArr = 'Invalid Credentials';
       }
     )
+
+    this._service1.getBookingByCustId(parseInt(sessionStorage.getItem("custSesId"))).subscribe(
+      data=> {
+        //console.log(data);
+        this.bookCustArr = data;
+        //console.log(this.bikeAvlArr);
+        console.log("response recieved");
+        //this._router.navigate(['/prov-home'])
+        this.bookCustArrStat = true;
+      },
+      error=>{
+        console.log("Exception occured");
+        this.bookCustArr = 'Invalid Credentials';
+      }
+    )
+
   }
 
   onUpdate(bike: Bike){
