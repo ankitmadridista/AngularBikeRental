@@ -94,7 +94,7 @@ export class CustRegFormComponent implements OnInit {
     this._service.doRegistration(this.customer).subscribe(
       data=> {
       console.log("response recieved");
-      this._router.navigate(['/reg-success'])
+      this._router.navigate(['/reg-success',3])
     },
     error=>{
       console.log("Exception occured");

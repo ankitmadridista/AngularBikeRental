@@ -23,7 +23,7 @@ export class AdminRegFormComponent implements OnInit {
     this._service.doRegistration(this.admin).subscribe(
       data=> {
       console.log("response recieved");
-      this._router.navigate(['/reg-success'])
+      this._router.navigate(['/reg-success',1])
     },
     error=>{
       console.log("Exception occured");

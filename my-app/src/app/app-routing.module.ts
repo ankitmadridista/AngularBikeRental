@@ -31,7 +31,7 @@ const routes: Routes = [
     path: 'prov-reg',
     component: ProvRegFormComponent,
   },{
-    path: 'reg-success',
+    path: 'reg-success/:id',
     component: RegSuccessComponent,
   },{
     path: 'prov-home',

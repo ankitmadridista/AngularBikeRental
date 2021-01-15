@@ -3,9 +3,7 @@ import { Router } from '@angular/router';
 import { Bike } from '../bike';
 import { AdminService } from '../Admin.service';
 import { Location } from '@angular/common';
-import * as $ from 'jquery';
 import { BookingService } from '../Booking.service';
-import { DataTableDirective } from 'angular-datatables';
 
 
 @Component({
@@ -34,9 +32,9 @@ export class AdminHomeComponent implements OnInit {
   
 
   ngOnInit(): void {
-    jQuery( function () {
-      $('#myTable').DataTable();
-  } );
+  //   $( function () {
+  //     $('#myTable').DataTable();
+  // });
   
   this.dtOptions = {
     pagingType: 'full_numbers',

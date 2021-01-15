@@ -43,7 +43,7 @@ export class ProvRegFormComponent implements OnInit {
     this._service.doRegistration(this.provider).subscribe(
       data=> {
       console.log("response recieved");
-      this._router.navigate(['/reg-success'])
+      this._router.navigate(['/reg-success',2])
     },
     error=>{
       console.log("Exception occured");

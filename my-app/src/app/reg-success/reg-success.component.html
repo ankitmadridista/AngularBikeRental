@@ -5,11 +5,12 @@
             <h2 class="text-success">REGISTRATION SUCCESFULL....</h2>
 
             <h5>We have sent a Confirmation mail to your mail-id</h5>
+            
+            <button  class="btn btn-outline-success" *ngIf="id == 1"> <a href="admin-log">Login  </a></button>
 
-            <button  class="btn btn-outline-success"> <a href="prov-log">
-
-            Login  </a></button>
-
+            <button  class="btn btn-outline-success" *ngIf="id == 2"> <a href="prov-log">Login  </a></button>
+                
+            <button  class="btn btn-outline-success" *ngIf="id == 3"> <a href="cust-log">Login  </a></button>
 
         </div>
     </div>
