@@ -38,8 +38,26 @@ export class BookingService {
     return this.http.get(baseUrl+"/cust-booking/"+id)
   }
 
+  //booking status update from accepted to active
   public bookingOnRide(booking: Booking): Observable<any>{
     return this.http.put(baseUrl+"/booking", booking)    
+  }
+
+  //booking completed or bill generation
+  public bookingCompleted(booking: Booking): Observable<any>{
+    return this.http.put(baseUrl+"/booking", booking)    
+  }
+
+  // public bookingCompletedAndMoneyRefund(booking: Booking): Observable<any>{
+  //   return this.http.put(baseUrl+"/booking", booking)    
+  // }
+
+  public getPaidBookingByCustId(id: Number): Observable<any>{
+    return this.http.get(baseUrl+"/cust-paid-booking/"+id)
+  }
+
+  public getCustCurrBookByCustId(id: Number): Observable<any>{
+    return this.http.get(baseUrl+"/cust-curr-booking/"+id)
   }
 
   

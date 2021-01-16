@@ -11,7 +11,8 @@ export class Customer {
 	custAddress: string;
 	custCity: string;
 	custState: string;
-    custPin: string;
+	custPin: string;
+	custIsActive: boolean;
     constructor(){};
 }
 

@@ -42,7 +42,7 @@ export class AdminBookFormModalComponent implements OnInit {
       // dateStr = date + '/' + month + '/' + year ;
 
       this.booking.bookStartTimeCust = today.toLocaleString();
-
+      console.log(this.booking);
     this._service.bookingOnRide(this.booking).subscribe(
       data=> {
       console.log("response recieved");

@@ -1,5 +1,5 @@
 <hr>
-<div class="row content" *ngIf="bikeArrStat">
+<div class="row content" *ngIf="bikeArrStat && !custIsActive" >
     <div class=" col-sm-12 main shadow jumbotron">
         <h3 class="text-center">
             <b>Bikes Info</b>
@@ -46,11 +46,13 @@
     </div>
 </div>
 
-<!-- cust all Bookings -->
-<div class="row content">
+
+
+<!-- cust curr booking status -->
+<div class="row content" *ngIf="custIsActive">
     <div class=" col-sm-12 main jumbotron">
         <h3 class="text-center">
-            <b>My Bookings</b>
+            <b>My Current Booking</b>
         </h3>
         
         <div class="table-responsive" id="myTable">
@@ -66,22 +68,20 @@
                     <th class="align-middle">Payment Status</th>
                     <th class="align-middle">Booking Status</th>
                     <th class="align-middle">Deposit Amt</th> 
-                    <th class="align-middle">Location</th>
                 </tr>
             </thead>
             <tbody id="myTableBody"  >
           
-                <tr *ngFor="let x of bookCustArr">
-                    <td class="align-middle">{{x.bookId}}</td>
-                    <td class="align-middle">{{x.bikeId}}</td>
-                    <td class="align-middle">{{x.provId}}</td>
-                    <td class="align-middle">{{x.custId}}</td>
-                    <td class="align-middle">{{x.bookChargesPerHours}}</td>
-                    <td class="align-middle">{{x.bookBillAmount}}</td>
-                    <td class="align-middle">{{x.bookPaymentStatus}}</td>
-                    <td class="align-middle">{{x.bookStatus}}</td>
-                    <td class="align-middle">{{x.bookDepositAmount}}</td>
-                    <td class="align-middle">{{x.availableLocation}}</td>
+                <tr >
+                    <td class="align-middle">{{booking.bookId}}</td>
+                    <td class="align-middle">{{booking.bikeId}}</td>
+                    <td class="align-middle">{{booking.provId}}</td>
+                    <td class="align-middle">{{booking.custId}}</td>
+                    <td class="align-middle">{{booking.bookChargesPerHours}}</td>
+                    <td class="align-middle">{{booking.bookBillAmount}}</td>
+                    <td class="align-middle">{{booking.bookPaymentStatus}}</td>
+                    <td class="align-middle">{{booking.bookStatus}}</td>
+                    <td class="align-middle">{{booking.bookDepositAmount}}</td>
                   
                 </tr>
             </tbody>

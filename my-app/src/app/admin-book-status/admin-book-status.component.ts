@@ -5,6 +5,7 @@ import { BookingService } from '../Booking.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AdminBookFormModalComponent } from '../admin-book-form-modal/admin-book-form-modal.component';
 import { Booking } from '../booking';
+import { AdminEndRideFormModalComponent } from '../admin-end-ride-form-modal/admin-end-ride-form-modal.component';
 @Component({
   selector: 'app-admin-book-status',
   templateUrl: './admin-book-status.component.html',
@@ -100,9 +101,14 @@ export class AdminBookStatusComponent implements OnInit {
     )
   }
 
-  viewBooingModal(booking: Booking){
+  viewBookingModal(booking: Booking){
     
     const activeModal = this._modalService.open(AdminBookFormModalComponent, { size: 'lg' });
+    activeModal.componentInstance.booking = booking;
+  }
+  endRideModal(booking: Booking){
+    
+    const activeModal = this._modalService.open(AdminEndRideFormModalComponent, { size: 'lg' });
     activeModal.componentInstance.booking = booking;
   }
 

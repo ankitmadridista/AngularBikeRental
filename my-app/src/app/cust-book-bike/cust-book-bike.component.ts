@@ -5,6 +5,8 @@ import { AdminService } from '../Admin.service';
 import { Bike } from '../bike';
 import { BookingService } from '../Booking.service';
 import { CustBookBikeModalComponent } from '../cust-book-bike-modal/cust-book-bike-modal.component';
+import { Customer } from '../customer';
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-cust-book-bike',
@@ -16,19 +18,37 @@ export class CustBookBikeComponent implements OnInit {
 
   public bikesArr;
   public bikeArrStat =  false;
-  public bookCustArr;
+  public booking;
   public bookCustArrStat = false;
 
+  public customer: Customer;
+  public custIsActive = false;
   
+  msg: any;
+
   constructor(
     private _service: AdminService, 
     private _router: Router, 
     private _modalService: NgbModal,
-    private _service1: BookingService
+    private _service1: CustomerService,
+    private _service2: BookingService
     ) { }
   
 
   ngOnInit(): void {
+
+    this._service1.getCustByCustId(parseInt(sessionStorage.getItem("custSesId"))).subscribe(
+      data=> {
+        this.customer = data;
+        this.custIsActive = this.customer.custIsActive;
+        
+        console.log("response recieved");
+      },
+      error=>{
+        console.log("Exception occured");
+        this.msg = 'Invalid Credentials';
+      }
+    )
 
     this._service.getAllAvailableBikes().subscribe(
       data=> {
@@ -44,11 +64,12 @@ export class CustBookBikeComponent implements OnInit {
         this.bikesArr = 'Invalid Credentials';
       }
     )
-
-    this._service1.getBookingByCustId(parseInt(sessionStorage.getItem("custSesId"))).subscribe(
+    
+    
+    this._service2.getCustCurrBookByCustId(parseInt(sessionStorage.getItem('custSesId'))).subscribe(
       data=> {
         //console.log(data);
-        this.bookCustArr = data;
+        this.booking = data;
         //console.log(this.bikeAvlArr);
         console.log("response recieved");
         //this._router.navigate(['/prov-home'])
@@ -56,9 +77,10 @@ export class CustBookBikeComponent implements OnInit {
       },
       error=>{
         console.log("Exception occured");
-        this.bookCustArr = 'Invalid Credentials';
+        this.booking = 'Invalid Credentials';
       }
     )
+   
 
   }
 

@@ -34,6 +34,8 @@ import { CustBookBikeModalComponent } from './cust-book-bike-modal/cust-book-bik
 import { AdminBikeStatusComponent } from './admin-bike-status/admin-bike-status.component';
 import { AdminBookStatusComponent } from './admin-book-status/admin-book-status.component';
 import { AdminBookFormModalComponent } from './admin-book-form-modal/admin-book-form-modal.component';
+import { AdminEndRideFormModalComponent } from './admin-end-ride-form-modal/admin-end-ride-form-modal.component';
+import { CustBookHistoryComponent } from './cust-book-history/cust-book-history.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { AdminBookFormModalComponent } from './admin-book-form-modal/admin-book-
     CustBookBikeModalComponent,
     AdminBikeStatusComponent,
     AdminBookStatusComponent,
-    AdminBookFormModalComponent
+    AdminBookFormModalComponent,
+    AdminEndRideFormModalComponent,
+    CustBookHistoryComponent
   ],
   imports: [
     BrowserModule,

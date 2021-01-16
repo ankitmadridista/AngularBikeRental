@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h4 class="modal-title">Confirm Booking {{booking.bookId}}</h4>
+    <h4 class="modal-title">Confirm End Ride {{booking.bookId}}</h4>
     <button
       type="button"
       class="close "
@@ -47,38 +47,15 @@
          
         </small>
         <div class="form-group" 
-        [class.has-error]="bookReadingAtStart.invalid && bookReadingAtStart.touched"
-        [class.has-success]="bookReadingAtStart.valid">
-            <label for="Meter Reading">Start Meter Reading</label>
-            <input [(ngModel)]="booking.bookReadingAtStart" type="text" name="bookReadingAtStart" id="bookReadingAtStart" class="form-control" placeholder="Enter Start Meter reading " 
-            #bookReadingAtStart="ngModel" required>   
-            <span class="help-block text-danger" *ngIf="bookReadingAtStart.invalid && bookReadingAtStart.touched">
+        [class.has-error]="bookReadingAtEnd.invalid && bookReadingAtEnd.touched"
+        [class.has-success]="bookReadingAtEnd.valid">
+            <label for="Meter Reading">End Meter Reading</label>
+            <input [(ngModel)]="booking.bookReadingAtEnd" type="text" name="bookReadingAtEnd" id="bookReadingAtEnd" class="form-control" placeholder="Enter End Meter reading " 
+            #bookReadingAtEnd="ngModel" required>   
+            <span class="help-block text-danger" *ngIf="bookReadingAtEnd.invalid && bookReadingAtEnd.touched">
                 Meter Reading is required
               </span>
         </div>     
-            <div class="form-group "
-            [class.has-error]="bookDepositAmount.invalid && bookDepositAmount.touched"
-            [class.has-success]="bookDepositAmount.valid">
-                <label for="deposit amt" class="control-label">Advance Paid</label>
-                <input type="text" [(ngModel)]="booking.bookDepositAmount" name="bookDepositAmount" id="bookDepositAmount" class="form-control" placeholder="Enter Advance Paid" 
-                 #bookDepositAmount="ngModel" required >
-                 <span class="help-block text-danger" *ngIf="bookDepositAmount.invalid && bookDepositAmount.touched">
-                    Advance payment is required
-                  </span>
-              
-             </div>
-
-             <div class="form-group "
-             [class.has-error]="bookInitialFuelCost.invalid && bookInitialFuelCost.touched"
-             [class.has-success]="bookInitialFuelCost.valid">
-                 <label for="initial fuel cost " class="control-label">Initial Fuel Cost</label>
-                 <input type="text" [(ngModel)]="booking.bookInitialFuelCost" name="bookInitialFuelCost" id="bookInitialFuelCost" class="form-control" placeholder="Enter Initial Fuel Cost" 
-                  #bookInitialFuelCost="ngModel" required >
-                  <span class="help-block text-danger" *ngIf="bookInitialFuelCost.invalid && bookInitialFuelCost.touched">
-                     Initial Fuel Cost is required
-                   </span>
-               
-              </div>
             <div class="form-group">
                 <button  type="submit" class="btn btn-success" [disabled]="loginform.invalid" >Book</button>
                 <button type="reset" class="btn btn-danger">Reset</button>

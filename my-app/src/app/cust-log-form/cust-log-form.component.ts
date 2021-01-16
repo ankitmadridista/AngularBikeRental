@@ -23,6 +23,7 @@ export class CustLogFormComponent implements OnInit {
     this._service.doLogin(this.customer).subscribe(
       data=> {
         sessionStorage.setItem('custSesId', data.custId);
+        sessionStorage.setItem('custSesEmail', data.custEmail);
         sessionStorage.setItem('custSesFname', data.custFname);
         console.log(data);
         console.log("response recieved");

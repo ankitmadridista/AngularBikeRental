@@ -9,6 +9,7 @@ export class Booking {
 	bookReadingAtEnd: Number;
 	bookStartTimeCalc: Number;
 	bookEndTimeCalc: Number;
+	bookInitialFuelCost: Number;
 	bookPaymentStatus: string;
 	bookStatus : string;
 	bookDepositAmount : Number;

@@ -23,6 +23,7 @@ msg = '';
     this._service.doLogin(this.provider).subscribe(
       data=> {
         sessionStorage.setItem('provSesId', data.provId);
+        sessionStorage.setItem('provSesEmail', data.provEmail);
         sessionStorage.setItem('provSesFname', data.provFname);
         console.log(data);
         console.log("response recieved");
