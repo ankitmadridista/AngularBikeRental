@@ -1,1 +1,52 @@
-<p>admin-view-prov works!</p>
+<hr>
+<div class="row content" >
+    <div class=" col-sm-12 main shadow jumbotron">
+        <h3 class="text-center">
+            <b>Admin-Providers Info</b>
+        </h3>
+        
+        <div class="table-responsive" id="myTable">
+            <table class="table table-hover table-striped ">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="align-middle">Prov Id</th>
+                        <th class="align-middle">Prov Fname</th>
+                        <th class="align-middle">Prov Email</th>
+                        <th class="align-middle">Prov DateOfBirth</th> 
+                        <th class="align-middle">Prov Age</th>
+                        <th class="align-middle">Prov ContactNo</th>
+                        <th class="align-middle">Prov Aadhar</th>
+                        <th class="align-middle">Prov Address</th> 
+                        <th class="align-middle">Prov City</th>
+                        <th class="align-middle">Prov State</th> 
+                        <th class="align-middle">Prov Pin</th> 
+                    </tr>
+                </thead>
+                <tbody id="myTableBody" *ngFor="let x of provArr">
+            
+                    <tr >
+                        <td class="align-middle">{{x.provId}}</td>
+                        <td class="align-middle">{{x.provFname}}</td>
+                        <td class="align-middle">{{x.provEmail}}</td>
+                        <td class="align-middle">{{x.provDateOfBirth}}</td>
+                        <td class="align-middle">{{x.provAge}}</td>
+                        <td class="align-middle">{{x.provContactNo}}</td>
+                        <td class="align-middle">{{x.provAadhar}}</td>
+                        <td class="align-middle">{{x.provAddress}}</td>
+                        <td class="align-middle">{{x.provCity}}</td>
+                        <td class="align-middle">{{x.provState}}</td>
+                        <td class="align-middle">{{x.provPin}}</td>
+                        <td class="align-middle">                       
+                            <button type="button" class="btn btn-primary btn-sm" id="btn0" (click)="onUpdate(x.provId)">
+                                Update   
+                            </button>
+                            <button type="button" class="btn btn-danger  btn-sm" id="btn0" (click)="onDelete(x.provId)">
+                                    Delete
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

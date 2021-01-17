@@ -25,6 +25,8 @@ import { CustBookHistoryComponent } from './cust-book-history/cust-book-history.
 import { AdminViewCustComponent } from './admin-view-cust/admin-view-cust.component';
 import { AdminViewProvComponent } from './admin-view-prov/admin-view-prov.component';
 import { AdminCustUpdateProfComponent } from './admin-cust-update-prof/admin-cust-update-prof.component';
+import { AdminProvUpdateProfComponent } from './admin-prov-update-prof/admin-prov-update-prof.component';
+
 
 const routes: Routes = [
   {
@@ -102,6 +104,9 @@ const routes: Routes = [
   },{
     path: 'admin-cust-update-prof/:id',
     component: AdminCustUpdateProfComponent,
+  },{
+    path: 'admin-prov-update-prof/:id',
+    component: AdminProvUpdateProfComponent,
   },
   { path: '', redirectTo: '/index', pathMatch: 'full' }
   

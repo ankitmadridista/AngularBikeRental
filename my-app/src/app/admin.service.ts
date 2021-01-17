@@ -45,8 +45,15 @@ export class AdminService {
     return this.http.get(baseUrl+"/customer/")  
   }
 
+  public getAllProviders(): Observable<any>{
+    return this.http.get(baseUrl+"/providers/")  
+  }
+
   public deleteCustByCustId(id : Number): Observable<any>{
     return this.http.delete(baseUrl+"/customer/" + id)
+  }
+  public deletepProvByProvId(id : Number): Observable<any>{
+    return this.http.delete(baseUrl+"/providers/" + id)
   }
 
 }

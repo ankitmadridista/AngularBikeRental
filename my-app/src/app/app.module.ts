@@ -40,6 +40,8 @@ import { AdminViewProvComponent } from './admin-view-prov/admin-view-prov.compon
 import { AdminViewCustComponent } from './admin-view-cust/admin-view-cust.component';
 import { AdminCustUpdateProfComponent } from './admin-cust-update-prof/admin-cust-update-prof.component';
 import { AdminCustDelProfModalComponent } from './admin-cust-del-prof-modal/admin-cust-del-prof-modal.component';
+import { AdminProvUpdateProfComponent } from './admin-prov-update-prof/admin-prov-update-prof.component';
+import { AdminProvDelProfModalComponent } from './admin-prov-del-prof-modal/admin-prov-del-prof-modal.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { AdminCustDelProfModalComponent } from './admin-cust-del-prof-modal/admi
     AdminViewProvComponent,
     AdminViewCustComponent,
     AdminCustUpdateProfComponent,
-    AdminCustDelProfModalComponent
+    AdminCustDelProfModalComponent,
+    AdminProvUpdateProfComponent,
+    AdminProvDelProfModalComponent
   ],
   imports: [
     BrowserModule,
