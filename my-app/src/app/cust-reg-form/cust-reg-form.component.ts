@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/customer.service';
 import { Customer } from '../customer';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
-import * as $ from 'jquery';
 
 @Component({
   selector: 'app-cust-reg-form',

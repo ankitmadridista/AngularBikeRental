@@ -1,28 +1,4 @@
 
-        <script type = "text/javascript">
-          $(document).ready(function () {
-            console.log("in jqury");
-              var age = "";
-              // $('#provDateOfBirth').datepicker({
-              //     onSelect: function (value, ui) {
-              //         var today = new Date();
-              //         age = today.getFullYear() - ui.selectedYear;
-              //         //console.log(age);
-              //         if(age > 18 ){
-              //           $('#provAge').val(age);
-              //         }
-              //         else{
-              //           window.alert("The minimum age requirement for applicant is 18 years old.");
-              //           $('#provDateOfBirth').val("");
-              //           $('#provAge').val("");
-              //         }
-              //     },
-              //     changeMonth: true,
-              //     changeYear: true
-              // })
-          })
-          </script>
-
 <div class="container-fluid my-3">
     <div class="row justify-content-around">      
         <div class="col-md-7 bg-light shadow px-4 pt-4">
@@ -88,7 +64,10 @@
                    [class.has-error]="provDateOfBirth.invalid && provDateOfBirth.touched"
                    [class.has-success]="provDateOfBirth.valid">
                       <label for="DOB" class="control-label">Date Of Birth</label>
-                      <input type="date" class="form-control" [(ngModel)]="provider.provDateOfBirth" name="provDateOfBirth" id="provDateOfBirth" aria-describedby="emailHelpId" placeholder="Enter Date of birth" 
+                      <input type="text" bsDatepicker [bsConfig]="datePickerConfig" (bsValueChange)="onValueChange($event)" 
+                      class="form-control" [(ngModel)]="provider.provDateOfBirth" 
+                      name="provDateOfBirth" id="provDateOfBirth" 
+                       placeholder="Enter Date of birth" 
                       #provDateOfBirth="ngModel" required>
                       <span class="help-block text-danger" 
                          *ngIf="provDateOfBirth.invalid && provDateOfBirth.touched">

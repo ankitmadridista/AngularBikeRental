@@ -35,26 +35,8 @@
                   </div>
                  
 
-                  <div class="row">
-                    <div class="form-group col-md-6"
-                     [class.has-error]="provDateOfBirth.invalid && provDateOfBirth.touched"
-                     [class.has-success]="provDateOfBirth.valid">
-                        <label for="DOB" class="control-label">Date Of Birth</label>
-                        <input type="date" class="form-control" [(ngModel)]="provider.provDateOfBirth" name="provDateOfBirth" id="provDateOfBirth" aria-describedby="emailHelpId" placeholder="Enter Date of birth" 
-                        #provDateOfBirth="ngModel" required>
-                        <span class="help-block text-danger" 
-                           *ngIf="provDateOfBirth.invalid && provDateOfBirth.touched">
-                            DOB is required
-                          </span>
-                       
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="age">Age</label>
-                        <input type="text" value=""  class="form-control" [(ngModel)]="provider.provAge" name="provAge" id="provAge" readonly>
-                       
-                    </div>
-                    
-                  </div>
+                 
+
                   <div class="row">
                     <div class="form-group col-md-6"
                     [class.has-error]="provAadhar.invalid && provAadhar.touched"

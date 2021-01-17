@@ -26,7 +26,6 @@ export class CustBookBikeComponent implements OnInit {
   //public customer: Customer;
   public custIsActive = false;
   public bookStatus = false;
-
   msg: any;
 
   constructor(
@@ -39,6 +38,21 @@ export class CustBookBikeComponent implements OnInit {
   
 
   ngOnInit(): void {
+
+    //get cust by
+    this._service1.getCustByCustId(parseInt(sessionStorage.getItem("custSesId"))).subscribe(
+      data=> {
+        this.customer = data;
+        this.custIsActive = this.customer.custIsActive;
+        
+        console.log("response recieved");
+      },
+      error=>{
+        console.log("Exception occured");
+        this.msg = 'Invalid Credentials';
+      }
+    )
+
     //get all avl bikes
     this._service.getAllAvailableBikes().subscribe(
       data=> {
@@ -55,29 +69,14 @@ export class CustBookBikeComponent implements OnInit {
       }
     )
 
-    //get cust by
-    this._service1.getCustByCustId(parseInt(sessionStorage.getItem("custSesId"))).subscribe(
-      data=> {
-        this.customer = data;
-        this.custIsActive = this.customer.custIsActive;
-        
-        console.log("response recieved");
-      },
-      error=>{
-        console.log("Exception occured");
-        this.msg = 'Invalid Credentials';
-      }
-    )
-
-    
-    
     //get active booking of cust
     this._service2.getCustCurrBookByCustId(parseInt(sessionStorage.getItem('custSesId'))).subscribe(
       data=> {
-        console.log(sessionStorage.getItem("custSesId"));
-        
-        console.log(data);
-        this.booking = data;
+        //console.log(sessionStorage.getItem("custSesId"));
+        //console.log(data);
+        if( data != null ){
+          this.booking = data;
+        }
         //console.log(this.bikeAvlArr);
         console.log("response recieved");
         //this._router.navigate(['/prov-home'])
@@ -94,10 +93,11 @@ export class CustBookBikeComponent implements OnInit {
 
     this._service2.getCustBookToPay(parseInt(sessionStorage.getItem('custSesId'))).subscribe(
       data=> {
-        console.log(sessionStorage.getItem("custSesId"));
-        
-        console.log(data);
-        this.booking = data;
+       // console.log(sessionStorage.getItem("custSesId"));
+        if( data != null ){
+          this.booking = data;
+        }
+        //console.log(data);
         console.log("response recieved");
         this.bookCustArrStat = true;
         if( this.booking.bookStatus == "Completed")
@@ -130,7 +130,8 @@ export class CustBookBikeComponent implements OnInit {
       },
       error=>{
         console.log("Exception occured");
-        this.msg = 'Payment failed';
+        this.msg = 'Payment failed';        
+        this._router.navigate(['/cust-payment-success'])
       }
     )
   }

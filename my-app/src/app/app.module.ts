@@ -42,6 +42,8 @@ import { AdminCustUpdateProfComponent } from './admin-cust-update-prof/admin-cus
 import { AdminCustDelProfModalComponent } from './admin-cust-del-prof-modal/admin-cust-del-prof-modal.component';
 import { AdminProvUpdateProfComponent } from './admin-prov-update-prof/admin-prov-update-prof.component';
 import { AdminProvDelProfModalComponent } from './admin-prov-del-prof-modal/admin-prov-del-prof-modal.component';
+import { CustPaymentSuccessComponent } from './cust-payment-success/cust-payment-success.component';
+import { CountdownModule } from 'ngx-countdown';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,8 @@ import { AdminProvDelProfModalComponent } from './admin-prov-del-prof-modal/admi
     AdminCustUpdateProfComponent,
     AdminCustDelProfModalComponent,
     AdminProvUpdateProfComponent,
-    AdminProvDelProfModalComponent
+    AdminProvDelProfModalComponent,
+    CustPaymentSuccessComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +90,8 @@ import { AdminProvDelProfModalComponent } from './admin-prov-del-prof-modal/admi
     FormsModule,
     DataTablesModule,
     BrowserAnimationsModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    CountdownModule
   ],
   providers: [ProviderService],
   bootstrap: [AppComponent]

@@ -78,6 +78,15 @@ export class AdminBookStatusComponent implements OnInit {
       data=> {
         console.log("response recieved");
         //this._router.navigate(['/prov-home'])
+        // let x = new Date(); 
+        // setInterval(function(){ 
+          
+        //   if( x.getMinutes() == 25 ){
+        //     alert('done');
+        //   }
+        //     }, 3000);
+          
+        
         window.location.reload();
       },
       error=>{
@@ -86,7 +95,10 @@ export class AdminBookStatusComponent implements OnInit {
         window.location.reload();
       }
     )
+
   }
+
+
 
   rejectBooking(booking: Booking){
     this._service.rejBooking(booking).subscribe(
