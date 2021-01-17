@@ -48,6 +48,11 @@ export class BookingService {
     return this.http.put(baseUrl+"/booking", booking)    
   }
 
+  //payment done status paid
+  public paymentDone(booking: Booking): Observable<any>{
+    return this.http.put(baseUrl+"/booking", booking)    
+  }
+
   // public bookingCompletedAndMoneyRefund(booking: Booking): Observable<any>{
   //   return this.http.put(baseUrl+"/booking", booking)    
   // }
@@ -59,6 +64,8 @@ export class BookingService {
   public getCustCurrBookByCustId(id: Number): Observable<any>{
     return this.http.get(baseUrl+"/cust-curr-booking/"+id)
   }
-
   
+  public getCustBookToPay(id: Number): Observable<any>{
+    return this.http.get(baseUrl+"/cust-book-pay/"+id)
+  }
 }

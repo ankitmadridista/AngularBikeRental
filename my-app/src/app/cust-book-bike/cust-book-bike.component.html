@@ -90,7 +90,7 @@
     </div>
 
 
-    <div class="container py-5">
+    <div class="container py-5" *ngIf="bookStatus">
         <!-- For demo purpose -->
         <div class="row mb-4">
             <div class="col-lg-8 mx-auto text-center">
@@ -119,7 +119,7 @@
                                 <form role="form">
                                     <div class="form-group"> <label for="username">
                                             <h6>Amount :</h6>
-                                        </label> <input type="text" [(ngModel)]="booking.bookBillAmount"  readonly class="form-control ">
+                                        </label> <input type="text" [(ngModel)]="booking.bookBillAmount" name="bookBillAmount" readonly class="form-control ">
                                     </div>
                                     <div class="form-group"> <label for="username">
                                             <h6>Card Owner</h6>
@@ -150,13 +150,15 @@
                                             <div class="form-group mb-4"> <label data-toggle="tooltip"
                                                     title="Three digit CV code on the back of your card">
                                                     <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
-                                                </label> <input type="text" required class="form-control"> </div>
+                                                </label> <input type="password" required class="form-control"> </div>
                                         </div>
                                     </div>
                                     <div class="card-footer">
-                                        <a routerLink="/customer/payment_success"> <button type="button"
-                                                class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment
-                                            </button> </a>
+                                        <button type="button"
+                                            class="subscribe btn btn-primary btn-block shadow-sm" (click)="doPayment(booking)"> 
+                                            Confirm Payment
+                                        </button>
+                                        
                                     </div>
                                 </form>
                             </div>
@@ -166,6 +168,7 @@
                 </div>
             </div>
         </div>
+
 
 </div>
 <hr>

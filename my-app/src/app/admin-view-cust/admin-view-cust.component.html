@@ -9,18 +9,20 @@
             <table class="table table-striped ">
                 <thead class="table-dark">
                     <tr>
-                        <th class="align-middle">Customers Id</th>
-                        <th class="align-middle">Customer Email</th>
-                        <th class="align-middle">Customers First Name</th>
-                        <th class="align-middle">Customers DOB </th> 
-                        <th class="align-middle">Customers Driving License </th>
-                        <th class="align-middle">Customers Age</th>
-                        <th class="align-middle">Customers Contact No.</th>
-                        <th class="align-middle">Customers Aadhar</th> 
-                        <th class="align-middle">Customers Address</th>
-                        <th class="align-middle">Customers City</th> 
-                        <th class="align-middle">Customers State</th>
-                        <th class="align-middle">Customers Pin</th>  
+                        <th class="align-middle">Id</th>
+                        <th class="align-middle">Email</th>
+                        <th class="align-middle">First Name</th>
+                        <th class="align-middle">Date Of Birth </th> 
+                        <th class="align-middle">Driving License</th>
+                        <th class="align-middle">Age</th>
+                        <th class="align-middle">Contact</th>
+                        <th class="align-middle">Aadhar No.</th> 
+                        <th class="align-middle">Address</th>
+                        <th class="align-middle">City</th> 
+                        <th class="align-middle">State</th>
+                        <th class="align-middle">Pin</th>  
+                        <th class="align-middle"></th>  
+                        <th class="align-middle"></th>  
                     </tr>
                 </thead>
                 <tbody id="myTableBody" *ngFor="let x of custArr">
@@ -40,12 +42,15 @@
                         <td class="align-middle">{{x.custPin}}</td>
                         
                         <td class="align-middle">                       
-                            <button type="button" class="btn btn-primary btn-sm" id="btn0" (click)="onUpdate(x.custId)">
+                            <button type="button" class="btn btn-primary btn-sm btn-block" id="btn0" (click)="onUpdate(x.custId)">
                                 Update   
                             </button>
-                            <button type="button" class="btn btn-danger  btn-sm" id="btn0" (click)="onDelete(x.custId)">
-                                    Delete
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-block  btn-sm" id="btn0" (click)="onDelete(x.custId)">
+                                Delete
                             </button>
+
                         </td>
                     </tr>
                 </tbody>
