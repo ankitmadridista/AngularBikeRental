@@ -22,6 +22,9 @@ import { CustBookBikeComponent } from './cust-book-bike/cust-book-bike.component
 import { AdminBikeStatusComponent } from './admin-bike-status/admin-bike-status.component';
 import { AdminBookStatusComponent } from './admin-book-status/admin-book-status.component';
 import { CustBookHistoryComponent } from './cust-book-history/cust-book-history.component';
+import { AdminViewCustComponent } from './admin-view-cust/admin-view-cust.component';
+import { AdminViewProvComponent } from './admin-view-prov/admin-view-prov.component';
+import { AdminCustUpdateProfComponent } from './admin-cust-update-prof/admin-cust-update-prof.component';
 
 const routes: Routes = [
   {
@@ -90,6 +93,15 @@ const routes: Routes = [
   },{
     path: 'cust-book-history',
     component: CustBookHistoryComponent,
+  },{
+    path: 'admin-view-cust',
+    component: AdminViewCustComponent,
+  },{
+    path: 'admin-view-prov',
+    component: AdminViewProvComponent,
+  },{
+    path: 'admin-cust-update-prof/:id',
+    component: AdminCustUpdateProfComponent,
   },
   { path: '', redirectTo: '/index', pathMatch: 'full' }
   

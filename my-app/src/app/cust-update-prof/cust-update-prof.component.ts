@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { Customer } from '../customer';
 import { CustomerService } from '../customer.service';
 
@@ -12,9 +13,21 @@ export class CustUpdateProfComponent implements OnInit {
   customer: Customer;
   id: Number;
   msg = '';
+  datePickerConfig: Partial<BsDatepickerConfig>;
+  
   constructor( private _service: CustomerService,
     private _router: Router,
-    private _activatedRoute: ActivatedRoute) { }
+    private _activatedRoute: ActivatedRoute)  {
+      this.datePickerConfig = Object.assign({}, 
+          {
+           containerClass: 'theme-dark-blue',
+           showWeekNumbers: false
+          }
+        
+        )
+   
+     }
+
   
     ngOnInit(): void {
   
@@ -33,6 +46,8 @@ export class CustUpdateProfComponent implements OnInit {
         }
     )
   }
+ 
+
 
     updateProf(){
       this._service.modifyProf(this.customer).subscribe(

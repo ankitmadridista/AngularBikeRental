@@ -1,0 +1,55 @@
+<hr>
+<div class="row content">
+    <div class=" col-sm-12 main shadow jumbotron">
+        <h3 class="text-center">
+            <b>Customers Info</b>
+        </h3>
+        
+        <div class="table-responsive" id="myTable">
+            <table class="table table-striped ">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="align-middle">Customers Id</th>
+                        <th class="align-middle">Customer Email</th>
+                        <th class="align-middle">Customers First Name</th>
+                        <th class="align-middle">Customers DOB </th> 
+                        <th class="align-middle">Customers Driving License </th>
+                        <th class="align-middle">Customers Age</th>
+                        <th class="align-middle">Customers Contact No.</th>
+                        <th class="align-middle">Customers Aadhar</th> 
+                        <th class="align-middle">Customers Address</th>
+                        <th class="align-middle">Customers City</th> 
+                        <th class="align-middle">Customers State</th>
+                        <th class="align-middle">Customers Pin</th>  
+                    </tr>
+                </thead>
+                <tbody id="myTableBody" *ngFor="let x of custArr">
+            
+                    <tr >
+                        <td class="align-middle">{{x.custId}}</td>
+                        <td class="align-middle">{{x.custEmail}}</td>
+                        <td class="align-middle">{{x.custFname}}</td>
+                        <td class="align-middle">{{x.custDateOfBirth}}</td>
+                        <td class="align-middle">{{x.custDrivingLicNo}}</td>
+                        <td class="align-middle">{{x.custAge}}</td>
+                        <td class="align-middle">{{x.custContactNo}}</td>
+                        <td class="align-middle">{{x.custAadhar}}</td>
+                        <td class="align-middle">{{x.custAddress}}</td>
+                        <td class="align-middle">{{x.custCity}}</td>
+                        <td class="align-middle">{{x.custState}}</td>
+                        <td class="align-middle">{{x.custPin}}</td>
+                        
+                        <td class="align-middle">                       
+                            <button type="button" class="btn btn-primary btn-sm" id="btn0" (click)="onUpdate(x.custId)">
+                                Update   
+                            </button>
+                            <button type="button" class="btn btn-danger  btn-sm" id="btn0" (click)="onDelete(x.custId)">
+                                    Delete
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

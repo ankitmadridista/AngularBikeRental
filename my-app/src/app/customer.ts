@@ -13,6 +13,7 @@ export class Customer {
 	custState: string;
 	custPin: string;
 	custIsActive: boolean;
+	custWallet: Number;
     constructor(){};
 }
 

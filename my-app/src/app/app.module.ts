@@ -36,6 +36,10 @@ import { AdminBookStatusComponent } from './admin-book-status/admin-book-status.
 import { AdminBookFormModalComponent } from './admin-book-form-modal/admin-book-form-modal.component';
 import { AdminEndRideFormModalComponent } from './admin-end-ride-form-modal/admin-end-ride-form-modal.component';
 import { CustBookHistoryComponent } from './cust-book-history/cust-book-history.component';
+import { AdminViewProvComponent } from './admin-view-prov/admin-view-prov.component';
+import { AdminViewCustComponent } from './admin-view-cust/admin-view-cust.component';
+import { AdminCustUpdateProfComponent } from './admin-cust-update-prof/admin-cust-update-prof.component';
+import { AdminCustDelProfModalComponent } from './admin-cust-del-prof-modal/admin-cust-del-prof-modal.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +69,11 @@ import { CustBookHistoryComponent } from './cust-book-history/cust-book-history.
     AdminBookStatusComponent,
     AdminBookFormModalComponent,
     AdminEndRideFormModalComponent,
-    CustBookHistoryComponent
+    CustBookHistoryComponent,
+    AdminViewProvComponent,
+    AdminViewCustComponent,
+    AdminCustUpdateProfComponent,
+    AdminCustDelProfModalComponent
   ],
   imports: [
     BrowserModule,

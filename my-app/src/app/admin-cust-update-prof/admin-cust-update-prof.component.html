@@ -1,9 +1,8 @@
-
 <div class="container-fluid my-3">
     <div class="row justify-content-around">      
       <div class="col-md-7 bg-light shadow px-4 pt-4">
           <h4 class="display-4 ">
-              <i class="fa fa-user-plus"></i>Customer Update Profile</h4>
+              <i class="fa fa-user-plus"></i>Admin- Customer Update Profile</h4>
           <hr>           
           <form #custFormControl="ngForm"  >    
             <small class="text-danger">
@@ -35,7 +34,18 @@
 
 
               <div class="row">
-                
+                <div class="form-group col-md-6"
+                 [class.has-error]="custDateOfBirth.invalid && custDateOfBirth.touched"
+                 [class.has-success]="custDateOfBirth.valid">
+                    <label for="DOB" class="control-label">Date Of Birth</label>
+                    <input type="date" class="form-control" [(ngModel)]="customer.custDateOfBirth" name="custDateOfBirth" id="custDateOfBirth" aria-describedby="emailHelpId" placeholder="Enter Date of birth" 
+                    #custDateOfBirth="ngModel" required>
+                    <span class="help-block text-danger" 
+                       *ngIf="custDateOfBirth.invalid && custDateOfBirth.touched">
+                        DOB is required
+                      </span>
+                   
+                </div>
                 <div class="form-group col-md-6">
                     <label for="age">Age</label>
                     <input type="text" value=""  class="form-control" [(ngModel)]="customer.custAge" name="custAge" id="custAge" readonly>
@@ -43,7 +53,6 @@
                 </div>
                 
               </div>
-
               <div class="row">
                 <div class="form-group col-md-6"
                 [class.has-error]="custAadhar.invalid && custAadhar.touched"

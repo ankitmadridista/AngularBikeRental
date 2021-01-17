@@ -26,7 +26,6 @@ export class CustBookBikeModalComponent implements OnInit {
     booking.provId = this.bike.provId;
     booking.custId = parseInt(sessionStorage.getItem('custSesId'));
     booking.bookChargesPerHours = this.bike.chargesPerHour;
-    booking.bookDepositAmount = 100;
     this.name = sessionStorage.getItem('custSesFname');
     console.log('booking '+ booking.bikeId);
     this.booking = booking;
