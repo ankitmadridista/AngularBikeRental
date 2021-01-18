@@ -18,11 +18,18 @@ export class AdminViewCustComponent implements OnInit {
   public custArr;
   public custArrStat = false;
 
+  dtOptions: DataTables.Settings = {};
+
   constructor(private _service: AdminService, 
     private _service1: CustomerService,
     private _router: Router, private _modalService: NgbModal) { }
 
   ngOnInit(): void {
+    // this.dtOptions = {
+    //   pagingType: 'full_numbers',
+    //   pageLength: 2
+    // };
+
     this._service.getAllCustomers().subscribe(
       data=>{
         this.custArr = data;

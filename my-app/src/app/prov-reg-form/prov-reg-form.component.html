@@ -68,7 +68,8 @@
                       class="form-control" [(ngModel)]="provider.provDateOfBirth" 
                       name="provDateOfBirth" id="provDateOfBirth" 
                        placeholder="Enter Date of birth" 
-                      #provDateOfBirth="ngModel" required>
+                      #provDateOfBirth="ngModel" required
+                      autocomplete="off" >
                       <span class="help-block text-danger" 
                          *ngIf="provDateOfBirth.invalid && provDateOfBirth.touched">
                           DOB is required

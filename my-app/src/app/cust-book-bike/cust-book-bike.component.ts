@@ -8,6 +8,8 @@ import { BookingService } from '../Booking.service';
 import { CustBookBikeModalComponent } from '../cust-book-bike-modal/cust-book-bike-modal.component';
 import { Customer } from '../customer';
 import { CustomerService } from '../customer.service';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-cust-book-bike',
@@ -28,6 +30,8 @@ export class CustBookBikeComponent implements OnInit {
   public bookStatus = false;
   msg: any;
 
+  dtOptions: DataTables.Settings = {};
+
   constructor(
     private _service: AdminService, 
     private _router: Router, 
@@ -38,6 +42,8 @@ export class CustBookBikeComponent implements OnInit {
   
 
   ngOnInit(): void {
+
+
 
     //get cust by
     this._service1.getCustByCustId(parseInt(sessionStorage.getItem("custSesId"))).subscribe(

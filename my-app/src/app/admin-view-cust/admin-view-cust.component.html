@@ -5,8 +5,8 @@
             <b>Customers Info</b>
         </h3>
         
-        <div class="table-responsive" id="myTable">
-            <table class="table table-striped ">
+        <div class="table-responsive" >
+            <table class="table table-striped " datatable [dtOptions]="dtOptions">
                 <thead class="table-dark">
                     <tr>
                         <th class="align-middle">Id</th>
@@ -25,7 +25,7 @@
                         <th class="align-middle"></th>  
                     </tr>
                 </thead>
-                <tbody id="myTableBody" *ngFor="let x of custArr">
+                <tbody *ngFor="let x of custArr">
             
                     <tr >
                         <td class="align-middle">{{x.custId}}</td>

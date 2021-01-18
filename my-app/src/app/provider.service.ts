@@ -31,6 +31,4 @@ export class ProviderService {
     return this.http.put(baseUrl, provider)
   }
 
-  
-
 }

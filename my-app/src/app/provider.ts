@@ -1,16 +1,17 @@
 export class Provider{
-        provId:number;
+        provId:Number;
         provFname:string;
         provEmail:string;
         provPassword:string;
         provDateOfBirth:string;
-        provAge:number;
+        provAge:Number;
         provContactNo:string;
         provAadhar:string;
         provAddress:string;
         provCity:string;
         provState:string;
         provPin:string;
+        provWallet: Number;
         constructor(){};
 }
 

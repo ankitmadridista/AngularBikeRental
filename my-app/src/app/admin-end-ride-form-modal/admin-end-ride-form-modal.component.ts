@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookingService } from '../Booking.service';
+import { ProviderService } from '../provider.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Booking } from '../booking';
 import { Bike } from '../bike';
+import { Provider } from '../provider';
 
 @Component({
   selector: 'app-admin-end-ride-form-modal',
@@ -15,13 +17,28 @@ export class AdminEndRideFormModalComponent implements OnInit {
   bike: Bike;
   booking: Booking;
   temp: Number;
+  provider: Provider;
   constructor(
     public _activeModal: NgbActiveModal, 
     private _router: Router, 
-    private _service: BookingService
+    private _service: BookingService,
+    private _service1: ProviderService
     ) { }
 
   ngOnInit(): void {
+    this._service1.getProvByProvId(this.booking.provId).subscribe(
+      data=> {
+        this.provider = data;
+        console.log(this.provider);
+        console.log('response recieved');
+        
+      },
+      error=>{
+        console.log("Exception occured");
+      // window.location.reload(); 
+      }
+    )
+
   }
 
   closeTheModal() {
@@ -30,6 +47,8 @@ export class AdminEndRideFormModalComponent implements OnInit {
 
   bookAndClose() {
     if( this.booking != null ){
+
+     
       let today = new Date();
       this.booking.bookStatus = 'Completed';
       
@@ -45,7 +64,11 @@ export class AdminEndRideFormModalComponent implements OnInit {
       this.booking.bookBillAmount = ( totalTime / ( 1000 * 60 * 60 ) ) * 
       <any>this.booking.bookChargesPerHours + 
       <any>this.booking.bookInitialFuelCost;  
-      
+
+      this.provider.provWallet = <any>this.provider.provWallet + (( totalTime / ( 1000 * 60 * 60 ) ) * 
+      <any>this.booking.bookChargesPerHours) * 0.8;
+
+      console.log(this.provider.provWallet);
       this.booking.bookBillAmount = <any>this.booking.bookBillAmount - <any>this.booking.bookDepositAmount;
       
       console.log( 'bill: '+ this.booking.bookBillAmount);
@@ -53,17 +76,23 @@ export class AdminEndRideFormModalComponent implements OnInit {
         this._service.bookingCompleted(this.booking).subscribe(
           data=> {
           console.log("response recieved");
-          //this._router.navigate(['/cust-home'])
-          window.location.reload();
         },
         error=>{
           console.log("Exception occured");
-          //this._router.navigate(['/cust-home'])   
-          window.location.reload();   
         });  
+
+        this._service1.modifyProf(this.provider).subscribe(
+          data=> {
+          console.log("response recieved");
+          window.location.reload();
+        },
+        error=>{
+          console.log("provider updated");
+          window.location.reload();
+        }); 
+        
       }
     
-      
     this._activeModal.dismiss();
 
   }

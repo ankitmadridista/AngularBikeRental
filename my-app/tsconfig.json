@@ -12,6 +12,13 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "paths": {
+        "@angular/*": [
+          "../node_modules/@angular/*"
+        ]
+      }      
     }
   ]
 }
