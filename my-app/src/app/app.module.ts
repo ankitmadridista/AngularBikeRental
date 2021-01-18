@@ -44,6 +44,8 @@ import { AdminProvUpdateProfComponent } from './admin-prov-update-prof/admin-pro
 import { AdminProvDelProfModalComponent } from './admin-prov-del-prof-modal/admin-prov-del-prof-modal.component';
 import { CustPaymentSuccessComponent } from './cust-payment-success/cust-payment-success.component';
 import { CountdownModule } from 'ngx-countdown';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import { CountdownModule } from 'ngx-countdown';
     AdminCustDelProfModalComponent,
     AdminProvUpdateProfComponent,
     AdminProvDelProfModalComponent,
-    CustPaymentSuccessComponent
+    CustPaymentSuccessComponent,
+    NavBarComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

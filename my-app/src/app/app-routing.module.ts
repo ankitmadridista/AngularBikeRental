@@ -27,6 +27,7 @@ import { AdminViewProvComponent } from './admin-view-prov/admin-view-prov.compon
 import { AdminCustUpdateProfComponent } from './admin-cust-update-prof/admin-cust-update-prof.component';
 import { AdminProvUpdateProfComponent } from './admin-prov-update-prof/admin-prov-update-prof.component';
 import { CustPaymentSuccessComponent } from './cust-payment-success/cust-payment-success.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -112,7 +113,8 @@ const routes: Routes = [
     path: 'cust-payment-success',
     component: CustPaymentSuccessComponent,
   },
-  { path: '', redirectTo: '/index', pathMatch: 'full' }
+  { path: '', redirectTo: '/index', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
   
 ];
 

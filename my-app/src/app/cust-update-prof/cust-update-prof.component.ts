@@ -30,6 +30,10 @@ export class CustUpdateProfComponent implements OnInit {
 
   
     ngOnInit(): void {
+
+      if( sessionStorage.getItem('custSesEmail') == null ){
+        this._router.navigate(['/cust-log']);
+      }
   
       this.id = this._activatedRoute.snapshot.params['id']
     

@@ -21,6 +21,11 @@ export class AdminViewProvComponent implements OnInit {
     constructor(private _service: AdminService,private _router:Router,private _modalService:NgbModal) { }
     
   ngOnInit(): void {
+
+    if( sessionStorage.getItem('adminSesEmail') == null ){
+      this._router.navigate(['/admin-log']);
+    }
+
     this._service.getAllProviders().subscribe(
       data=>{
         this.provArr=data;

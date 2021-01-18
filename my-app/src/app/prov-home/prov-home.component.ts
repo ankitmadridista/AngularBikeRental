@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-prov-home',
@@ -8,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class ProvHomeComponent implements OnInit {
 msg = '';
 x: any;
-  constructor( ) { }
+  constructor( 
+    private _router: Router
+  ) { }
 
   ngOnInit(): void {
+
+    if( sessionStorage.getItem('provSesEmail') == null ){
+      this._router.navigate(['/prov-log']);
+    }
+
     let x = sessionStorage.getItem('provSesFname');
     let y = sessionStorage.getItem('provSesId');
     console.log(x);

@@ -27,6 +27,11 @@ export class AdminBikeStatusComponent implements OnInit {
     { }
   ngOnInit(): void {
 
+    if( sessionStorage.getItem('adminSesEmail') == null ){
+      this._router.navigate(['/admin-log']);
+    }
+
+
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5,

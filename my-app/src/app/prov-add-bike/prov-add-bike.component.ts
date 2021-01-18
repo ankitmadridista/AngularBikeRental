@@ -18,6 +18,9 @@ export class ProvAddBikeComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    if( sessionStorage.getItem('provSesEmail') == null ){
+      this._router.navigate(['/prov-log']);
+    }
   }
   
   insertBike(){

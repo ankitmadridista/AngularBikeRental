@@ -14,6 +14,11 @@ msg = '';
   constructor(private _service: ProviderService, private _router: Router) { }
 
   ngOnInit(): void {
+
+    if( sessionStorage.getItem('provSesEmail') == null ){
+      this._router.navigate(['/prov-log']);
+    }
+
     this._service.showProf(this.provider).subscribe(
       data=> {
         console.log(data);

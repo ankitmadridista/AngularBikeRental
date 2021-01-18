@@ -43,6 +43,9 @@ export class CustBookBikeComponent implements OnInit {
 
   ngOnInit(): void {
 
+    if( sessionStorage.getItem('custSesEmail') == null ){
+      this._router.navigate(['/cust-log']);
+    }
 
 
     //get cust by

@@ -20,6 +20,11 @@ export class AdminProvUpdateProfComponent implements OnInit {
     private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    if( sessionStorage.getItem('adminSesEmail') == null ){
+      this._router.navigate(['/admin-log']);
+    }
+
     this.id = this._activatedRoute.snapshot.params['id']
     
     this._service.getProvByProvId(this.id).subscribe(

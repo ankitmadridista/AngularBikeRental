@@ -28,6 +28,10 @@ export class AdminBookStatusComponent implements OnInit {
 
   ngOnInit(): void {
 
+    if( sessionStorage.getItem('adminSesEmail') == null ){
+      this._router.navigate(['/admin-log']);
+    }
+
     //all pending bookings
     this._service.getReqBooking().subscribe(
       data=> {

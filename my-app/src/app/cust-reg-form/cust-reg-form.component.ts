@@ -70,7 +70,10 @@ export class CustRegFormComponent implements OnInit {
     console.log('birth yr: ' + year);
     
     var today = new Date();
-    age = today.getFullYear() - year;
+    age = (today.getMonth() == data.getMonth() && today.getDate() > data.getDate()) ? 
+     today.getFullYear() - data.getFullYear() : (today.getMonth() > data.getMonth()) ? 
+           today.getFullYear() - data.getFullYear() : 
+                 today.getFullYear() - data.getFullYear() - 1;
     dobStr = year + '/' + month + '/'+ date; 
     console.log('curr yr: ' + today.getFullYear());
     console.log(age);
@@ -81,7 +84,8 @@ export class CustRegFormComponent implements OnInit {
         //this.customer.custDateOfBirth = this.dobStr; 
       }
       else{ 
-        window.alert("The minimum age requirement for applicant is 18 years old.");
+      //  window.alert("The minimum age requirement for applicant is 18 years old.");
+        
         $('#custDateOfBirth').val("");
         $('#custAge').val("");
       }

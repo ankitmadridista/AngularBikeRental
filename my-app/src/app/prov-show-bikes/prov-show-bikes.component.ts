@@ -18,6 +18,11 @@ export class ProvShowBikesComponent implements OnInit {
   constructor(private _service: BikeService, private _router: Router, private _modalService: NgbModal) { }
   
   ngOnInit(): void {
+
+    if( sessionStorage.getItem('provSesEmail') == null ){
+      this._router.navigate(['/prov-log']);
+    }
+
     this._service.getBikesByProvId().subscribe(
       data=> {
         this.bikesArr = data;

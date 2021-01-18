@@ -17,6 +17,11 @@ export class AdminCustUpdateProfComponent implements OnInit {
     private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    if( sessionStorage.getItem('adminSesEmail') == null ){
+      this._router.navigate(['/admin-log']);
+    }
+
     this.id = this._activatedRoute.snapshot.params['id']
     
     this._service.getCustByCustId(this.id).subscribe(

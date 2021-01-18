@@ -17,6 +17,11 @@ export class ProvUpdateProfComponent implements OnInit {
     private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    if( sessionStorage.getItem('provSesEmail') == null ){
+      this._router.navigate(['/prov-log']);
+    }
+
     this.id = this._activatedRoute.snapshot.params['id']
     
     this._service.getProvByProvId(this.id).subscribe(

@@ -25,6 +25,11 @@ export class AdminViewCustComponent implements OnInit {
     private _router: Router, private _modalService: NgbModal) { }
 
   ngOnInit(): void {
+
+    if( sessionStorage.getItem('adminSesEmail') == null ){
+      this._router.navigate(['/admin-log']);
+    }
+    
     // this.dtOptions = {
     //   pagingType: 'full_numbers',
     //   pageLength: 2

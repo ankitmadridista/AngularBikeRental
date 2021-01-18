@@ -24,6 +24,11 @@ export class ProvUpdateBikeComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+
+    if( sessionStorage.getItem('provSesEmail') == null ){
+      this._router.navigate(['/prov-log']);
+    }
+
     this.id = this._activatedRoute.snapshot.params['id']
     
     //console.log(this.id);

@@ -44,7 +44,10 @@ export class ProvRegFormComponent implements OnInit {
     console.log('birth yr: ' + year);
     
     var today = new Date();
-    age = today.getFullYear() - year;
+    age = (today.getMonth() == data.getMonth() && today.getDate() > data.getDate()) ? 
+     today.getFullYear() - data.getFullYear() : (today.getMonth() > data.getMonth()) ? 
+           today.getFullYear() - data.getFullYear() : 
+                 today.getFullYear() - data.getFullYear() - 1;
     dobStr = year + '/' + month + '/'+ date; 
     console.log('curr yr: ' + today.getFullYear());
     console.log(age);

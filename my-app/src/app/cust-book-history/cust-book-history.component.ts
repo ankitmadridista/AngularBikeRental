@@ -22,6 +22,10 @@ export class CustBookHistoryComponent implements OnInit {
 
   ngOnInit(): void {
 
+    if( sessionStorage.getItem('custSesEmail') == null ){
+      this._router.navigate(['/cust-log']);
+    }
+
     this._service.getPaidBookingByCustId(parseInt(sessionStorage.getItem("custSesId"))).subscribe(
       data=> {
         //console.log(data);

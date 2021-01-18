@@ -14,6 +14,11 @@ export class CustShowProfComponent implements OnInit {
   constructor(private _service: CustomerService, private _router: Router) { }
 
   ngOnInit(): void {
+
+    if( sessionStorage.getItem('custSesEmail') == null ){
+      this._router.navigate(['/cust-log']);
+    }
+
     this._service.showProf(this.customer).subscribe(
       data=> {
         console.log(data);
