@@ -28,6 +28,9 @@ import { AdminCustUpdateProfComponent } from './admin-cust-update-prof/admin-cus
 import { AdminProvUpdateProfComponent } from './admin-prov-update-prof/admin-prov-update-prof.component';
 import { CustPaymentSuccessComponent } from './cust-payment-success/cust-payment-success.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProvForgotPassComponent } from './prov-forgot-pass/prov-forgot-pass.component';
+import { ResetPassMailComponent } from './reset-pass-mail/reset-pass-mail.component';
+import { ProvResetPassFormComponent } from './prov-reset-pass-form/prov-reset-pass-form.component';
 
 
 const routes: Routes = [
@@ -112,6 +115,15 @@ const routes: Routes = [
   },{
     path: 'cust-payment-success',
     component: CustPaymentSuccessComponent,
+  },{
+    path: 'prov-forgot-pass',
+    component: ProvForgotPassComponent,
+  },{
+    path: 'reset-pass-mail/:id',
+    component: ResetPassMailComponent,
+  },{
+    path: 'prov-reset-pass-form',
+    component: ProvResetPassFormComponent,
   },
   { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }

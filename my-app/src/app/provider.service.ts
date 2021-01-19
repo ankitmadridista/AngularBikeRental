@@ -31,4 +31,12 @@ export class ProviderService {
     return this.http.put(baseUrl, provider)
   }
 
+  public sendResetEamil(provider :Provider): Observable<any>{
+    return this.http.post( "http://localhost:8080/api/prov-link-mail" , provider)
+  }
+  
+  public resetPassword(provider :Provider): Observable<any>{
+    return this.http.post( "http://localhost:8080/api/prov-reset-pass" , provider)
+  }
+
 }
