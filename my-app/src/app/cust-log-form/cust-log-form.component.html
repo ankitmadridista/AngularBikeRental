@@ -15,10 +15,14 @@
                 [class.has-success]="custEmail.valid">
                     <label for="Email">Email</label>
                     <input [(ngModel)]="customer.custEmail" type="email" name="custEmail" id="custEmail" class="form-control" placeholder="Enter Email" 
-                    #custEmail="ngModel" required>   
-                    <span class="help-block text-danger" *ngIf="custEmail.invalid && custEmail.touched">
-                        Email-Id is required
-                      </span>
+                    #custEmail="ngModel" required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">   
+                    <span class="help-block text-danger" *ngIf="custEmail.hasError('required') && custEmail.touched">
+                      Email-Id is required
+                    </span>
+                    <span class="help-block text-danger" *ngIf="custEmail.hasError('pattern') && custEmail.touched">
+                        Not a valid Email
+                    </span>
                 </div>     
                     <div class="form-group "
                     [class.has-error]="custPassword.invalid && custPassword.touched"

@@ -17,9 +17,13 @@
                       [class.has-success]="adminEmail.valid">
                           <label for="Email" class="control-label">Email</label>
                            <input type="email" [(ngModel)]="admin.adminEmail" name="adminEmail" id="adminEmail" class="form-control" placeholder="Enter Email" 
-                           #adminEmail="ngModel" required>
-                           <span class="help-block text-danger" *ngIf="adminEmail.invalid && adminEmail.touched">
+                           #adminEmail="ngModel" required
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                           <span class="help-block text-danger" *ngIf="adminEmail.hasError('required') && adminEmail.touched">
                             Email-Id is required
+                          </span>
+                          <span class="help-block text-danger" *ngIf="adminEmail.hasError('pattern') && adminEmail.touched">
+                            Not a valid Email
                           </span>
                       </div>
                       <div class="form-group col-md-6"
@@ -27,10 +31,14 @@
                       [class.has-success]="adminName.valid">
                           <label for="Name" class="control-label">Name</label>
                            <input type="text" [(ngModel)]="admin.adminName" name="adminName" id="adminName" class="form-control" placeholder="Enter Name" 
-                           #adminName="ngModel" required>
-                           <span class="help-block text-danger" *ngIf="adminName.invalid && adminName.touched">
-                            Name is required
+                           #adminName="ngModel" required
+                           pattern="^[a-zA-Z]+(?:[\s][a-zA-Z]+)*$">
+                           <span class="help-block text-danger" *ngIf="adminName.hasError('required') && adminName.touched">
+                             Name is required
                           </span>
+                          <span class="help-block text-danger" *ngIf="adminName.hasError('pattern') && adminName.touched">
+                            Not a valid Full Name
+                         </span>
                       </div>
 
                   </div>
@@ -41,7 +49,8 @@
                       [class.has-success]="adminPassword.valid">
                           <label for="Password" class="control-label">Password</label>
                           <input type="password" [(ngModel)]="admin.adminPassword" name="adminPassword" id="adminPassword" class="form-control" placeholder="Enter Password" 
-                           #adminPassword="ngModel" required minlength=3 maxlength=8>
+                           #adminPassword="ngModel" required 
+                           minlength=3 maxlength=8>
                            <span class="help-block text-danger" 
                            *ngIf="adminPassword.hasError('required') && adminPassword.touched">
                             password is required

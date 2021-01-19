@@ -11,112 +11,147 @@
             </small>
             <fieldset>   
               <div class="row">       
-                  <div class="form-group col-md-6" 
-                  [class.has-error]="custFname.invalid && custFname.touched"
-                  [class.has-success]="custFname.valid">
-                      <label for="fname" class="control-label">Full Name</label>
-                      <input type="text" [(ngModel)]="customer.custFname" name="custFname" id="custFname" class="form-control" placeholder="Enter full name" 
-                       #custFname="ngModel" required>
-                      <span class="help-block text-danger" *ngIf="custFname.invalid && custFname.touched">
-                        Full Name is required
-                      </span>
-                  </div>
-                  <div class="form-group col-md-6"
-                  [class.has-error]="custEmail.invalid && custEmail.touched"
-                  [class.has-success]="custEmail.valid">
-                      <label for="Email" class="control-label">Email</label>
-                       <input type="email" [(ngModel)]="customer.custEmail" name="custEmail" id="custEmail" class="form-control" placeholder="Enter Email" 
-                       #custEmail="ngModel" required>
-                       <span class="help-block text-danger" *ngIf="custEmail.invalid && custEmail.touched">
-                        Email-Id is required
-                      </span>
-                  </div>
-              </div>
-
-              <div class="row">
-                <div class="form-group col-md-6"
-                [class.has-error]="custAadhar.invalid && custAadhar.touched"
-                 [class.has-success]="custAadhar.valid">
-                  <label for="Aadhar Card Number" class="control-label">Aadhar Card number</label>
-                  <input type="text" [(ngModel)]="customer.custAadhar" name="custAadhar" id="custAadhar" class="form-control" placeholder="Enter Aadhar card number" 
-                  #custAadhar="ngModel" required>
-                  <span class="help-block text-danger" 
-                       *ngIf="custAadhar.invalid && custAadhar.touched">
-                        Aadhar Card Number is required
-                    </span>                  
-                </div>
-    
-                <div class="form-group col-md-6"
-                 [class.has-error]="custContactNo.invalid && custContactNo.touched"
-                 [class.has-success]="custContactNo.valid">
-                  <label for="Contact Number" class="control-label">Contact Number</label>
-                  <input type="text" class="form-control" [(ngModel)]="customer.custContactNo" name="custContactNo" id="custContactNo" placeholder="Enter contact number" 
-                   #custContactNo="ngModel" required >
-                    <span class="help-block text-danger" 
-                       *ngIf="custContactNo.invalid && custContactNo.touched">
-                        Contact Number is required
+                <div class="form-group col-md-6" 
+                [class.has-error]="custFname.invalid && custFname.touched"
+                [class.has-success]="custFname.valid">
+                    <label for="fname" class="control-label">Full Name</label>
+                    <input type="text" [(ngModel)]="customer.custFname" name="custFname" id="custFname" class="form-control " placeholder="Enter full name" 
+                     #custFname="ngModel" required
+                     pattern="^[a-zA-Z]+(?:[\s][a-zA-Z]+)*$">
+                    <span class="help-block text-danger" *ngIf="custFname.hasError('required') && custFname.touched">
+                      Full Name is required
                     </span>
-                </div>           
+                    <span class="help-block text-danger" *ngIf="custFname.hasError('pattern') && custFname.touched">
+                      Not a avlid Full Name 
+                    </span>
+                </div>
+                <div class="form-group col-md-6"
+                [class.has-error]="custEmail.invalid && custEmail.touched"
+                [class.has-success]="custEmail.valid">
+                    <label for="Email" class="control-label">Email</label>
+                     <input type="email" [(ngModel)]="customer.custEmail" name="custEmail" id="custEmail" class="form-control" placeholder="Enter Email" 
+                     #custEmail="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                     <span class="help-block text-danger" *ngIf="custEmail.hasError('required') && custEmail.touched">
+                      Email-Id is required
+                    </span>
+                    <span class="help-block text-danger" *ngIf="custEmail.hasError('pattern') && custEmail.touched">
+                      Not a valid Email
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-6"
+              [class.has-error]="custAadhar.invalid && custAadhar.touched"
+               [class.has-success]="custAadhar.valid">
+                <label for="Aadhar Card Number" class="control-label">Aadhar Card number</label>
+                <input type="text" [(ngModel)]="customer.custAadhar" name="custAadhar" id="custAadhar" 
+                class="form-control " placeholder="Enter Aadhar card number" 
+                #custAadhar="ngModel" required 
+                pattern="^[2-9]{1}[0-9]{11}$"
+                minlength="12" maxlength="12">              
+                <span class="help-block text-danger" 
+                     *ngIf="custAadhar.hasError('required') && custAadhar.touched">
+                    Aadhar Card Number is required
+                </span>       
+                <span class="help-block text-danger" 
+                    *ngIf="custAadhar.hasError('pattern') && custAadhar.touched">
+                    Not valid Aadhar Card Number
+                </span>                   
               </div>
+  
+              <div class="form-group col-md-6"
+               [class.has-error]="custContactNo.invalid && custContactNo.touched"
+               [class.has-success]="custContactNo.valid">
+                <label for="Contact Number" class="control-label">Contact Number</label>
+                <input type="text" class="form-control" [(ngModel)]="customer.custContactNo" name="custContactNo" id="custContactNo" placeholder="Enter contact number" 
+                 #custContactNo="ngModel" required 
+                 pattern="^[7-9]{1}[0-9]{9}$" minlength="10" maxlength="10">
+                  <span class="help-block text-danger" 
+                     *ngIf="custContactNo.hasError('required') && custContactNo.touched">
+                      Contact Number is required
+                  </span>
+                  <span class="help-block text-danger" 
+                     *ngIf="custContactNo.hasError('pattern') && custContactNo.touched">
+                      Not a valid Contact Number
+                  </span>
+              </div>           
+            </div>
     
-                <div class="form-group"
-                [class.has-error]="custDrivingLicNo.invalid && custDrivingLicNo.touched"
-                [class.has-success]="custDrivingLicNo.valid">
-                    <label for="Driving License" class="control-label">Driving License No. </label>
-                    <input type="text" [(ngModel)]="customer.custDrivingLicNo" name="custDrivingLicNo" id="custDrivingLicNo" class="form-control" placeholder="Enter Driving License No." 
-                    #custDrivingLicNo="ngModel" required>
-                    <span class="help-block text-danger" 
-                        *ngIf="custDrivingLicNo.invalid && custDrivingLicNo.touched">
-                        Driving License No. is required
-                    </span>  
-                </div>
-    
-                <div class="form-group"
-                [class.has-error]="custAddress.invalid && custAddress.touched"
-                [class.has-success]="custAddress.valid">
-                  <label for="Address" class="control-label">Address</label>
-                  <input type="text" [(ngModel)]="customer.custAddress" name="custAddress" id="custAddress" class="form-control" placeholder="Enter Address" 
-                   #custAddress="ngModel" required>
-                    <span class="help-block text-danger" 
-                       *ngIf="custAddress.invalid && custAddress.touched">
-                        Address is required
-                    </span>  
-                </div>
+            <div class="form-group"
+            [class.has-error]="custDrivingLicNo.invalid && custDrivingLicNo.touched"
+            [class.has-success]="custDrivingLicNo.valid">
+                <label for="Driving License" class="control-label">Driving License No. </label>
+                <input type="text" [(ngModel)]="customer.custDrivingLicNo" name="custDrivingLicNo" id="custDrivingLicNo" class="form-control" placeholder="Enter Driving License No." 
+                #custDrivingLicNo="ngModel" required maxlength="16" 
+                pattern="^(([A-Z]{2}[0-9]{2})( )|([A-Z]{2}-[0-9]{2}))((19|20)[0-9][0-9])[0-9]{7}$">
+                <span class="help-block text-danger" 
+                    *ngIf="custDrivingLicNo.hasError('required') && custDrivingLicNo.touched">
+                    Driving License No. is required
+                </span>
+                <span class="help-block text-danger" 
+                  *ngIf="custDrivingLicNo.hasError('pattern') && custDrivingLicNo.touched">
+                  Not a valid Driving License No.
+                </span>  
+            </div>
+
+            <div class="form-group"
+            [class.has-error]="custAddress.invalid && custAddress.touched"
+            [class.has-success]="custAddress.valid">
+              <label for="Address" class="control-label">Address</label>
+              <input type="text" [(ngModel)]="customer.custAddress" name="custAddress" id="custAddress" class="form-control" placeholder="Enter Address" 
+               #custAddress="ngModel" required 
+               minlength="3" maxlength="50">
+                <span class="help-block text-danger" 
+                   *ngIf="custAddress.invalid && custAddress.touched">
+                    Address is required
+                </span>  
+            </div>
              
-              <div class="row">
-                <div class="form-group col-md-4"
-                [class.has-error]="custCity.invalid && custCity.touched"
-                [class.has-success]="custCity.valid">
-                  <label for="fname" class="control-label">City</label>
-                  <input type="text" [(ngModel)]="customer.custCity" name="custCity" id="custCity" class="form-control" placeholder="Enter city" 
-                  #custCity="ngModel" required>
-                    <span class="help-block text-danger" 
-                       *ngIf="custCity.invalid && custCity.touched">
-                        City is required
-                    </span>   
-                </div>  
-    
-                <div class="form-group col-md-4">
-                  <label for="fname" class="control-label">State</label>
-                  <select  [(ngModel)]="customer.custState" id="custState" name="custState" placeholder="Enter state" class="form-control">
-                    <option disabled selected>Choose...</option>
-                    <option>Maharashtra</option>
-                    <option>Goa</option>                      
-                  </select>
+            <div class="row">
+              <div class="form-group col-md-4">
+                <label for="fname" class="control-label">City</label>
+                <select [(ngModel)]="customer.custCity" id="custCity" name="custCity" placeholder="Enter City" class="form-control" required>
+                  <option disabled selected>--Choose City--</option>
+                  <option>New Delhi</option>
+                  <option>Chennai</option>
+                  <option>Mumbai</option>
+                  <option>Kolkata</option>
+                </select>  
                  
-                </div>
-                <div class="form-group col-md-4"
-                [class.has-error]="custPin.invalid && custPin.touched"
-                [class.has-success]="custPin.valid">
-                  <label for="PIN" class="control-label">PIN</label>
-                  <input type="text" [(ngModel)]="customer.custPin" name="custPin" id="custPin" class="form-control" placeholder="Enter PIN" 
-                  #custPin="ngModel" required>
-                    <span class="help-block text-danger" 
-                       *ngIf="custPin.invalid && custPin.touched">
-                        PIN is required
-                    </span>  
-                </div>  
+              </div>  
+  
+              <div class="form-group col-md-4">
+                <label for="fname" class="control-label">State</label>
+                <select  [(ngModel)]="customer.custState" id="custState" name="custState" placeholder="Enter state" class="form-control" 
+                #custState="ngModel" required>
+                  <option disabled selected>--Choose State--</option>
+                  <option>Maharashtra</option>
+                  <option>Goa</option>     
+                  <span class="help-block text-danger" 
+                     *ngIf="custState.invalid && custState.touched">
+                      Select a state
+                  </span>                    
+                </select>
+               
               </div>
+              <div class="form-group col-md-4"
+              [class.has-error]="custPin.invalid && custPin.touched"
+              [class.has-success]="custPin.valid">
+                <label for="PIN" class="control-label">PIN</label>
+                <input type="text" [(ngModel)]="customer.custPin" name="custPin" id="custPin" class="form-control" placeholder="Enter PIN" 
+                #custPin="ngModel" required
+                pattern="^[1-9][0-9]{5}$" minlength="6" maxlength="6">
+                  <span class="help-block text-danger" 
+                     *ngIf="custPin.hasError('required') && custPin.touched">
+                      PIN is required
+                  </span>  
+                  <span class="help-block text-danger" 
+                     *ngIf="custPin.hasError('pattern') && custPin.touched">
+                      Not a valid PIN 
+                  </span>  
+              </div>  
+            </div>
     
               <div class="form-group ">
                   <button type="submit" class="btn btn-success" [disabled]="custFormControl.invalid" (click)="updateProf()">Update</button>

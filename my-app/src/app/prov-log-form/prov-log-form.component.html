@@ -5,7 +5,6 @@
                 <i class="fa fa-user-plus"></i>Provider Signin</h4>
             <p class="text-secondary">Enter valid sign in details.</p>
             <hr>
-            <!--signup form --> 
             <form #loginform="ngForm"  (ngSubmit)="loginProvider()">
                 <small class="text-danger">
                     {{msg}}
@@ -15,10 +14,14 @@
                 [class.has-success]="provEmail.valid">
                     <label for="Email">Email</label>
                     <input [(ngModel)]="provider.provEmail" type="email" name="provEmail" id="provEmail" class="form-control" placeholder="Enter Email" 
-                    #provEmail="ngModel" required>   
-                    <span class="help-block text-danger" *ngIf="provEmail.invalid && provEmail.touched">
+                    #provEmail="ngModel" required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">   
+                    <span class="help-block text-danger" *ngIf="provEmail.hasError('required') && provEmail.touched">
                         Email-Id is required
-                      </span>
+                    </span>
+                    <span class="help-block text-danger" *ngIf="provEmail.hasError('pattern') && provEmail.touched">
+                        Not a valid Email
+                    </span>
                 </div>     
                     <div class="form-group "
                     [class.has-error]="provPassword.invalid && provPassword.touched"

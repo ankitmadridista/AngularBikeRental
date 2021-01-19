@@ -13,16 +13,21 @@ import { AdminCustDelProfModalComponent } from '../admin-cust-del-prof-modal/adm
   styleUrls: ['./admin-view-cust.component.css']
 })
 export class AdminViewCustComponent implements OnInit {
+
+
   customer = new Customer();
 
-  public custArr;
+  public custArr : [];
   public custArrStat = false;
 
-  dtOptions: DataTables.Settings = {};
 
   constructor(private _service: AdminService, 
     private _service1: CustomerService,
     private _router: Router, private _modalService: NgbModal) { }
+
+
+    dtOptions: DataTables.Settings = {};
+
 
   ngOnInit(): void {
 
@@ -30,11 +35,7 @@ export class AdminViewCustComponent implements OnInit {
       this._router.navigate(['/admin-log']);
     }
     
-    // this.dtOptions = {
-    //   pagingType: 'full_numbers',
-    //   pageLength: 2
-    // };
-
+    
     this._service.getAllCustomers().subscribe(
       data=>{
         this.custArr = data;
@@ -45,10 +46,19 @@ export class AdminViewCustComponent implements OnInit {
       },
       error=>{
         console.log("Exception occured");
-        this.custArr = 'Invalid Credentials';
+       // this.custArr = 'Invalid Credentials';
       }
     )
+
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+    lengthMenu : [5, 10, 25],
+      processing: true
+    };
+
   }
+
 
   onUpdate(id: Number){
     //console.log(id);
