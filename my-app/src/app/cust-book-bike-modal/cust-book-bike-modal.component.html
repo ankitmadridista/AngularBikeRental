@@ -23,9 +23,7 @@
               <b>Charges/Hour : {{ bike.chargesPerHour }}</b><br>                                
               <b>Location : {{ bike.availableLocation }}</b><br>
               <b>Bike No. : {{ bike.bikeNo }}</b><br> 
-              <b>Average/Ltr : {{ bike.avgPerLtr }}</b><br>
-              <b>Amount to be paid :  </b><br>
-              <b>Total Interest : </b><br>                          
+              <b>Average/Ltr : {{ bike.avgPerLtr }}</b><br>               
           </address>
       </div>
       <div class="col-xs-2 t">
@@ -46,7 +44,7 @@
 
 <div class="modal-footer">
   <button type="button" class="btn btn-outline-dark" (click)="bookAndClose()">
-    Book
+    Request
   </button>
   <button type="button" class="btn btn-outline-dark" (click)="closeTheModal()">
     Close

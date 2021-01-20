@@ -61,8 +61,8 @@ export class CustUpdateProfComponent implements OnInit {
       },
       error=>{
         console.log("Exception occured");
-        this._router.navigate(['/cust-show-prof'])
-        //this.msg = 'Bike already exists';
+        //this._router.navigate(['/cust-show-prof'])
+        this.msg = 'Email-id already exists';
       });    
   
     }

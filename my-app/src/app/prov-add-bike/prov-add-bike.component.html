@@ -16,10 +16,17 @@
                     [class.has-success]="bikeNo.valid">
                       <label for="Address" class="control-label">Bike No.</label>
                       <input type="text" [(ngModel)]="bike.bikeNo" name="bikeNo" id="bikeNo" class="form-control" placeholder="Enter Bike No." 
-                      #bikeNo="ngModel" required>
+                      #bikeNo="ngModel" required
+                      pattern="^[A-Z]{2}[ -][0-9]{1,2}(?: [A-Z])?(?: [A-Z]*)? [0-9]{4}$"
+                      minlength="8" maxlength="15"
+                      >
                         <span class="help-block text-danger" 
-                          *ngIf="bikeNo.invalid && bikeNo.touched">
+                          *ngIf="bikeNo.hasError('required') && bikeNo.touched">
                             Bike No. is required
+                        </span>  
+                        <span class="help-block text-danger" 
+                          *ngIf="bikeNo.hasError('pattern') && bikeNo.touched">
+                            Invalid Bike No. ex- MH 01 AB 0001 
                         </span>  
                     </div>
 
@@ -45,50 +52,58 @@
                     [class.has-success]="brandOfBike.valid">
                         <label for="Brand Of Bike" class="control-label">Brand Of Bike</label>
                         <input type="text" [(ngModel)]="bike.brandOfBike" name="brandOfBike" id="brandOfBike" class="form-control" placeholder="Enter Brand Of Bike" 
-                         #brandOfBike="ngModel" required >
+                         #brandOfBike="ngModel" required 
+                         pattern="^[a-zA-Z]+(?:[\s][a-zA-Z]+)*$"
+                         minlength="2" maxlength="20">
                          <span class="help-block text-danger" 
-                         *ngIf="brandOfBike.hasError('required') && brandOfBike.touched">
-                         Brand Of Bike is required
-                        </span>                       
+                          *ngIf="brandOfBike.hasError('required') && brandOfBike.touched">
+                          Brand Of Bike is required
+                        </span>
+                        <span class="help-block text-danger" 
+                          *ngIf="brandOfBike.hasError('pattern') && brandOfBike.touched">
+                          Invalid Brand Of Bike
+                        </span>
+
                      </div>
                      <div class="form-group col-md-6"
                      [class.has-error]="modelOfBike.invalid && modelOfBike.touched"
                      [class.has-success]="modelOfBike.valid">
                         <label for="Model Of Bike" class="control-label">Model Of Bike</label>
                         <input type="text" class="form-control" [(ngModel)]="bike.modelOfBike" name="modelOfBike" id="modelOfBike" placeholder="Enter Model Of Bike" 
-                        #modelOfBike="ngModel" required>
+                        #modelOfBike="ngModel" required
+                        pattern="^[a-zA-Z]{1}[a-zA-Z0-9\s-+.]*$"
+                        minlength="2" maxlength="20">
                         <span class="help-block text-danger" 
-                           *ngIf="modelOfBike.invalid && modelOfBike.touched">
+                           *ngIf="modelOfBike.hasError('required') && modelOfBike.touched">
                            Model Of Bike is required
+                          </span>  
+                          <span class="help-block text-danger" 
+                           *ngIf="modelOfBike.hasError('pattern') && modelOfBike.touched">
+                            Invalid Format
                           </span>                     
                     </div>
                 </div>
 
                 <div class="row">
                   
-                  <div class="form-group col-md-6"
+                  <div class="form-group col-md-12"
                   [class.has-error]="availableLocation.invalid && availableLocation.touched"
                    [class.has-success]="availableLocation.valid">
                     <label for="Available Location" class="control-label">Available Location</label>
                     <input type="text" [(ngModel)]="bike.availableLocation" name="availableLocation" id="availableLocation" class="form-control" placeholder="Enter Available Location" 
-                    #availableLocation="ngModel" required>
+                     #availableLocation="ngModel" required
+                     pattern="^[a-zA-Z]{3}[a-zA-Z0-9-,\s]*$" minlength="3" maxlength="30">
                     <span class="help-block text-danger" 
-                         *ngIf="availableLocation.invalid && availableLocation.touched">
-                          Available Location required
-                    </span>                  
-                  </div>
+                         *ngIf="availableLocation.hasError('required') && availableLocation.touched">
+                          Location required
+                    </span>
+                    <span class="help-block text-danger" 
+                         *ngIf="availableLocation.hasError('pattern') && availableLocation.touched">
+                          Invalid Format
+                      </span>                    
+                    </div>
 
-                  <div class="form-group col-md-6"
-                  [class.has-error]="rcBookNo.invalid && rcBookNo.touched"
-                  [class.has-success]="rcBookNo.valid">
-                    <label for="RC Book Number" class="control-label">RC Book Number of Bike</label>
-                    <input type="text" [(ngModel)]="bike.rcBookNo" name="rcBookNo" id="rcBookNo" class="form-control" placeholder="Enter RC Book number" 
-                    #rcBookNo="ngModel" required>
-                      <span class="help-block text-danger" 
-                         *ngIf="rcBookNo.invalid && rcBookNo.touched">
-                          RC Book Number is required
-                      </span>           
-                  </div>                   
+                            
                 </div>
 
                 <div class="row">                
@@ -97,10 +112,15 @@
                    [class.has-success]="chargesPerHour.valid">
                     <label for="Charges Per Hour" class="control-label">Charges Per Hour</label>
                     <input type="text" [(ngModel)]="bike.chargesPerHour" name="chargesPerHour" id="chargesPerHour" class="form-control" placeholder="Enter Charges Per Hour" 
-                    #chargesPerHour="ngModel" required>
+                    #chargesPerHour="ngModel" required
+                    pattern="^[0-9]{1}[0-9.]*$" minlength="2" maxlength="7">
                     <span class="help-block text-danger" 
-                         *ngIf="chargesPerHour.invalid && chargesPerHour.touched">
+                         *ngIf="chargesPerHour.hasError('required') && chargesPerHour.touched">
                          Charges Per Hour is required
+                      </span>   
+                      <span class="help-block text-danger" 
+                        *ngIf="chargesPerHour.hasError('pattern') && chargesPerHour.touched">
+                        Invalid format
                       </span>                  
                   </div>
                   
@@ -109,12 +129,17 @@
                    [class.has-success]="avgPerLtr.valid">
                     <label for="Average Per Ltr" class="control-label">Average Per Ltr</label>
                     <input type="text" [(ngModel)]="bike.avgPerLtr" name="avgPerLtr" id="avgPerLtr" class="form-control" placeholder="Enter Average Per Ltr" 
-                    #avgPerLtr="ngModel" required>
+                    #avgPerLtr="ngModel" required
+                    pattern="^[0-9]{1}[0-9.]*$" minlength="2" maxlength="7">
                     <span class="help-block text-danger" 
-                         *ngIf="avgPerLtr.invalid && avgPerLtr.touched">
+                         *ngIf="avgPerLtr.hasError('required') && avgPerLtr.touched">
                          Average Per Ltr is required
-                      </span>                  
-                  </div>  
+                    </span>     
+                    <span class="help-block text-danger" 
+                      *ngIf="avgPerLtr.hasError('pattern') && avgPerLtr.touched">
+                       Invalid Format
+                   </span>                  
+                  </div>             
                 </div>
               
                 <div class="form-group ">

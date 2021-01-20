@@ -46,8 +46,8 @@ export class AdminCustUpdateProfComponent implements OnInit {
     },
     error=>{
       console.log("Exception occured");
-      this._router.navigate(['/admin-view-cust'])
-      //this.msg = 'Bike already exists';
+      //this._router.navigate(['/admin-view-cust'])
+      this.msg = 'Email-Id already exists';
     });    
 
   }

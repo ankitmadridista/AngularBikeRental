@@ -17,7 +17,7 @@
                     [class.has-error]="adminEmail.invalid && adminEmail.touched"
                     [class.has-success]="adminEmail.valid">
                         <label for="Email" class="control-label">Email</label>
-                         <input type="email" [(ngModel)]="adminider.adminEmail" name="adminEmail" id="adminEmail" class="form-control" placeholder="Enter Email" 
+                         <input type="email" [(ngModel)]="admin.adminEmail" name="adminEmail" id="adminEmail" class="form-control" placeholder="Enter Email" 
                          #adminEmail="ngModel" required
                          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                          <span class="help-block text-danger" *ngIf="adminEmail.hasError('required') && adminEmail.touched">

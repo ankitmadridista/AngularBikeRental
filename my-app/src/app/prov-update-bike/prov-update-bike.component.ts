@@ -56,8 +56,8 @@ export class ProvUpdateBikeComponent implements OnInit {
     },
     error=>{
       console.log("Exception occured");
-      this._router.navigate(['/prov-show-bikes'])
-      //this.msg = 'Bike already exists';
+      //this._router.navigate(['/prov-show-bikes'])
+      this.msg = 'Exception occured';
     });    
   }
 

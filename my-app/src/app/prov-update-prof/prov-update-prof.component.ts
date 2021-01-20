@@ -47,8 +47,8 @@ export class ProvUpdateProfComponent implements OnInit {
     },
     error=>{
       console.log("Exception occured");
-      this._router.navigate(['/prov-show-prof'])
-      //this.msg = 'Bike already exists';
+      //this._router.navigate(['/prov-show-prof'])
+      this.msg = 'Email-Id already exists';
     });    
 
   }

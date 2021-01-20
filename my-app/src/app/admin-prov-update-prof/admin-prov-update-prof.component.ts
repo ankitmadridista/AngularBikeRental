@@ -50,8 +50,8 @@ export class AdminProvUpdateProfComponent implements OnInit {
     },
     error=>{
       console.log("Exception occured");
-      this._router.navigate(['/admin-view-prov'])
-      //this.msg = 'Bike already exists';
+      //this._router.navigate(['/admin-view-prov'])
+      this.msg = 'Email-Id already exists';
     });    
 
   }
