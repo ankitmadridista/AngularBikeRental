@@ -56,4 +56,12 @@ export class AdminService {
     return this.http.delete(baseUrl+"/providers/" + id)
   }
 
+  public sendResetEmail(admin :Admin ): Observable<any>{
+    return this.http.post( "http://localhost:8080/api/admin-link-mail" , admin)
+  }
+  
+  public resetPassword(admin :Admin): Observable<any>{
+    return this.http.post( "http://localhost:8080/api/admin-reset-pass" , admin )
+  }
+
 }

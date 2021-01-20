@@ -25,7 +25,7 @@ export class ProvResetPassFormComponent implements OnInit {
     this._service.resetPassword(this.provider).subscribe(
       data=> {
       console.log("response recieved");
-      this._router.navigate(['/reset-pass-mail',2])
+      this._router.navigate(['/reset-pass-mail',3])
     },
     error=>{
       console.log("Exception occured");

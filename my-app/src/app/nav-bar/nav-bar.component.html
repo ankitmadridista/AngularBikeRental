@@ -1,5 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">Bike-Rental</a>
+    <a href="#" class="navbar-brand" *ngIf="sesAdmEmail == null && sesProvEmail == null && sesCustEmail == null ">Bike-Rental</a>
+    <a href="admin-home" class="navbar-brand" *ngIf="sesAdmEmail != null ">Bike-Rental</a>
+    <a href="prov-home" class="navbar-brand" *ngIf="sesProvEmail != null ">Bike-Rental</a>
+    <a href="cust-home" class="navbar-brand" *ngIf="sesCustEmail != null">Bike-Rental</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,7 +16,7 @@
           <a routerLink="#" class="nav-link">Contact us</a>
         </li>
         <li class="nav-item">
-          <a routerLink="prov-reg" class="nav-link">Join us</a>
+          <a routerLink="prov-reg" class="nav-link" *ngIf="sesAdmEmail == null && sesProvEmail == null && sesCustEmail == null ">Join us</a>
         </li>
        
         <li class="nav-item">
@@ -25,8 +28,8 @@
           Login/Register
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a routerLink="cust-log" class=" right dropdown-item">Login</a>
-          <a routerLink="cust-reg" class=" right dropdown-item">Register</a>         
+          <a href="cust-log" class=" right dropdown-item">Login</a>
+          <a href="cust-reg" class=" right dropdown-item">Register</a>         
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>

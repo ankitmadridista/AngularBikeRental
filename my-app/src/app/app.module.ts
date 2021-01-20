@@ -46,9 +46,11 @@ import { CustPaymentSuccessComponent } from './cust-payment-success/cust-payment
 import { CountdownModule } from 'ngx-countdown';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProvForgotPassComponent } from './prov-forgot-pass/prov-forgot-pass.component';
+import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
 import { ResetPassMailComponent } from './reset-pass-mail/reset-pass-mail.component';
 import { ProvResetPassFormComponent } from './prov-reset-pass-form/prov-reset-pass-form.component';
+import { AdminResetPassFormComponent } from './admin-reset-pass-form/admin-reset-pass-form.component';
+import { CustResetPassFormComponent } from './cust-reset-pass-form/cust-reset-pass-form.component';
 
 @NgModule({
   declarations: [
@@ -88,9 +90,11 @@ import { ProvResetPassFormComponent } from './prov-reset-pass-form/prov-reset-pa
     CustPaymentSuccessComponent,
     NavBarComponent,
     PageNotFoundComponent,
-    ProvForgotPassComponent,
     ResetPassMailComponent,
-    ProvResetPassFormComponent
+    ProvResetPassFormComponent,
+    ForgotPassComponent,
+    AdminResetPassFormComponent,
+    CustResetPassFormComponent
   ],
   imports: [
     BrowserModule,

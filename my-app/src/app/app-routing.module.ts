@@ -28,9 +28,11 @@ import { AdminCustUpdateProfComponent } from './admin-cust-update-prof/admin-cus
 import { AdminProvUpdateProfComponent } from './admin-prov-update-prof/admin-prov-update-prof.component';
 import { CustPaymentSuccessComponent } from './cust-payment-success/cust-payment-success.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProvForgotPassComponent } from './prov-forgot-pass/prov-forgot-pass.component';
+import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
 import { ResetPassMailComponent } from './reset-pass-mail/reset-pass-mail.component';
 import { ProvResetPassFormComponent } from './prov-reset-pass-form/prov-reset-pass-form.component';
+import { AdminResetPassFormComponent } from './admin-reset-pass-form/admin-reset-pass-form.component';
+import { CustResetPassFormComponent } from './cust-reset-pass-form/cust-reset-pass-form.component';
 
 
 const routes: Routes = [
@@ -116,14 +118,20 @@ const routes: Routes = [
     path: 'cust-payment-success',
     component: CustPaymentSuccessComponent,
   },{
-    path: 'prov-forgot-pass',
-    component: ProvForgotPassComponent,
+    path: 'forgot-pass/:id',
+    component: ForgotPassComponent,
   },{
     path: 'reset-pass-mail/:id',
     component: ResetPassMailComponent,
   },{
+    path: 'admin-reset-pass-form',
+    component: AdminResetPassFormComponent,
+  },{
     path: 'prov-reset-pass-form',
     component: ProvResetPassFormComponent,
+  },{
+    path: 'cust-reset-pass-form',
+    component: CustResetPassFormComponent,
   },
   { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }

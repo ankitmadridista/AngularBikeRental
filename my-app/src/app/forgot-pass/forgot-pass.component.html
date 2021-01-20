@@ -1,0 +1,225 @@
+
+<!--admin-->
+<div class="container-fluid my-3" *ngIf="id == 1">
+    <div class="row justify-content-around">      
+        <div class="col-md-7 bg-light shadow px-4 pt-4">
+            <h4 class="display-4 ">
+                <i class="fa fa-user-plus"></i>Forgot Password</h4>
+            <hr>           
+            <form #adminFormControl="ngForm"  >    
+              <small class="text-danger">
+                {{msg}}
+              </small>
+              <fieldset>   
+                <div class="row">       
+                   
+                    <div class="form-group col-md-12"
+                    [class.has-error]="adminEmail.invalid && adminEmail.touched"
+                    [class.has-success]="adminEmail.valid">
+                        <label for="Email" class="control-label">Email</label>
+                         <input type="email" [(ngModel)]="adminider.adminEmail" name="adminEmail" id="adminEmail" class="form-control" placeholder="Enter Email" 
+                         #adminEmail="ngModel" required
+                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                         <span class="help-block text-danger" *ngIf="adminEmail.hasError('required') && adminEmail.touched">
+                          Email-Id is required
+                        </span>
+                        <span class="help-block text-danger" *ngIf="adminEmail.hasError('pattern') && adminEmail.touched">
+                          Not a valid Email
+                        </span>
+                    </div>
+                </div>
+                
+              <!--  <div class="row">       
+                    <div class="form-group col-md-6"
+                    [class.has-error]="adminPassword.invalid && provPassword.touched"
+                    [class.has-success]="provPassword.valid">
+                        <label for="Password" class="control-label">Password</label>
+                        <input type="password" [(ngModel)]="provider.provPassword" name="provPassword" id="provPassword" class="form-control" placeholder="Enter Password" 
+                         #provPassword="ngModel" required minlength=3 maxlength=8>
+                         <span class="help-block text-danger" 
+                         *ngIf="provPassword.hasError('required') && provPassword.touched">
+                          password is required
+                        </span>
+                        <span class="help-block text-danger" 
+                         *ngIf="provPassword.hasError('minlength')">
+                          password is too short
+                        </span>
+                        <span class="help-block text-danger" 
+                         *ngIf="provPassword.hasError('maxlength')">
+                          password is too large
+                        </span>
+                     </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="Password">Confirm Password</label>
+                        <input type="Password" name="provPasswordR" id="provPasswordR" class="form-control" placeholder="Re-Enter Password" 
+                        aria-describedby="PasswordlhelpId" required>
+                    </div>
+                </div>-->
+               
+
+                <div class="form-group ">
+                    <button type="submit" class="btn btn-success" [disabled]="adminFormControl.invalid" (click)="sendMailAdmin()">Send Mail</button>
+              
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                </div>
+              </fieldset>
+              </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!--provider-->
+<div class="container-fluid my-3" *ngIf="id == 2">
+    <div class="row justify-content-around">      
+        <div class="col-md-7 bg-light shadow px-4 pt-4">
+            <h4 class="display-4 ">
+                <i class="fa fa-user-plus"></i>Forgot Password</h4>
+            <hr>           
+            <form #provFormControl="ngForm"  >    
+              <small class="text-danger">
+                {{msg}}
+              </small>
+              <fieldset>   
+                <div class="row">       
+                   
+                    <div class="form-group col-md-12"
+                    [class.has-error]="provEmail.invalid && provEmail.touched"
+                    [class.has-success]="provEmail.valid">
+                        <label for="Email" class="control-label">Email</label>
+                         <input type="email" [(ngModel)]="provider.provEmail" name="provEmail" id="provEmail" class="form-control" placeholder="Enter Email" 
+                         #provEmail="ngModel" required
+                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                         <span class="help-block text-danger" *ngIf="provEmail.hasError('required') && provEmail.touched">
+                          Email-Id is required
+                        </span>
+                        <span class="help-block text-danger" *ngIf="provEmail.hasError('pattern') && provEmail.touched">
+                          Not a valid Email
+                        </span>
+                    </div>
+                </div>
+                
+              <!--  <div class="row">       
+                    <div class="form-group col-md-6"
+                    [class.has-error]="provPassword.invalid && provPassword.touched"
+                    [class.has-success]="provPassword.valid">
+                        <label for="Password" class="control-label">Password</label>
+                        <input type="password" [(ngModel)]="provider.provPassword" name="provPassword" id="provPassword" class="form-control" placeholder="Enter Password" 
+                         #provPassword="ngModel" required minlength=3 maxlength=8>
+                         <span class="help-block text-danger" 
+                         *ngIf="provPassword.hasError('required') && provPassword.touched">
+                          password is required
+                        </span>
+                        <span class="help-block text-danger" 
+                         *ngIf="provPassword.hasError('minlength')">
+                          password is too short
+                        </span>
+                        <span class="help-block text-danger" 
+                         *ngIf="provPassword.hasError('maxlength')">
+                          password is too large
+                        </span>
+                     </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="Password">Confirm Password</label>
+                        <input type="Password" name="provPasswordR" id="provPasswordR" class="form-control" placeholder="Re-Enter Password" 
+                        aria-describedby="PasswordlhelpId" required>
+                    </div>
+                </div>-->
+               
+
+                <div class="form-group ">
+                    <button type="submit" class="btn btn-success" [disabled]="provFormControl.invalid" (click)="sendMailPorv()">Send Mail</button>
+              
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                </div>
+              </fieldset>
+              </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!--customer-->
+<div class="container-fluid my-3" *ngIf="id == 3">
+    <div class="row justify-content-around">      
+        <div class="col-md-7 bg-light shadow px-4 pt-4">
+            <h4 class="display-4 ">
+                <i class="fa fa-user-plus"></i>Forgot Password</h4>
+            <hr>           
+            <form #custFormControl="ngForm"  >    
+              <small class="text-danger">
+                {{msg}}
+              </small>
+              <fieldset>   
+                <div class="row">       
+                   
+                    <div class="form-group col-md-12"
+                    [class.has-error]="custEmail.invalid && custEmail.touched"
+                    [class.has-success]="custEmail.valid">
+                        <label for="Email" class="control-label">Email</label>
+                         <input type="email" [(ngModel)]="customer.custEmail" name="custEmail" id="custEmail" class="form-control" placeholder="Enter Email" 
+                         #custEmail="ngModel" required
+                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                         <span class="help-block text-danger" *ngIf="custEmail.hasError('required') && custEmail.touched">
+                          Email-Id is required
+                        </span>
+                        <span class="help-block text-danger" *ngIf="custEmail.hasError('pattern') && custEmail.touched">
+                          Not a valid Email
+                        </span>
+                    </div>
+                </div>
+                
+              <!--  <div class="row">       
+                    <div class="form-group col-md-6"
+                    [class.has-error]="provPassword.invalid && provPassword.touched"
+                    [class.has-success]="provPassword.valid">
+                        <label for="Password" class="control-label">Password</label>
+                        <input type="password" [(ngModel)]="provider.provPassword" name="provPassword" id="provPassword" class="form-control" placeholder="Enter Password" 
+                         #provPassword="ngModel" required minlength=3 maxlength=8>
+                         <span class="help-block text-danger" 
+                         *ngIf="provPassword.hasError('required') && provPassword.touched">
+                          password is required
+                        </span>
+                        <span class="help-block text-danger" 
+                         *ngIf="provPassword.hasError('minlength')">
+                          password is too short
+                        </span>
+                        <span class="help-block text-danger" 
+                         *ngIf="provPassword.hasError('maxlength')">
+                          password is too large
+                        </span>
+                     </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="Password">Confirm Password</label>
+                        <input type="Password" name="provPasswordR" id="provPasswordR" class="form-control" placeholder="Re-Enter Password" 
+                        aria-describedby="PasswordlhelpId" required>
+                    </div>
+                </div>-->
+               
+
+                <div class="form-group ">
+                    <button type="submit" class="btn btn-success" [disabled]="custFormControl.invalid" (click)="sendMailCust()">Send Mail</button>
+              
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                </div>
+              </fieldset>
+              </form>
+        </div>
+    </div>
+</div>

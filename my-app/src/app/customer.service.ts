@@ -29,4 +29,12 @@ export class CustomerService {
     return this.http.put(baseUrl, customer)
   }
   
+  public sendResetEmail(customer :Customer): Observable<any>{
+    return this.http.post( "http://localhost:8080/api/cust-link-mail" , customer)
+  }
+  
+  public resetPassword(customer :Customer): Observable<any>{
+    return this.http.post( "http://localhost:8080/api/cust-reset-pass" , customer)
+  }
+
 }
