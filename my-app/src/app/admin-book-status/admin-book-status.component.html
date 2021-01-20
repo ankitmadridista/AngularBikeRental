@@ -8,7 +8,7 @@
         </h3>
         
         <div class="table-responsive" id="myTable">
-        <table class="table  table-striped "  datatable [dtOptions]="dtOptions">
+        <table class="table  table-striped " >
             <thead class="table-dark">
                 <tr>
                     <th class="align-middle">Booking Id</th>   
@@ -31,11 +31,11 @@
                     <td class="align-middle">{{x.bikeId}}</td>
                     <td class="align-middle">{{x.provId}}</td>
                     <td class="align-middle">{{x.custId}}</td>
-                    <td class="align-middle">{{x.bookChargesPerHours}}</td>
-                    <td class="align-middle">{{x.bookBillAmount}}</td>
+                    <td class="align-middle">₹{{x.bookChargesPerHours}}</td>
+                    <td class="align-middle">₹{{x.bookBillAmount}}</td>
                     <td class="align-middle">{{x.bookPaymentStatus}}</td>
                     <td class="align-middle">{{x.bookStatus}}</td>
-                    <td class="align-middle">{{x.bookDepositAmount}}</td>
+                    <td class="align-middle">₹{{x.bookDepositAmount}}</td>
                     <td class="align-middle">{{x.availableLocation}}</td>
                     <td class="align-middle">                       
                         <button type="button" class="btn btn-primary btn-sm" id="btn0" (click)="acceptBooking(x)">
@@ -61,7 +61,7 @@
         </h3>
         
         <div class="table-responsive" id="myTable">
-        <table class="table  table-striped "  datatable [dtOptions]="dtOptions">
+        <table class="table  table-striped " >
             <thead class="table-dark">
                 <tr>
                     <th class="align-middle">Booking Id</th>   
@@ -84,11 +84,11 @@
                     <td class="align-middle">{{x.bikeId}}</td>
                     <td class="align-middle">{{x.provId}}</td>
                     <td class="align-middle">{{x.custId}}</td>
-                    <td class="align-middle">{{x.bookChargesPerHours}}</td>
-                    <td class="align-middle">{{x.bookBillAmount}}</td>
+                    <td class="align-middle">₹{{x.bookChargesPerHours}}</td>
+                    <td class="align-middle">₹{{x.bookBillAmount}}</td>
                     <td class="align-middle">{{x.bookPaymentStatus}}</td>
                     <td class="align-middle">{{x.bookStatus}}</td>
-                    <td class="align-middle">{{x.bookDepositAmount}}</td>
+                    <td class="align-middle">₹{{x.bookDepositAmount}}</td>
                     <td class="align-middle">{{x.availableLocation}}</td>
                     <td class="align-middle">                       
                         <button type="button" class="btn btn-primary btn-sm" id="btn0" (click)="viewBookingModal(x)">
@@ -113,7 +113,7 @@
         </h3>
         
         <div class="table-responsive" id="myTable">
-        <table class="table  table-striped "  datatable [dtOptions]="dtOptions">
+        <table class="table  table-striped "  >
             <thead class="table-dark">
                 <tr>
                     <th class="align-middle">Booking Id</th>  
@@ -136,11 +136,11 @@
                     <td class="align-middle">{{x.bikeId}}</td>
                     <td class="align-middle">{{x.provId}}</td>
                     <td class="align-middle">{{x.custId}}</td>
-                    <td class="align-middle">{{x.bookChargesPerHours}}</td>
-                    <td class="align-middle">{{x.bookBillAmount}}</td>
+                    <td class="align-middle">₹{{x.bookChargesPerHours}}</td>
+                    <td class="align-middle">₹{{x.bookBillAmount}}</td>
                     <td class="align-middle">{{x.bookPaymentStatus}}</td>
                     <td class="align-middle">{{x.bookStatus}}</td>
-                    <td class="align-middle">{{x.bookDepositAmount}}</td>
+                    <td class="align-middle">₹{{x.bookDepositAmount}}</td>
                     <td class="align-middle">{{x.availableLocation}}</td>
                     <td class="align-middle">                       
                         <button type="button" class="btn btn-primary btn-sm" id="btn0" (click)="endRideModal(x)">

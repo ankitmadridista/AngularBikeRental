@@ -51,6 +51,7 @@ import { ResetPassMailComponent } from './reset-pass-mail/reset-pass-mail.compon
 import { ProvResetPassFormComponent } from './prov-reset-pass-form/prov-reset-pass-form.component';
 import { AdminResetPassFormComponent } from './admin-reset-pass-form/admin-reset-pass-form.component';
 import { CustResetPassFormComponent } from './cust-reset-pass-form/cust-reset-pass-form.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { CustResetPassFormComponent } from './cust-reset-pass-form/cust-reset-pa
     ProvResetPassFormComponent,
     ForgotPassComponent,
     AdminResetPassFormComponent,
-    CustResetPassFormComponent
+    CustResetPassFormComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
