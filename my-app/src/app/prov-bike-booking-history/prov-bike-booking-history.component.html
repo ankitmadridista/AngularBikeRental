@@ -1,0 +1,34 @@
+<app-nav-bar></app-nav-bar>
+<!-- cust Booking history -->
+<div class="row content">
+    <div class=" col-sm-12 main jumbotron">
+        <h3 class="text-center">
+            <b>Bookings</b>
+        </h3>
+        
+        <div class="table-responsive" id="myTable">
+        <table class="table  table-striped "  >
+            <thead class="table-dark">
+                <tr>
+                    <th class="align-middle">Booking Id</th>   
+                    <th class="align-middle">Bike Id</th>                   
+                    <th class="align-middle">Bill Amt</th>
+                    <td class="align-middle">Start Time</td>
+                    <td class="align-middle">End Time</td>
+                </tr>
+            </thead>
+            <tbody id="myTableBody"  >
+          
+                <tr *ngFor="let x of bookProvArr">
+                    <td class="align-middle">{{x.bookId}}</td>
+                    <td class="align-middle">{{x.bikeId}}</td>                 
+                    <td class="align-middle">{{x.bookBillAmount}}</td>
+                    <td class="align-middle">{{x.bookStartTimeCust}}</td>
+                    <td class="align-middle">{{x.bookEndTimeCust}}</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+<hr>

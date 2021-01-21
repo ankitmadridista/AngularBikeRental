@@ -18,6 +18,12 @@ export class AdminBookStatusComponent implements OnInit {
   public bikeReqBookArr;
   public bikeAccBookArr;
   public bikeActBookArr;
+
+  public bikeReqBookStat = false;
+  public bikeAccBookStat = false;
+  public bikeActBookStat = false;
+  
+  
   constructor(
     private _service: BookingService, 
     private _router: Router, 
@@ -37,8 +43,9 @@ export class AdminBookStatusComponent implements OnInit {
       data=> {
         //console.log(data);
         this.bikeReqBookArr = data;
-        //console.log(this.bikeReqArr);
         console.log("response recieved");
+        if( this.bikeReqBookArr.length > 0 )
+          this.bikeReqBookStat = true;
         //this._router.navigate(['/prov-home'])
       },
       error=>{
@@ -51,8 +58,9 @@ export class AdminBookStatusComponent implements OnInit {
       data=> {
         //console.log(data);
         this.bikeAccBookArr = data;
-        //console.log(this.bikeReqArr);
         console.log("response recieved");
+        if( this.bikeAccBookArr.length > 0)
+          this.bikeAccBookStat = true;
         //this._router.navigate(['/prov-home'])
       },
       error=>{
@@ -66,8 +74,9 @@ export class AdminBookStatusComponent implements OnInit {
       data=> {
         //console.log(data);
         this.bikeActBookArr = data;
-        //console.log(this.bikeReqArr);
         console.log("response recieved");
+        if( this.bikeActBookArr.length > 0 )
+          this.bikeActBookStat = true;
         //this._router.navigate(['/prov-home'])
       },
       error=>{

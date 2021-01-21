@@ -8,8 +8,8 @@
             <b>Bikes Requested</b>
         </h3>
         
-        <div class="table-responsive" id="myTable">
-        <table class="table  table-striped "  datatable [dtOptions]="dtOptions">
+        <div class="table-responsive" id="myTable" *ngIf="bikeReqArrStat">
+        <table class="table table-striped " >
             <thead class="table-dark">
                 <tr>
                     <th class="align-middle">Bike Id</th>                    
@@ -50,6 +50,10 @@
             </tbody>
         </table>
         </div>
+
+        <h4 class="text-center" *ngIf="!bikeReqArrStat">
+            <b>No records found</b>
+        </h4>
     </div>
 </div>
 <hr>
@@ -61,7 +65,7 @@
             <b>Bikes Available</b>
         </h3>
         
-        <div class="table-responsive" id="myTable">
+        <div class="table-responsive" id="myTable" *ngIf="bikeAvlArrStat">
             <table class="table  table-striped ">
                 <thead class="table-dark">
                     <tr>
@@ -75,7 +79,6 @@
                         <th class="align-middle">Charges/Hour</th>
                         <th class="align-middle">Avg/Ltr</th> 
                         <th class="align-middle">Location</th>
-                        <th class="align-middle">View</th> 
                     </tr>
                 </thead>
                 <tbody id="myTableBody" *ngFor="let x of bikeAvlArr">
@@ -91,15 +94,15 @@
                         <td class="align-middle">{{x.chargesPerHour}}</td>
                         <td class="align-middle">{{x.avgPerLtr}}</td>
                         <td class="align-middle">{{x.availableLocation}}</td>
-                        <td class="align-middle">                       
-                            <button type="button" class="btn btn-primary btn-sm" id="btn0" 
-                                >View   
-                            </button>                       
-                        </td>
+                       
                     </tr>
                 </tbody>
             </table>
         </div>
+
+        <h4 class="text-center" *ngIf="!bikeAvlArrStat">
+            <b>No records found</b>
+        </h4>
     </div>
 </div>
 <hr>
@@ -111,7 +114,7 @@
             <b>Bikes Booked</b>
         </h3>
         
-        <div class="table-responsive" id="myTable">
+        <div class="table-responsive" id="myTable" *ngIf="bikeBookedArrStat">
             <table class="table  table-striped ">
                 <thead class="table-dark">
                     <tr>
@@ -125,7 +128,7 @@
                         <th class="align-middle">Charges/Hour</th>
                         <th class="align-middle">Avg/Ltr</th> 
                         <th class="align-middle">Location</th>
-                        <th class="align-middle">View</th> 
+                       
                     </tr>
                 </thead>
                 <tbody id="myTableBody" *ngFor="let x of bikeBookedArr">
@@ -141,15 +144,15 @@
                         <td class="align-middle">{{x.chargesPerHour}}</td>
                         <td class="align-middle">{{x.avgPerLtr}}</td>
                         <td class="align-middle">{{x.availableLocation}}</td>
-                        <td class="align-middle">                       
-                            <button type="button" class="btn btn-primary btn-sm" id="btn0" 
-                                >View   
-                            </button>                       
-                        </td>
+                      
                     </tr>
                 </tbody>
             </table>
         </div>
+
+        <h4 class="text-center" *ngIf="!bikeBookedArrStat">
+            <b>No records found</b>
+        </h4>
     </div>
 </div>
 <hr>
@@ -161,7 +164,7 @@
             <b>Bikes Reejected</b>
         </h3>
         
-        <div class="table-responsive" id="myTable">
+        <div class="table-responsive" id="myTable" *ngIf="bikeRejArrStat">
             <table class="table  table-striped ">
                 <thead class="table-dark">
                     <tr>
@@ -175,7 +178,7 @@
                         <th class="align-middle">Charges/Hour</th>
                         <th class="align-middle">Avg/Ltr</th> 
                         <th class="align-middle">Location</th>
-                        <th class="align-middle">View</th> 
+                        
                     </tr>
                 </thead>
                 <tbody id="myTableBody" *ngFor="let x of bikesRejArr">
@@ -191,15 +194,14 @@
                         <td class="align-middle">{{x.chargesPerHour}}</td>
                         <td class="align-middle">{{x.avgPerLtr}}</td>
                         <td class="align-middle">{{x.availableLocation}}</td>
-                        <td class="align-middle">                       
-                            <button type="button" class="btn btn-primary btn-sm" id="btn0" 
-                                >View   
-                            </button>
                         
-                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+        <h4 class="text-center" *ngIf="!bikeRejArrStat">
+            <b>No records found</b>
+        </h4>
+
     </div>
 </div>

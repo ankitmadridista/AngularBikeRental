@@ -68,4 +68,8 @@ export class BookingService {
   public getCustBookToPay(id: Number): Observable<any>{
     return this.http.get(baseUrl+"/cust-book-pay/"+id)
   }
+
+  public getBookingByProvId(id: Number): Observable<any>{
+    return this.http.get(baseUrl+"/prov-booking/"+id)
+  }
 }

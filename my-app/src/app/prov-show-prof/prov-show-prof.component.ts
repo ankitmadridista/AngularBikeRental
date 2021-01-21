@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class ProvShowProfComponent implements OnInit {
 provider = new Provider();
 msg = '';
-  constructor(private _service: ProviderService, private _router: Router) { }
+viewDob: any;
+constructor(private _service: ProviderService, private _router: Router) { }
 
   ngOnInit(): void {
 
@@ -21,13 +22,12 @@ msg = '';
 
     this._service.showProf(this.provider).subscribe(
       data=> {
-        console.log(data);
-        this.msg = data;
-        console.log(this.msg);
         console.log("response recieved");
         this.provider = data;
         console.log(this.provider);
         //this._router.navigate(['/prov-home'])
+        this.viewDob = this.provider.provDateOfBirth.substr(0,10);
+        
       },
       error=>{
         console.log("Exception occured");

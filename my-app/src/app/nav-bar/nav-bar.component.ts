@@ -20,12 +20,12 @@ export class NavBarComponent implements OnInit {
     this.sesCustEmail = sessionStorage.getItem('custSesEmail');
     this.sesProvEmail = sessionStorage.getItem('provSesEmail');
 
-    console.log(this.sesAdmEmail + " " + this.sesCustEmail + " " + this.sesProvEmail);
+    //console.log(this.sesAdmEmail + " " + this.sesCustEmail + " " + this.sesProvEmail);
     
   }
 
   doLogout(){
-    console.log("in logout");
+    //console.log("in logout");
     sessionStorage.clear();
     this._router.navigate(['/index'])
     

@@ -52,6 +52,7 @@ import { ProvResetPassFormComponent } from './prov-reset-pass-form/prov-reset-pa
 import { AdminResetPassFormComponent } from './admin-reset-pass-form/admin-reset-pass-form.component';
 import { CustResetPassFormComponent } from './cust-reset-pass-form/cust-reset-pass-form.component';
 import { FooterComponent } from './footer/footer.component';
+import { ProvBikeBookingHistoryComponent } from './prov-bike-booking-history/prov-bike-booking-history.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import { FooterComponent } from './footer/footer.component';
     ForgotPassComponent,
     AdminResetPassFormComponent,
     CustResetPassFormComponent,
-    FooterComponent
+    FooterComponent,
+    ProvBikeBookingHistoryComponent
   ],
   imports: [
     BrowserModule,

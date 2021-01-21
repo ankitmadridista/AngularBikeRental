@@ -11,6 +11,7 @@ export class CustShowProfComponent implements OnInit {
 
   customer = new Customer();
   msg = '';
+  viewDob: any;
   constructor(private _service: CustomerService, private _router: Router) { }
 
   ngOnInit(): void {
@@ -21,13 +22,12 @@ export class CustShowProfComponent implements OnInit {
 
     this._service.showProf(this.customer).subscribe(
       data=> {
-        console.log(data);
-        this.msg = data;
-        console.log(this.msg);
+        //console.log(data);       
         console.log("response recieved");
         this.customer = data;
         console.log(this.customer);
         //this._router.navigate(['/prov-home'])
+        this.viewDob = this.customer.custDateOfBirth.substr(0,10);
       },
       error=>{
         console.log("Exception occured");

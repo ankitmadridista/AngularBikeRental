@@ -9,7 +9,7 @@ import { ProviderService } from '../provider.service';
   styleUrls: ['./prov-update-prof.component.css']
 })
 export class ProvUpdateProfComponent implements OnInit {
-  provider: Provider;
+  provider = new Provider();
   id: Number;
   msg = '';
   constructor( private _service: ProviderService,

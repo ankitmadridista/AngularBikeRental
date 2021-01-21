@@ -17,7 +17,13 @@ export class AdminBikeStatusComponent implements OnInit {
   public bikeReqArr;  
   public bikeAvlArr;  
   public bikeBookedArr;
-  public bikesRejArr;
+  public bikeRejArr;
+
+  public bikeReqArrStat =false;  
+  public bikeAvlArrStat =false;  
+  public bikeBookedArrStat =false;
+  public bikeRejArrStat =false;
+
 
   constructor(
     private _service: AdminService,
@@ -44,6 +50,8 @@ export class AdminBikeStatusComponent implements OnInit {
         this.bikeReqArr = data;
         //console.log(this.bikeReqArr);
         console.log("response recieved");
+        if( this.bikeReqArr.length > 0 )
+          this.bikeReqArrStat = true;
         //this._router.navigate(['/prov-home'])
       },
       error=>{
@@ -56,6 +64,8 @@ export class AdminBikeStatusComponent implements OnInit {
       data=> {
         //console.log(data);
         this.bikeAvlArr = data;
+        if( this.bikeAvlArr.length > 0 )
+          this.bikeAvlArrStat = true;
         //console.log(this.bikeAvlArr);
         console.log("response recieved");
         //this._router.navigate(['/prov-home'])
@@ -74,6 +84,8 @@ export class AdminBikeStatusComponent implements OnInit {
         this.bikeBookedArr = data;
         //console.log(this.bikeBookedArr);
         console.log("response recieved");
+        if( this.bikeBookedArr.length > 0 )
+          this.bikeBookedArrStat = true;
         //this._router.navigate(['/prov-home'])
       },
       error=>{
@@ -86,7 +98,9 @@ export class AdminBikeStatusComponent implements OnInit {
     this._service.getAllRejectedBikes().subscribe(
       data=> {
         console.log("response recieved");
-        this.bikesRejArr = data;
+        this.bikeRejArr = data;
+        if( this.bikeRejArr.length > 0 )
+          this.bikeRejArrStat = true;
         //console.log(this.bikesRejArr);
         //this._router.navigate(['/prov-home'])
       },

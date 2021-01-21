@@ -10,7 +10,7 @@ import { CustomerService } from '../customer.service';
   styleUrls: ['./cust-update-prof.component.css']
 })
 export class CustUpdateProfComponent implements OnInit {
-  customer: Customer;
+  customer = new Customer();
   id: Number;
   msg = '';
   datePickerConfig: Partial<BsDatepickerConfig>;

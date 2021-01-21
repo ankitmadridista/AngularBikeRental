@@ -33,6 +33,7 @@ import { ResetPassMailComponent } from './reset-pass-mail/reset-pass-mail.compon
 import { ProvResetPassFormComponent } from './prov-reset-pass-form/prov-reset-pass-form.component';
 import { AdminResetPassFormComponent } from './admin-reset-pass-form/admin-reset-pass-form.component';
 import { CustResetPassFormComponent } from './cust-reset-pass-form/cust-reset-pass-form.component';
+import { ProvBikeBookingHistoryComponent } from './prov-bike-booking-history/prov-bike-booking-history.component';
 
 
 const routes: Routes = [
@@ -132,6 +133,9 @@ const routes: Routes = [
   },{
     path: 'cust-reset-pass-form',
     component: CustResetPassFormComponent,
+  },{
+    path: 'prov-bike-booking-history',
+    component: ProvBikeBookingHistoryComponent,
   },
   { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }

@@ -33,7 +33,8 @@ export class CustBookHistoryComponent implements OnInit {
         //console.log(this.bikeAvlArr);
         console.log("response recieved");
         //this._router.navigate(['/prov-home'])
-        this.bookCustArrStat = true;
+        if( this.bookCustArr.length > 0 )
+          this.bookCustArrStat = true;
       },
       error=>{
         console.log("Exception occured");

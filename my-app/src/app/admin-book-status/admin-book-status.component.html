@@ -1,13 +1,13 @@
 <app-nav-bar></app-nav-bar>
 
 <!-- Bookings requested-->
-<div class="row content">
+<div class="row content" >
     <div class=" col-sm-12 main jumbotron">
         <h3 class="text-center">
             <b>Requested Bookings</b>
         </h3>
         
-        <div class="table-responsive" id="myTable">
+        <div class="table-responsive" id="myTable" *ngIf="bikeReqBookStat">
         <table class="table  table-striped " >
             <thead class="table-dark">
                 <tr>
@@ -49,8 +49,15 @@
             </tbody>
         </table>
         </div>
+
+        <div>
+            <h4 class="text-center" *ngIf="!bikeReqBookStat">
+                <b>No records found</b>
+            </h4>
+        </div>
     </div>
 </div>
+
 <hr>
 
 <!-- Bookings accepted-->
@@ -60,7 +67,7 @@
             <b>Accepted Bookings</b>
         </h3>
         
-        <div class="table-responsive" id="myTable">
+        <div class="table-responsive" id="myTable" *ngIf="bikeAccBookStat">
         <table class="table  table-striped " >
             <thead class="table-dark">
                 <tr>
@@ -99,6 +106,12 @@
             </tbody>
         </table>
         </div>
+
+        <div>
+            <h4 class="text-center" *ngIf="!bikeAccBookStat">
+                <b>No records found</b>
+            </h4>
+        </div>
     </div>
 </div>
 <hr>
@@ -106,13 +119,13 @@
 
 
 <!-- on ride-->
-<div class="row content">
+<div class="row content" >
     <div class=" col-sm-12 main jumbotron">
         <h3 class="text-center">
             <b>Active Rides</b>
         </h3>
         
-        <div class="table-responsive" id="myTable">
+        <div class="table-responsive" id="myTable" *ngIf="bikeActBookStat">
         <table class="table  table-striped "  >
             <thead class="table-dark">
                 <tr>
@@ -150,6 +163,12 @@
                 </tr>
             </tbody>
         </table>
+        </div>
+
+        <div>
+            <h4 class="text-center" *ngIf="!bikeActBookStat">
+                <b>No records found</b>
+            </h4>
         </div>
     </div>
 </div>
