@@ -10,6 +10,7 @@ import { BikeService } from '../Bike.service';
 })
 export class ProvDelBikeModalComponent implements OnInit {
   modalHeader: Number;
+  name = sessionStorage.getItem("provSesFname");
   constructor(public _activeModal: NgbActiveModal, private _router: Router, private _service: BikeService, ) {}
 
   ngOnInit(): void {

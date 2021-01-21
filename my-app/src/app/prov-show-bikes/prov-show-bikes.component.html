@@ -1,12 +1,12 @@
 <app-nav-bar></app-nav-bar>
 <hr>
-<div class="row content" *ngIf="bikeArrStat">
+<div class="row content" >
     <div class=" col-sm-12 main shadow jumbotron">
         <h3 class="text-center">
             <b>Bikes Info</b>
         </h3>
         
-        <div class="table-responsive" id="myTable">
+        <div class="table-responsive" id="myTable" *ngIf="bikesArrStat">
             <table class="table table-striped ">
                 <thead class="table-dark">
                     <tr>
@@ -15,7 +15,6 @@
                         <th class="align-middle">Type Of Gear</th>
                         <th class="align-middle">Brand </th> 
                         <th class="align-middle">Model </th>
-                        <th class="align-middle">RC Book No</th>
                         <th class="align-middle">Charges/Hour</th>
                         <th class="align-middle">Avg/Ltr</th> 
                         <th class="align-middle">Location</th>
@@ -31,7 +30,6 @@
                         <td class="align-middle">{{x.typeOfGear}}</td>
                         <td class="align-middle">{{x.brandOfBike}}</td>
                         <td class="align-middle">{{x.modelOfBike}}</td>
-                        <td class="align-middle">{{x.rcBookNo}}</td>
                         <td class="align-middle">₹{{x.chargesPerHour}}</td>
                         <td class="align-middle">{{x.avgPerLtr}}</td>
                         <td class="align-middle">{{x.availableLocation}}</td>
@@ -40,13 +38,17 @@
                             <button type="button" class="btn btn-primary btn-sm" id="btn0" (click)="onUpdate(x.bikeId)">
                                 Update   
                             </button>
-                            <button type="button" class="btn btn-danger  btn-sm" id="btn0" (click)="onDelete(x.bikeId)">
-                                    Delete
+                            <button type="button" class="btn btn-danger  btn-sm ml-1" id="btn0" (click)="onDelete(x.bikeId)">
+                                Delete
                             </button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
+        <h4 class="text-center" *ngIf="!bikesArrStat">
+            <b>No Bikes added yet</b>
+        </h4>
     </div>
 </div>

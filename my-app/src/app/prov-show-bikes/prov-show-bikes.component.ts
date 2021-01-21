@@ -13,7 +13,7 @@ export class ProvShowBikesComponent implements OnInit {
   bike = new Bike();
 
   public bikesArr;
-  public bikeArrStat =  false;
+  public bikesArrStat =  false;
   
   constructor(private _service: BikeService, private _router: Router, private _modalService: NgbModal) { }
   
@@ -29,7 +29,7 @@ export class ProvShowBikesComponent implements OnInit {
         //console.log(this.bikesArr);        
         console.log("response recieved");
         if(this.bikesArr.length !== 0 ){
-          this.bikeArrStat = true; 
+          this.bikesArrStat = true; 
         }
       },
       error=>{

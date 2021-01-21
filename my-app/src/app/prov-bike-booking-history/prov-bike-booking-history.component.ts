@@ -25,7 +25,8 @@ export class ProvBikeBookingHistoryComponent implements OnInit {
       this.bookProvArr = data;
       //console.log(this.bikeAvlArr);
       console.log("response recieved");
-      this.bookProvArrStat = true;
+      if( this.bookProvArr.length > 0 )
+        this.bookProvArrStat = true;
     },
     error=>{
       console.log("Exception occured");

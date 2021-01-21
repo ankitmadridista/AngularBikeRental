@@ -6,7 +6,7 @@
             <b>Bookings</b>
         </h3>
         
-        <div class="table-responsive" id="myTable">
+        <div class="table-responsive" id="myTable" *ngIf="bookProvArrStat">
         <table class="table  table-striped "  >
             <thead class="table-dark">
                 <tr>
@@ -29,6 +29,9 @@
             </tbody>
         </table>
         </div>
+        <h4 class="text-center" *ngIf="!bookProvArrStat">
+            <b>No bookings yet</b>
+        </h4>
     </div>
 </div>
 <hr>
