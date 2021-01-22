@@ -23,8 +23,10 @@
                     <td class="align-middle">{{x.bookId}}</td>
                     <td class="align-middle">{{x.bikeId}}</td>                 
                     <td class="align-middle">₹{{ ( ( ( ( x.bookEndTimeCalc - x.bookStartTimeCalc ) / ( 1000 * 60 * 60 ) ) * x.bookChargesPerHours) * 0.8 ).toFixed(2) }}</td>
-                    <td class="align-middle">{{x.bookStartTimeCust}}</td>
-                    <td class="align-middle">{{x.bookEndTimeCust}}</td>
+                    <td class="align-middle" *ngIf="x.bookStartTimeCust != null ">{{x.bookStartTimeCust}}</td>
+                    <td class="align-middle" *ngIf="x.bookStartTimeCust == null ">Rejected</td>
+                    <td class="align-middle" *ngIf="x.bookEndTimeCust != null ">{{x.bookEndTimeCust}}</td>
+                    <td class="align-middle" *ngIf="x.bookEndTimeCust == null ">Rejected</td>
                 </tr>
             </tbody>
         </table>

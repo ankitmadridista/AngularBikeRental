@@ -4,5 +4,6 @@ export class Admin {
 	adminEmail: string;
 	adminPassword: string;
 	confirmPassword: string;
+	adminWallet: number;
     constructor(){}
 }

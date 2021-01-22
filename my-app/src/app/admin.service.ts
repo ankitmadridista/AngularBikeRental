@@ -64,4 +64,12 @@ export class AdminService {
     return this.http.post( "http://localhost:8080/api/admin-reset-pass" , admin )
   }
 
+  public modifyProf(admin :Admin): Observable<any>{
+    return this.http.put( "http://localhost:8080/api/admin" , admin )
+  }
+
+  public getAdmin(id: number): Observable<any>{
+    return this.http.get( "http://localhost:8080/api/admin/" + id )
+  }
+
 }

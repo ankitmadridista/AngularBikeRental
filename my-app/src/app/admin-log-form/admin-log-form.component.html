@@ -54,9 +54,18 @@
                         <button  type="submit" class="btn btn-success" [disabled]="loginform.invalid" >Login</button>
                         <button type="reset" class="btn btn-danger ml-1">Reset</button>
                     </div>    
-                 
-                <p>Dont have an account? <span><a href="/admin-reg">Signup</a></span></p>
-                <p>Forgot Password? <span><a href="/forgot-pass/1"> Click Here </a></span></p>
+                 <div class="row flex ">
+                     <div class="col md-6">
+                        <p>Dont have an account ? <span><a href="/admin-reg">Signup</a></span></p>
+                        <p>Forgot Password ? <span><a href="/forgot-pass/1"> Click Here</a></span></p>
+                    
+                     </div>
+                     <div class="col md-6 ml-5 d-flex align-items-end justify-content-end">
+                        <p>Back <span><a href="/index"> Click Here </a></span></p>
+
+                     </div>
+                 </div>
+                
             </form>
         </div>
     </div>

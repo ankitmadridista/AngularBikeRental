@@ -6,6 +6,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Booking } from '../booking';
 import { Bike } from '../bike';
 import { Provider } from '../provider';
+import { AdminService } from '../Admin.service';
+import { Admin } from '../admin';
 
 @Component({
   selector: 'app-admin-end-ride-form-modal',
@@ -18,11 +20,14 @@ export class AdminEndRideFormModalComponent implements OnInit {
   booking: Booking;
   temp: Number;
   provider: Provider;
+  admin: Admin;
+  msg: any;
   constructor(
     public _activeModal: NgbActiveModal, 
     private _router: Router, 
     private _service: BookingService,
-    private _service1: ProviderService
+    private _service1: ProviderService,
+    private _service2: AdminService
     ) { }
 
   ngOnInit(): void {
@@ -38,6 +43,20 @@ export class AdminEndRideFormModalComponent implements OnInit {
       // window.location.reload(); 
       }
     )
+
+    this._service2.getAdmin( parseInt(sessionStorage.getItem("adminSesId") ) ).subscribe(
+      data=> {
+        this.admin = data;
+        console.log(this.admin);
+        console.log('response recieved');
+        
+      },
+      error=>{
+        console.log("Exception occured");
+      // window.location.reload(); 
+      }
+    )
+
 
   }
 
@@ -81,6 +100,15 @@ export class AdminEndRideFormModalComponent implements OnInit {
       
       this.booking.bookBillAmount = parseFloat(<any>tempBillAmount);
       
+      console.log( "adminWall init: "+ this.admin.adminWallet);      
+
+      let tempAdminWallet = <any>this.admin.adminWallet + (( totalTime / ( 1000 * 60 * 60 ) ) * 
+      <any>this.booking.bookChargesPerHours) * 0.2;
+
+      this.admin.adminWallet = tempAdminWallet;
+
+      console.log(this.admin.adminWallet );
+      
 
       console.log( 'bill: '+ this.booking.bookBillAmount);
 
@@ -102,9 +130,22 @@ export class AdminEndRideFormModalComponent implements OnInit {
           window.location.reload();
         }); 
         
+        this._service2.modifyProf(this.admin).subscribe(
+          data=>{
+            // this.admin = data;
+            //console.log(data);
+            //window.location.reload();
+          },
+          error=>{
+            console.log("Exception Occured");
+            this.msg = error;
+            //window.location.reload();
+          });
+          
+        
       }
     
-    this._activeModal.dismiss();
+    //this._activeModal.dismiss();
 
   }
 

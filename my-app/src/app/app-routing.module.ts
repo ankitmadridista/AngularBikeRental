@@ -34,6 +34,8 @@ import { ProvResetPassFormComponent } from './prov-reset-pass-form/prov-reset-pa
 import { AdminResetPassFormComponent } from './admin-reset-pass-form/admin-reset-pass-form.component';
 import { CustResetPassFormComponent } from './cust-reset-pass-form/cust-reset-pass-form.component';
 import { ProvBikeBookingHistoryComponent } from './prov-bike-booking-history/prov-bike-booking-history.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 const routes: Routes = [
@@ -136,6 +138,12 @@ const routes: Routes = [
   },{
     path: 'prov-bike-booking-history',
     component: ProvBikeBookingHistoryComponent,
+  },{
+    path: 'about-us',
+    component: AboutUsComponent,
+  },{
+    path: 'contact-us',
+    component: ContactUsComponent,
   },
   { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
