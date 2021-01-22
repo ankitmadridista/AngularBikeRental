@@ -42,7 +42,7 @@
               </div>
           </div>
           
-          <div class="row">       
+          <!-- <div class="row">       
               <div class="form-group col-md-6"
               [class.has-error]="custPassword.touched && custPassword.invalid"
               [class.has-success]="custPassword.valid">
@@ -71,7 +71,51 @@
                   aria-describedby="PasswordlhelpId" required
                   >
               </div>
-          </div>
+          </div> -->
+
+
+          <div class="row" ngModelGroup="passwordGroup" 
+                 [class.has-error]="confirmPassword.touched && confirmPassword.invalid && !confirmPassword.errors?.required">
+                   
+                    <div class="form-group col-md-6"
+                    [class.has-error]="custPassword.invalid && custPassword.touched"
+                    [class.has-success]="custPassword.valid">
+                        <label for="Password" class="control-label">Password</label>
+                        <input type="password" [(ngModel)]="customer.custPassword" name="custPassword" id="custPassword" class="form-control" placeholder="Enter Password" 
+                         #custPassword="ngModel" required minlength=3 maxlength=8 (change)="confirmPassword.control.updateValueAndValidity()">
+                         <span class="help-block text-danger" 
+                         *ngIf="custPassword.hasError('required') && custPassword.touched"
+                         >
+                          password is required
+                        </span>
+                        <span class="help-block text-danger" 
+                         *ngIf="custPassword.hasError('minlength')">
+                          password is too short
+                        </span>
+                        <span class="help-block text-danger" 
+                         *ngIf="custPassword.hasError('maxlength')">
+                          password is too large
+                        </span>
+                     </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="confirm Password">Confirm Password</label>
+                        <input  name="confirmPassword" [(ngModel)]="customer.confirmPassword" appConfirmEqualValidator="custPassword" type="Password" id="confirmPassword" class="form-control" placeholder="Re-Enter Password" aria-describedby="PasswordlhelpId" 
+                        #confirmPassword="ngModel" required minlength=3 maxlength=8>
+                        <span class="help-block text-danger" 
+                         *ngIf="confirmPassword.hasError('required') && confirmPassword.touched">
+                         Confirm password is required
+                        </span>
+                        <span class="help-block text-danger" 
+                         *ngIf=" confirmPassword.touched  && confirmPassword.errors?.notEqual">
+                          Password and Confirm password does not matched
+                        </span>
+                      </div>
+                    </div> 
+
+
+
+
           <div class="row">
             <div class="form-group col-md-6"
              [class.has-error]="custDateOfBirth.invalid && custDateOfBirth.touched"
@@ -197,7 +241,7 @@
               <label for="PIN" class="control-label">PIN</label>
               <input type="text" [(ngModel)]="customer.custPin" name="custPin" id="custPin" class="form-control" placeholder="Enter PIN" 
               #custPin="ngModel" required
-              pattern="^[1-9][0-9]{5}$">
+              pattern="^[1-9][0-9]{5}$" minlength="6" maxlength="6">
                 <span class="help-block text-danger" 
                    *ngIf="custPin.hasError('required') && custPin.touched">
                     PIN is required

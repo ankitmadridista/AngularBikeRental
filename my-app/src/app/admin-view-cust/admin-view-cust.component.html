@@ -22,8 +22,7 @@
                         <th class="align-middle">City</th> 
                         <th class="align-middle">State</th>
                         <th class="align-middle">Pin</th>  
-                        <th class="align-middle"></th>  
-                        <th class="align-middle"></th>  
+                        <th class="align-middle">View</th>  
                     </tr>
                 </thead>
                 <tbody *ngFor="let x of custArr">
@@ -43,16 +42,16 @@
                         <td class="align-middle">{{x.custPin}}</td>
                         
                         <td class="align-middle">                       
-                            <button type="button" class="btn btn-primary btn-sm btn-block" id="btn0" (click)="onUpdate(x.custId)">
+                            <button type="button" class="btn btn-primary btn-sm " id="btn0" (click)="onUpdate(x.custId)">
                                 Update   
                             </button>
                         </td>
-                        <td>
+                        <!-- <td>
                             <button type="button" class="btn btn-danger btn-block  btn-sm" id="btn0" (click)="onDelete(x.custId)">
                                 Delete
                             </button>
 
-                        </td>
+                        </td> -->
                     </tr>
                 </tbody>
             </table>

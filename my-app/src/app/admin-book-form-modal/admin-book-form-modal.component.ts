@@ -14,7 +14,7 @@ export class AdminBookFormModalComponent implements OnInit {
 
   bike: Bike;
   booking: Booking;
-
+  date: any;
   constructor(
     public _activeModal: NgbActiveModal, 
     private _router: Router, 
@@ -22,6 +22,8 @@ export class AdminBookFormModalComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    
+    this.date = new Date().toLocaleString();
   }
 
   closeTheModal() {
@@ -60,4 +62,23 @@ export class AdminBookFormModalComponent implements OnInit {
     this._activeModal.dismiss();
 
   }
+
+  rejectRide(){ 
+
+    this._service.rejBooking(this.booking).subscribe(
+      data=> {
+      console.log("response recieved");
+      //this._router.navigate(['/cust-home'])
+      window.location.reload();
+    },
+    error=>{
+      console.log("Exception occured");
+      //this._router.navigate(['/cust-home'])   
+      window.location.reload();   
+    });    
+
+    this._activeModal.dismiss();
+
+  }
+
 }

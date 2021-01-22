@@ -3,5 +3,6 @@ export class Admin {
 	adminName: string;
 	adminEmail: string;
 	adminPassword: string;
+	confirmPassword: string;
     constructor(){}
 }

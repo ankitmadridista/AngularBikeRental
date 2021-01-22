@@ -21,8 +21,7 @@
                         <th class="align-middle">City</th>
                         <th class="align-middle">State</th> 
                         <th class="align-middle">Pin</th>                         
-                        <th class="align-middle"></th>                      
-                        <th class="align-middle"></th> 
+                        <th class="align-middle">View</th>  
                     </tr>
                 </thead>
                 <tbody id="myTableBody" *ngFor="let x of provArr">
@@ -40,14 +39,13 @@
                         <td class="align-middle">{{x.provState}}</td>
                         <td class="align-middle">{{x.provPin}}</td>
                         <td class="align-middle">                       
-                            <button type="button" class="btn btn-primary btn-sm btn-block" id="btn0" (click)="onUpdate(x.provId)">
+                            <button type="button" class="btn btn-primary btn-sm" id="btn0" (click)="onUpdate(x.provId)">
                                 Update   
                             </button>                            
-                        </td>
-                        <td>
-                        <button type="button" class="btn btn-danger btn-sm btn-block" id="btn0" (click)="onDelete(x.provId)">
+                       
+                        <!-- <button type="button" class="btn btn-danger btn-sm ml-1" id="btn0" (click)="onDelete(x.provId)">
                             Delete
-                        </button>
+                        </button> -->
                     </td>
                     </tr>
                 </tbody>

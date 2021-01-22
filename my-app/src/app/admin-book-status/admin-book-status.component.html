@@ -19,8 +19,6 @@
                     <th class="align-middle">Bill Amt</th>
                     <th class="align-middle">Payment Status</th>
                     <th class="align-middle">Booking Status</th>
-                    <th class="align-middle">Deposit Amt</th> 
-                    <th class="align-middle">Location</th>
                     <th class="align-middle">View</th> 
                 </tr>
             </thead>
@@ -35,8 +33,6 @@
                     <td class="align-middle">₹{{x.bookBillAmount}}</td>
                     <td class="align-middle">{{x.bookPaymentStatus}}</td>
                     <td class="align-middle">{{x.bookStatus}}</td>
-                    <td class="align-middle">₹{{x.bookDepositAmount}}</td>
-                    <td class="align-middle">{{x.availableLocation}}</td>
                     <td class="align-middle">                       
                         <button type="button" class="btn btn-primary btn-sm" id="btn0" (click)="acceptBooking(x)">
                             Accept   
@@ -79,8 +75,6 @@
                     <th class="align-middle">Bill Amt</th>
                     <th class="align-middle">Payment Status</th>
                     <th class="align-middle">Booking Status</th>
-                    <th class="align-middle">Deposit Amt</th> 
-                    <th class="align-middle">Location</th>
                     <th class="align-middle">View</th> 
                 </tr>
             </thead>
@@ -95,11 +89,9 @@
                     <td class="align-middle">₹{{x.bookBillAmount}}</td>
                     <td class="align-middle">{{x.bookPaymentStatus}}</td>
                     <td class="align-middle">{{x.bookStatus}}</td>
-                    <td class="align-middle">₹{{x.bookDepositAmount}}</td>
-                    <td class="align-middle">{{x.availableLocation}}</td>
                     <td class="align-middle">                       
                         <button type="button" class="btn btn-primary btn-sm" id="btn0" (click)="viewBookingModal(x)">
-                            View 
+                            Start Ride 
                         </button>                      
                     </td>
                 </tr>
@@ -138,7 +130,6 @@
                     <th class="align-middle">Payment Status</th>
                     <th class="align-middle">Booking Status</th>
                     <th class="align-middle">Deposit Amt</th> 
-                    <th class="align-middle">Location</th>
                     <th class="align-middle">View</th> 
                 </tr>
             </thead>
@@ -154,10 +145,9 @@
                     <td class="align-middle">{{x.bookPaymentStatus}}</td>
                     <td class="align-middle">{{x.bookStatus}}</td>
                     <td class="align-middle">₹{{x.bookDepositAmount}}</td>
-                    <td class="align-middle">{{x.availableLocation}}</td>
                     <td class="align-middle">                       
                         <button type="button" class="btn btn-primary btn-sm" id="btn0" (click)="endRideModal(x)">
-                            View 
+                            End Ride 
                         </button>                      
                     </td>
                 </tr>

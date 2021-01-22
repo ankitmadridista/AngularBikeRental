@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h4 class="modal-title">Confirm Booking {{booking.bookId}}</h4>
+    <h4 class="modal-title">Confirm Booking and Start Ride </h4>
     <button
       type="button"
       class="close "
@@ -41,12 +41,12 @@
           </address>-->
       </div>
     </div>   
-    
+    <strong><span>{{date}}</span></strong><br>
     <form #loginform="ngForm" (ngSubmit)="bookAndClose()">
         <small class="text-danger">
          
         </small>
-        <div class="form-group" 
+        <!-- <div class="form-group" 
         [class.has-error]="bookReadingAtStart.invalid && bookReadingAtStart.touched"
         [class.has-success]="bookReadingAtStart.valid">
             <label for="Meter Reading">Start Meter Reading</label>
@@ -55,7 +55,7 @@
             <span class="help-block text-danger" *ngIf="bookReadingAtStart.invalid && bookReadingAtStart.touched">
                 Meter Reading is required
               </span>
-        </div>     
+        </div>      -->
             <div class="form-group "
             [class.has-error]="bookDepositAmount.invalid && bookDepositAmount.touched"
             [class.has-success]="bookDepositAmount.valid">
@@ -80,7 +80,8 @@
                
               </div>
             <div class="form-group">
-                <button  type="submit" class="btn btn-success" [disabled]="loginform.invalid" >Book</button>
+                <button  type="submit" class="btn btn-success" [disabled]="loginform.invalid" >Start</button>
+                <button  type="button" class="btn btn-warning" (click)="rejectRide()" > Reject</button>
                 <button type="reset" class="btn btn-danger">Reset</button>
             </div>    
          

@@ -11,6 +11,9 @@ export class ProvBikeBookingHistoryComponent implements OnInit {
 
   public bookProvArr;
   public bookProvArrStat = false;
+
+  public bill: any;
+
   constructor(
     private _router: Router, 
     private _service: BookingService) { }
@@ -21,13 +24,24 @@ export class ProvBikeBookingHistoryComponent implements OnInit {
    
     this._service.getBookingByProvId(parseInt(sessionStorage.getItem("provSesId"))).subscribe(
     data=> {
-      //console.log(data);
+      console.log(data);
       this.bookProvArr = data;
+      
+      // let totalTime = <any>data.bookEndTimeCalc - <any>data.bookStartTimeCalc;
+      // console.log(this.bookProvArr.bookEndTimeCalc + "  " + data.bookStartTimeCalc );
+      
+      // console.log(totalTime);
+      
+      // this.bill = (( totalTime / ( 1000 * 60 * 60 ) ) * data.bookChargesPerHours) * 0.8;
       //console.log(this.bikeAvlArr);
       console.log("response recieved");
-      if( this.bookProvArr.length > 0 )
+      if( this.bookProvArr.length > 0 ){
         this.bookProvArrStat = true;
-    },
+        
+       
+  
+      }
+        },
     error=>{
       console.log("Exception occured");
       this.bookProvArr = 'Invalid Credentials';

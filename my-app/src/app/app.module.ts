@@ -53,7 +53,7 @@ import { AdminResetPassFormComponent } from './admin-reset-pass-form/admin-reset
 import { CustResetPassFormComponent } from './cust-reset-pass-form/cust-reset-pass-form.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProvBikeBookingHistoryComponent } from './prov-bike-booking-history/prov-bike-booking-history.component';
-
+import{ConfirmEqualValidatorDirective} from './confirm-equal-validator.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,7 +98,8 @@ import { ProvBikeBookingHistoryComponent } from './prov-bike-booking-history/pro
     AdminResetPassFormComponent,
     CustResetPassFormComponent,
     FooterComponent,
-    ProvBikeBookingHistoryComponent
+    ProvBikeBookingHistoryComponent,
+    ConfirmEqualValidatorDirective
   ],
   imports: [
     BrowserModule,

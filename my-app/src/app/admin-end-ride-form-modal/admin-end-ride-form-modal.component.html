@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h4 class="modal-title">Confirm End Ride {{booking.bookId}}</h4>
+    <h4 class="modal-title">Confirm End Ride </h4>
     <button
       type="button"
       class="close "
@@ -13,56 +13,11 @@
   <div class="container">
     <div class="row justify-content-around">
         
-      <div class="col-xs-10">
-        <!-- <address>
-          <strong> Booking Details</strong><br>
-              <b>Brand Of Bike : {{ bike.brandOfBike }} </b><br>
-              <b>Type Of Gear : {{ bike.typeOfGear }}</b><br>                                
-              <b>Model Of Bike : {{ bike.modelOfBike }}</b><br>
-              <b>RC Book No. : {{ bike.rcBookNo }}</b><br>                            	
-              <b>Charges/Hour : {{ bike.chargesPerHour }}</b><br>                                
-              <b>Location : {{ bike.availableLocation }}</b><br>
-              <b>Bike No. : {{ bike.bikeNo }}</b><br> 
-              <b>Average/Ltr : {{ bike.avgPerLtr }}</b><br>
-              <b>Amount to be paid :  </b><br>
-              <b>Total Interest : </b><br>                          
-          </address>
-      </div>
-      <div class="col-xs-2 t">
-          <address>
-              <strong>Application Date:</strong><br>
-              <b>Amount to Pay : </b><br>         
-              <b>Amount to Pay : </b><br>         
-              <b>Amount to Pay : </b><br>         
-              <b>Amount to Pay : </b><br>                                   
-              <b>Amount to Pay : </b><br>         
-              <b>Amount to Pay : </b><br>         
-              <br><br>
-          </address>-->
-      </div>
+    <h5> Do you want to end the ride with booking ID {{booking.bookId}}</h5>
+      
     </div>   
     
-    <form #loginform="ngForm" (ngSubmit)="bookAndClose()">
-        <small class="text-danger">
-         
-        </small>
-        <div class="form-group" 
-        [class.has-error]="bookReadingAtEnd.invalid && bookReadingAtEnd.touched"
-        [class.has-success]="bookReadingAtEnd.valid">
-            <label for="Meter Reading">End Meter Reading</label>
-            <input [(ngModel)]="booking.bookReadingAtEnd" type="text" name="bookReadingAtEnd" id="bookReadingAtEnd" class="form-control" placeholder="Enter End Meter reading " 
-            #bookReadingAtEnd="ngModel" required>   
-            <span class="help-block text-danger" *ngIf="bookReadingAtEnd.invalid && bookReadingAtEnd.touched">
-                Meter Reading is required
-              </span>
-        </div>     
-            <div class="form-group">
-                <button  type="submit" class="btn btn-success" [disabled]="loginform.invalid" >Book</button>
-                <button type="reset" class="btn btn-danger">Reset</button>
-            </div>    
-         
-    </form>
-
+  
 
   </div>  
 
@@ -70,7 +25,9 @@
 </div>  
 
 <div class="modal-footer">
-
+  <button type="button" class="btn btn-outline-dark" (click)="bookAndClose()">
+    End Ride
+  </button>
   <button type="button" class="btn btn-outline-dark" (click)="closeTheModal()">
     Close
   </button>

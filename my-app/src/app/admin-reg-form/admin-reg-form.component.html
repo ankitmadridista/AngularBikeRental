@@ -47,7 +47,7 @@
 
                   </div>
 
-                  <div class="row">       
+                  <!-- <div class="row">       
                       <div class="form-group col-md-6"
                       [class.has-error]="adminPassword.invalid && adminPassword.touched"
                       [class.has-success]="adminPassword.valid">
@@ -73,8 +73,48 @@
                           <label for="Password">Confirm Password</label>
                           <input type="Password" name="adminPasswordR" id="adminPasswordR" class="form-control" placeholder="Re-Enter Password" aria-describedby="PasswordlhelpId" required>
                       </div>
-                  </div>
+                  </div> -->
                   
+                  <div class="row" ngModelGroup="passwordGroup" 
+                 [class.has-error]="confirmPassword.touched && confirmPassword.invalid && !confirmPassword.errors?.required">
+                   
+                    <div class="form-group col-md-6"
+                    [class.has-error]="adminPassword.invalid && adminPassword.touched"
+                    [class.has-success]="adminPassword.valid">
+                        <label for="Password" class="control-label">Password</label>
+                        <input type="password" [(ngModel)]="admin.adminPassword" name="adminPassword" id="adminPassword" class="form-control" placeholder="Enter Password" 
+                         #adminPassword="ngModel" required minlength=3 maxlength=8 (change)="confirmPassword.control.updateValueAndValidity()">
+                         <span class="help-block text-danger" 
+                         *ngIf="adminPassword.hasError('required') && adminPassword.touched"
+                         >
+                          password is required
+                        </span>
+                        <span class="help-block text-danger" 
+                         *ngIf="adminPassword.hasError('minlength')">
+                          password is too short
+                        </span>
+                        <span class="help-block text-danger" 
+                         *ngIf="adminPassword.hasError('maxlength')">
+                          password is too large
+                        </span>
+                     </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="confirm Password">Confirm Password</label>
+                        <input  name="confirmPassword" [(ngModel)]="admin.confirmPassword" appConfirmEqualValidator="adminPassword" type="Password" id="confirmPassword" class="form-control" placeholder="Re-Enter Password" aria-describedby="PasswordlhelpId" 
+                        #confirmPassword="ngModel" required minlength=3 maxlength=8>
+                        <span class="help-block text-danger" 
+                         *ngIf="confirmPassword.hasError('required') && confirmPassword.touched">
+                         Confirm password is required
+                        </span>
+                        <span class="help-block text-danger" 
+                         *ngIf=" confirmPassword.touched  && confirmPassword.errors?.notEqual">
+                          Password and Confirm password does not matched
+                        </span>
+                      </div>
+                    </div> 
+
+
                   <div class="form-group ">
                       <button type="submit" class="btn btn-success" [disabled]="adminFormControl.invalid" (click)="registerNow()">Sign Up</button>
                 

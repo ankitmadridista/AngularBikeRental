@@ -56,21 +56,32 @@ export class AdminEndRideFormModalComponent implements OnInit {
       this.booking.bookEndTimeCust = today.toLocaleString();
       
       let totalTime = <any>this.booking.bookEndTimeCalc - <any>this.booking.bookStartTimeCalc;
-      console.log( 'start time: '+ this.booking.bookStartTimeCust);
-      console.log( 'end time: '+ this.booking.bookEndTimeCust);
+      // console.log( 'start time: '+ this.booking.bookStartTimeCust);
+      // console.log( 'end time: '+ this.booking.bookEndTimeCust);
 
-      console.log( 'total time: '+ totalTime);
+      // console.log( 'total time: '+ totalTime);
 
-      this.booking.bookBillAmount = ( totalTime / ( 1000 * 60 * 60 ) ) * 
+      let tempBillAmount = ( totalTime / ( 1000 * 60 * 60 ) ) * 
       <any>this.booking.bookChargesPerHours + 
       <any>this.booking.bookInitialFuelCost;  
 
-      this.provider.provWallet = <any>this.provider.provWallet + (( totalTime / ( 1000 * 60 * 60 ) ) * 
+      let tempProvWallet = <any>this.provider.provWallet + (( totalTime / ( 1000 * 60 * 60 ) ) * 
       <any>this.booking.bookChargesPerHours) * 0.8;
 
       console.log(this.provider.provWallet);
-      this.booking.bookBillAmount = <any>this.booking.bookBillAmount - <any>this.booking.bookDepositAmount;
       
+      tempProvWallet = tempProvWallet.toFixed(2);
+
+      this.provider.provWallet = parseFloat(tempProvWallet);      
+      
+      
+      tempBillAmount = tempBillAmount - <any>this.booking.bookDepositAmount;
+      
+      tempBillAmount = <any>tempBillAmount.toFixed(2);
+      
+      this.booking.bookBillAmount = parseFloat(<any>tempBillAmount);
+      
+
       console.log( 'bill: '+ this.booking.bookBillAmount);
 
         this._service.bookingCompleted(this.booking).subscribe(

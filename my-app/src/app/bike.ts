@@ -5,7 +5,6 @@ export class Bike{
         typeOfGear:string;
         brandOfBike:string;
         modelOfBike:string;
-        rcBookNo:string;
         chargesPerHour:number;
         availableLocation:string;
         bikeStatus:string;

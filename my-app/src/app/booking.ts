@@ -5,8 +5,6 @@ export class Booking {
 	custId: Number;
 	bookChargesPerHours: Number;
 	bookBillAmount: Number;
-	bookReadingAtStart: Number;
-	bookReadingAtEnd: Number;
 	bookStartTimeCalc: Number;
 	bookEndTimeCalc: Number;
 	bookInitialFuelCost: Number;

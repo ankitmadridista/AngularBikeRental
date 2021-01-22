@@ -12,6 +12,7 @@ export class Provider{
         provState:string;
         provPin:string;
         provWallet: Number;
+        confirmPassword:string;
         constructor(){};
 }
 

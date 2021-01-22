@@ -18,6 +18,7 @@ export class AdminViewCustComponent implements OnInit {
   customer = new Customer();
 
   public custArr : [];
+  public dobArr : any;
   public custArrStat = false;
 
 
@@ -39,10 +40,13 @@ export class AdminViewCustComponent implements OnInit {
     this._service.getAllCustomers().subscribe(
       data=>{
         this.custArr = data;
+
         console.log("response recieved");
         if(this.custArr.length !== 0){
           this.custArrStat = true;
         }
+
+        
       },
       error=>{
         console.log("Exception occured");

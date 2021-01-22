@@ -15,10 +15,15 @@ export class CustBookBikeModalComponent implements OnInit {
   bike: Bike;
   booking: Booking;
   name: string;
+  date:  any;
 
   constructor(public _activeModal: NgbActiveModal, private _router: Router, private _service: BookingService ) {}
 
   ngOnInit(): void {
+
+    this.date = new Date().toLocaleString();
+    //console.log(this.date);
+    
 
     let booking = new Booking();
     console.dir( 'bike '+this.bike );

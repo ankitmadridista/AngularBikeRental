@@ -37,4 +37,14 @@ export class CustomerService {
     return this.http.post( "http://localhost:8080/api/cust-reset-pass" , customer)
   }
 
+
+  //test image 
+
+  // public modifyProf1(formData: FormData): Observable<any>{
+  //   return this.http.put(baseUrl, formData)
+  // }
+
+
+
+
 }

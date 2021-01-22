@@ -18,9 +18,8 @@
           <strong> Booking Details</strong><br>
               <b>Brand Of Bike : {{ bike.brandOfBike }} </b><br>
               <b>Type Of Gear : {{ bike.typeOfGear }}</b><br>                                
-              <b>Model Of Bike : {{ bike.modelOfBike }}</b><br>
-              <b>RC Book No. : {{ bike.rcBookNo }}</b><br>                            	
-              <b>Charges/Hour : {{ bike.chargesPerHour }}</b><br>                                
+              <b>Model Of Bike : {{ bike.modelOfBike }}</b><br>                         	
+              <b>Charges/Hour : ₹{{ bike.chargesPerHour }}</b><br>                                
               <b>Location : {{ bike.availableLocation }}</b><br>
               <b>Bike No. : {{ bike.bikeNo }}</b><br> 
               <b>Average/Ltr : {{ bike.avgPerLtr }}</b><br>               
@@ -28,13 +27,9 @@
       </div>
       <div class="col-xs-2 t">
           <address>
-              <strong>Application Date:</strong><br>
-              <b>Amount to Pay : </b><br>         
-              <b>Amount to Pay : </b><br>         
-              <b>Amount to Pay : </b><br>         
-              <b>Amount to Pay : </b><br>                                   
-              <b>Amount to Pay : </b><br>         
-              <b>Amount to Pay : </b><br>         
+              <strong>Application Date: <span>{{date}}</span></strong><br>
+                      
+                   
               <br><br>
           </address>
       </div>
