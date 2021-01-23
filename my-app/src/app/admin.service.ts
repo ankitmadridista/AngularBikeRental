@@ -12,17 +12,17 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   public getAllRejectedBikes(): Observable<any>{
-    return this.http.get(baseUrl+"/bikes-status/"+"Rejected" )    
+    return this.http.get(baseUrl+"/admin-bike-status/"+"Rejected" )    
   }
   
   public getAllRequestedBikes(): Observable<any>{
-    return this.http.get(baseUrl+"/bikes-status/"+"Requested" )    
+    return this.http.get(baseUrl+"/admin-bike-status/"+"Requested" )    
   }
   public getAllAvailableBikes(): Observable<any>{
-    return this.http.get(baseUrl+"/bikes-status/"+"Available" )    
+    return this.http.get(baseUrl+"/admin-bike-status/"+"Available" )    
   }
   public getAllBookedBikes(): Observable<any>{
-    return this.http.get(baseUrl+"/bikes-status/"+"Booked" )    
+    return this.http.get(baseUrl+"/admin-bike-status/"+"Resersve" )    
   }  
   
   public acceptBike(id: Number): Observable<any>{
