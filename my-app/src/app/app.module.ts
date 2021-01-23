@@ -56,6 +56,7 @@ import { ProvBikeBookingHistoryComponent } from './prov-bike-booking-history/pro
 import{ConfirmEqualValidatorDirective} from './confirm-equal-validator.directive';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AdminBookingHistoryComponent } from './admin-booking-history/admin-booking-history.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,7 +104,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     ProvBikeBookingHistoryComponent,
     ConfirmEqualValidatorDirective,
     AboutUsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    AdminBookingHistoryComponent
   ],
   imports: [
     BrowserModule,

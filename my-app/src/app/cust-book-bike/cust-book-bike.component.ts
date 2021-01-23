@@ -70,7 +70,8 @@ export class CustBookBikeComponent implements OnInit {
         //console.log(this.bikeAvlArr);
         console.log("response recieved");
         //this._router.navigate(['/prov-home'])
-        this.bikeArrStat = true;
+        if( this.bikesArr.length > 0 )
+          this.bikeArrStat = true;
       },
       error=>{
         console.log("Exception occured");

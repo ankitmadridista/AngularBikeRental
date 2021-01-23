@@ -72,4 +72,8 @@ export class BookingService {
   public getBookingByProvId(id: Number): Observable<any>{
     return this.http.get(baseUrl+"/prov-booking/"+id)
   }
+
+  public getCompBooking():Observable<any>{
+    return this.http.get(baseUrl+"/admin-booking")
+  }
 }

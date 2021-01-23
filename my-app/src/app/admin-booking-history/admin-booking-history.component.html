@@ -1,0 +1,55 @@
+<app-nav-bar></app-nav-bar>
+<!-- cust Booking history -->
+
+<div class="row">
+    <div class=" col-sm-12 main jumbotron">
+        <h3 class="text-center">
+            <b>Admin Wallet: </b>₹{{ (admin.adminWallet).toFixed(2) }}
+        </h3>
+        </div>
+</div>
+
+<div class="row content">
+
+    <div class=" col-sm-12 main jumbotron">
+        <h3 class="text-center">
+            <b>All-Bookings</b>
+        </h3>
+        
+        <div class="table-responsive" id="myTable" *ngIf="bookCompArrStat">
+        <table class="table  table-striped "  >
+            <thead class="table-dark">
+                <tr>
+                    <th class="align-middle">Booking Id</th>  
+                    <th class="align-middle">Booking Status</th>  
+                    <th class="align-middle">Payment Status</th> 
+                    <th class="align-middle">Charges/hr </th> 
+                    <td class="align-middle">Initial Fuel Cost</td>
+                    <td class="align-middle">Start Time</td>
+                    <td class="align-middle">End Time</td>
+                    <th class="align-middle">Deposit Amt</th> 
+                    <th class="align-middle">Bill Amt</th>
+                </tr>
+            </thead>
+            <tbody id="myTableBody" *ngFor="let x of bookCompArr"  >
+        
+                <tr *ngIf="x.bookStatus == 'Completed' ">
+                    <td class="align-middle">{{x.bookId}}</td>
+                    <td class="align-middle">{{x.bookStatus}}</td>
+                    <td class="align-middle">{{x.bookPaymentStatus}}</td>
+                    <td class="align-middle">₹{{x.bookChargesPerHours}}</td>
+                    <td class="align-middle">₹{{x.bookInitialFuelCost}}</td>
+                    <td class="align-middle">{{x.bookStartTimeCust}}</td>
+                    <td class="align-middle">{{x.bookEndTimeCust}}</td>
+                    <td class="align-middle">₹{{x.bookDepositAmount}}</td>
+                    <td class="align-middle">₹{{x.bookBillAmount}}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <h4 class="text-center" *ngIf="!bookCompArrStat">
+            <b>No Bookings yet</b>
+        </h4>
+    </div>
+</div>

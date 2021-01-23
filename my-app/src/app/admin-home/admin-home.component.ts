@@ -9,7 +9,7 @@ import { AdminService } from '../Admin.service';
 })
 export class AdminHomeComponent implements OnInit {
  
-  amdin = new Admin();
+  admin = new Admin();
   msg: any;
 
   constructor(
@@ -27,8 +27,8 @@ export class AdminHomeComponent implements OnInit {
     
     this._service.getAdmin(parseInt(sessionStorage.getItem("adminSesId"))).subscribe(
       data=>{
-        this.amdin = data;
-        console.log(this.amdin);
+        this.admin = data;
+        console.log(this.admin);
         console.log("response recieved");
         
         
